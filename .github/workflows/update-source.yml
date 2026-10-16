@@ -1,0 +1,81 @@
+name: Update SideStore source
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - apps.json
+      - scripts/**
+      - tests/**
+      - .github/workflows/update-source.yml
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: '17 */6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: source-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s tests -v
+
+  publish:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: test
+    runs-on: macos-15
+    timeout-minutes: 20
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/cache@v4
+        with:
+          path: .cache/ipa-metadata
+          key: ipa-metadata-v1-${{ runner.os }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: ipa-metadata-v1-${{ runner.os }}-
+      - name: Read original IPAs and generate source
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python scripts/update_source.py
+      - name: Publish only source.json to release
+        shell: bash
+        run: |
+          set -euo pipefail
+          generated="$(mktemp)"
+          trap 'rm -f "$generated"' EXIT
+          cp dist/source.json "$generated"
+          # A missing branch is expected on the first run; network/auth errors are not.
+          remote_ref="$(git ls-remote --heads origin refs/heads/release)"
+          if [[ -n "$remote_ref" ]]; then
+            git fetch origin release
+            git switch --force-create release FETCH_HEAD
+          else
+            git switch --orphan release
+          fi
+          cp "$generated" source.json
+          git add source.json
+          if git diff --cached --quiet; then
+            echo 'Source is unchanged.'
+            exit 0
+          fi
+          git -c user.name='github-actions[bot]' \
+              -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
+              commit -m 'Update SideStore source'
+          git push origin HEAD:refs/heads/release

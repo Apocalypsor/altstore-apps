@@ -1,0 +1,37 @@
+{
+  "source": {
+    "name": "Apocalypsor's Apps",
+    "identifier": "io.github.apocalypsor.altstore-apps",
+    "subtitle": "TiebaPure · EhPanda",
+    "localizedDescription": "自动跟踪上游 GitHub Releases，包含预发布版本。版本号、构建号及最低系统要求均读取自原始 IPA。",
+    "websiteURL": "https://github.com/Apocalypsor/altstore-apps",
+    "tintColor": "3478F6"
+  },
+  "history_limit": 10,
+  "apps": [
+    {
+      "name": "TiebaPure",
+      "repository": "infinityf4p/TiebaPure-iOS",
+      "bundleIdentifier": "dev.infinityf4p.tiebapure",
+      "asset_pattern": "TiebaPure-*-unsigned.ipa",
+      "include_prereleases": true,
+      "developerName": "infinityf4p",
+      "subtitle": "原生 iOS 贴吧客户端",
+      "localizedDescription": "开源的原生 iOS 贴吧客户端。IPA 直接下载自 infinityf4p/TiebaPure-iOS 的 GitHub Releases，使用 SideStore 签名安装。本源包含预发布版本。",
+      "iconURL": "https://raw.githubusercontent.com/infinityf4p/TiebaPure-iOS/v1.4.15/TiebaPure/Resources/Assets.xcassets/AppIcon.appiconset/AppIcon-1024.png",
+      "tintColor": "3478F6"
+    },
+    {
+      "name": "EhPanda",
+      "repository": "EhPanda-Team/EhPanda",
+      "bundleIdentifier": "app.ehpanda",
+      "asset_pattern": "EhPanda.ipa",
+      "include_prereleases": true,
+      "developerName": "EhPanda Team",
+      "subtitle": "开源 E-Hentai 客户端",
+      "localizedDescription": "开源的原生 iOS E-Hentai 客户端。IPA 直接下载自 EhPanda-Team/EhPanda 的 GitHub Releases，使用 SideStore 签名安装。本源包含预发布版本，请留意各版本的最低 iOS 要求。",
+      "iconURL": "https://raw.githubusercontent.com/EhPanda-Team/EhPanda/3.0.0/App/Assets.xcassets/AppIcon.appiconset/1024.png",
+      "tintColor": "F29A38"
+    }
+  ]
+}
