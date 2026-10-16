@@ -23,6 +23,20 @@ https://raw.githubusercontent.com/Apocalypsor/altstore-apps/release/source.json
 
 GitHub 定时任务可能延迟，且长期无活动的公开仓库可能被 GitHub 暂停定时任务。可在 Actions 页面重新启用。
 
+## 环境变量与权限
+
+**GitHub Actions 无需手动添加任何 Secrets、Variables 或 Environment，也不需要 PAT。**
+
+| 变量 | 来源与用途 | 是否手动设置 |
+| --- | --- | --- |
+| `GITHUB_TOKEN` | 工作流通过 `${{ github.token }}` 自动注入，用于 GitHub API；checkout 使用同一个自动令牌推送 `release` | 否 |
+| `GITHUB_REPOSITORY` | GitHub 自动提供当前 `owner/repo`，用于生成订阅 URL | 否 |
+| `GH_TOKEN` | 仅本地运行时可选，用于提高 API 限额 | Actions 不需要 |
+
+发布 job 已声明 `permissions: contents: write`，测试 job 只有读取权限。仓库默认 Workflow permissions 为只读也可以运行，无需为整个仓库开启写权限。首次发布已验证使用内置令牌能够创建并推送 `release` 分支。
+
+截至 2026-10-16，工作流使用已核实的最新稳定版：`actions/checkout@v7.0.1`、`actions/setup-python@v7.0.0`、`actions/cache@v6.1.0`。
+
 ## 版本规则
 
 SideStore 安装时会比对源中的版本与 IPA，不能直接使用 GitHub 标签或文件名：
