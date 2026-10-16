@@ -35,7 +35,7 @@ GitHub 定时任务可能延迟，且长期无活动的公开仓库可能被 Git
 
 发布 job 已声明 `permissions: contents: write`，测试 job 只有读取权限。仓库默认 Workflow permissions 为只读也可以运行，无需为整个仓库开启写权限。首次发布已验证使用内置令牌能够创建并推送 `release` 分支。
 
-截至 2026-10-16，工作流使用已核实的最新稳定版：`actions/checkout@v7.0.1`、`actions/setup-python@v7.0.0`、`actions/cache@v6.1.0`。
+工作流使用最新稳定大版本标签：`actions/checkout@v7`、`actions/setup-python@v7`、`actions/cache@v6`，跟随这些标签接收同一大版本内的更新。
 
 ## 版本规则
 

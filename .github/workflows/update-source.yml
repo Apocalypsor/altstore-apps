@@ -25,10 +25,10 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7.0.1
+      - uses: actions/checkout@v7
         with:
           persist-credentials: false
-      - uses: actions/setup-python@v7.0.0
+      - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
       - run: python -m unittest discover -s tests -v
@@ -41,11 +41,11 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v7.0.1
-      - uses: actions/setup-python@v7.0.0
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
-      - uses: actions/cache@v6.1.0
+      - uses: actions/cache@v6
         with:
           path: .cache/ipa-metadata
           key: ipa-metadata-v1-${{ runner.os }}-${{ github.run_id }}-${{ github.run_attempt }}
