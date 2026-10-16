@@ -1,0 +1,247 @@
+{
+  "name": "Apocalypsor's Apps",
+  "identifier": "io.github.apocalypsor.altstore-apps",
+  "subtitle": "TiebaPure · EhPanda",
+  "localizedDescription": "自动跟踪上游 GitHub Releases，包含预发布版本。版本号、构建号及最低系统要求均读取自原始 IPA。",
+  "websiteURL": "https://github.com/Apocalypsor/altstore-apps",
+  "tintColor": "3478F6",
+  "sourceURL": "https://raw.githubusercontent.com/Apocalypsor/altstore-apps/release/source.json",
+  "apps": [
+    {
+      "name": "TiebaPure",
+      "bundleIdentifier": "dev.infinityf4p.tiebapure",
+      "developerName": "infinityf4p",
+      "subtitle": "原生 iOS 贴吧客户端",
+      "localizedDescription": "开源的原生 iOS 贴吧客户端。IPA 直接下载自 infinityf4p/TiebaPure-iOS 的 GitHub Releases，使用 SideStore 签名安装。本源包含预发布版本。",
+      "iconURL": "https://raw.githubusercontent.com/infinityf4p/TiebaPure-iOS/v1.4.15/TiebaPure/Resources/Assets.xcassets/AppIcon.appiconset/AppIcon-1024.png",
+      "tintColor": "3478F6",
+      "versions": [
+        {
+          "version": "1.4.15",
+          "buildVersion": "59",
+          "date": "2026-10-10T06:07:37Z",
+          "localizedDescription": "正式版 · GitHub v1.4.15\nhttps://github.com/infinityf4p/TiebaPure-iOS/releases/tag/v1.4.15\n\n## What's included\n\n- Stabilizes Home tab reselection and refresh behavior after scrolling.\n- Returning from a thread or search now closes that screen first; the next Home tap refreshes the feed.\n- A Home tap during an in-flight refresh returns to the top without creating a duplicate request.\n- Bumps the app and Open In extension to version `1.4.15` (build `59`).\n\n## Download\n\n`TiebaPure-v1.4.15-unsigned.ipa` is an intentionally unsigned arm64 IPA for local installation/signing.\n\n- Minimum iOS: `16.4`\n- Commit: `5a87225190d6a79b1e3ad3b7d846edd407d416c7`\n- SHA-256: `28fbe31e673b1f2769043456324521afd87d04ade8d92d33832e967c19c31123`\n\nCI `ci-ok` passed on PR #86, including unit tests, iOS compatibility checks, UI smoke tests, iPad layout tests, and the Release build.",
+          "downloadURL": "https://github.com/infinityf4p/TiebaPure-iOS/releases/download/v1.4.15/TiebaPure-v1.4.15-unsigned.ipa",
+          "size": 9347637,
+          "sha256": "28fbe31e673b1f2769043456324521afd87d04ade8d92d33832e967c19c31123",
+          "minOSVersion": "16.4"
+        },
+        {
+          "version": "1.4.14",
+          "buildVersion": "58",
+          "date": "2026-08-24T01:40:29Z",
+          "localizedDescription": "正式版 · GitHub v1.4.14\nhttps://github.com/infinityf4p/TiebaPure-iOS/releases/tag/v1.4.14\n\n## 修改内容\n\n- 新增帖子本地保存：支持完整楼层和楼中楼离线阅读、媒体下载、搜索、回复更新、存储管理及备份导入导出。\n- 新增内置与自定义阅读字体，并完善首页重复点击刷新。\n- 自动检测账号登录失效，提示后清理当前登录态，同时避免旧请求或网络中断误触发退出。\n- 修复 iOS 16 嵌套搜索布局递归卡死、文字选择与导航手势冲突，并将媒体、字体、语音和存储文件 I/O 移出主线程。\n- 加固本地帖子并发写入、媒体事务崩溃恢复、备份校验与字体目录一致性。\n\n## 验证\n\n- GitHub Actions ci-ok 全部通过，包含单元测试、iOS 16 兼容检查、iPhone/iPad UI 测试和 Release 构建。\n- App 与扩展均为 1.4.14 (58)、arm64、最低 iOS 16.4；IPA 压缩结构正常且未签名。\n- 发帖和回帖夹具 UI 测试通过；本次未改动认证写入路径，因此未重复进行真实账号写入测试。",
+          "downloadURL": "https://github.com/infinityf4p/TiebaPure-iOS/releases/download/v1.4.14/TiebaPure-v1.4.14-unsigned.ipa",
+          "size": 3787516,
+          "sha256": "04f5f0356c3cc5b493a1e31110f9cc49fc4e1267ba8e4d0299567e9478c1ca7a",
+          "minOSVersion": "16.4"
+        },
+        {
+          "version": "1.4.13",
+          "buildVersion": "57",
+          "date": "2026-08-20T15:32:45Z",
+          "localizedDescription": "正式版 · GitHub v1.4.13\nhttps://github.com/infinityf4p/TiebaPure-iOS/releases/tag/v1.4.13\n\n## 修改内容\n\n- 修复多图帖子首图放大后停留在低清过渡图的问题，并增加受内存与帧数限制的 GIF 动画显示。\n- 修复回复倒序分页只作用于当前已加载页面的问题，并完善楼中楼进入动画、下拉/右滑退出和阅读位置恢复。\n- 修复 iOS 18 长按选择帖子文字时可能出现的布局卡死。\n- 修复登录账号发帖、回帖时 TBS 刷新失败的问题；恢复签名登录校验，并保留发送结果不明确时不自动重试的保护。\n\n## 验证\n\n- GitHub Actions `ci-ok` 全部通过。\n- 本地发布请求与身份夹具测试 48 项通过。\n- 真实账号发帖和回帖均验证成功。",
+          "downloadURL": "https://github.com/infinityf4p/TiebaPure-iOS/releases/download/v1.4.13/TiebaPure-v1.4.13-unsigned.ipa",
+          "size": 3509096,
+          "sha256": "682c1b8d8dac401e198f35372b9fe8d5456315c24494150baed49903bedb7d48",
+          "minOSVersion": "16.4"
+        },
+        {
+          "version": "1.4.12",
+          "buildVersion": "56",
+          "date": "2026-08-12T05:55:08Z",
+          "localizedDescription": "正式版 · GitHub v1.4.12\nhttps://github.com/infinityf4p/TiebaPure-iOS/releases/tag/v1.4.12\n\n## 修改内容\n\n- 统一发帖、回帖与图片上传的请求身份，完善安全验证响应处理，并明确提示内容删除、账号受限或冻结风险。\n- 修复首页多层导航返回层级，支持从首页直接进入评论区和点赞，并优化显示模式设置。\n- 修复 iOS 18 深层导航及长按选择文字可能卡住的问题。\n- 压缩搜索与帖子回复筛选区域，统一楼层时间、IP 和楼中楼之间的间距。\n- 修复部分帖子主楼缺失的问题：自动补取，必要时显示首页摘要或明确错误，不再只显示评论；屏蔽主楼时显示对应状态。",
+          "downloadURL": "https://github.com/infinityf4p/TiebaPure-iOS/releases/download/v1.4.12/TiebaPure-v1.4.12-unsigned.ipa",
+          "size": 3490394,
+          "sha256": "87407be9636a16db89f5de76d7615bde79662444abcf9177ad4a5fe55a201179",
+          "minOSVersion": "16.4"
+        },
+        {
+          "version": "1.4.8",
+          "buildVersion": "52",
+          "date": "2026-08-10T04:59:06Z",
+          "localizedDescription": "正式版 · GitHub v1.4.8\nhttps://github.com/infinityf4p/TiebaPure-iOS/releases/tag/v1.4.8\n\n## 修改内容\n\n- 最低系统版本调整为 iOS 16.4，并补充标签页、下拉刷新、滚动状态、楼中楼退出和原生返回手势的兼容实现；iOS 18 及以上的现代交互与 iOS 26 Liquid Glass 保持不变。\n- 为浏览历史、最近贴吧、搜索历史、阅读位置和内容草稿增加 iOS 16 安全文件存储与可靠迁移，iOS 17 及以上继续使用 SwiftData。\n- 优化 iPad 横屏双栏布局，提升帖子列表的信息展示宽度，并修复兼容改造引入的栏宽回归。",
+          "downloadURL": "https://github.com/infinityf4p/TiebaPure-iOS/releases/download/v1.4.8/TiebaPure-v1.4.8-unsigned.ipa",
+          "size": 3335977,
+          "sha256": "99bb2a1d85b86f84624f483c782fd4acdef5733edf5cd8aee930a2862bb3220a",
+          "minOSVersion": "16.4"
+        },
+        {
+          "version": "1.4.4",
+          "buildVersion": "48",
+          "date": "2026-08-08T16:29:51Z",
+          "localizedDescription": "正式版 · GitHub v1.4.4\nhttps://github.com/infinityf4p/TiebaPure-iOS/releases/tag/v1.4.4\n\n## 修改内容\n\n- 修复注销、切换账号、收藏和签到时的状态竞态，提升浏览历史持久化及删除返回的稳定性。\n- 优化图片、视频和首页内容的内存占用；加强远程媒体校验，并移除上传图片中的定位等敏感元数据。\n- 表情面板改为固定底部托盘，修复表情图片加载后按钮失效及键盘切换问题。\n- 视频显式启用播放音频会话，修复静音开关或 LiveContainer 宿主环境下没有声音。",
+          "downloadURL": "https://github.com/infinityf4p/TiebaPure-iOS/releases/download/v1.4.4/TiebaPure-v1.4.4-unsigned.ipa",
+          "size": 3101882,
+          "sha256": "2f08f46923b2a9bf4fba65ca5527533b228abb0a5f6bca5998fd1910df87010c",
+          "minOSVersion": "18.0"
+        },
+        {
+          "version": "1.4.2",
+          "buildVersion": "46",
+          "date": "2026-08-08T03:18:35Z",
+          "localizedDescription": "正式版 · GitHub v1.4.2\nhttps://github.com/infinityf4p/TiebaPure-iOS/releases/tag/v1.4.2\n\n## 修改内容\n\n- 帖子收藏改为只用贴吧账号的云端收藏：帖子页星标读取账号收藏状态，收藏列表来自账号，支持搜索、按阅读进度筛选和批量取消；本机收藏数据在首次启动时清除，阅读位置仍保留在本机。\n- 新增贴吧签到：可一键为关注的贴吧签到，也可以设置每天第一次打开时自动签到。\n- 进吧界面的贴吧改为方块显示；最近浏览新增「管理」，可删除单个或一次清空；移除首页的刷新按钮。\n- 吧页点击列表图片改为打开全屏图片，与首页、搜索和用户主页一致。\n- 修复按吧名进入贴吧时误报「服务器暂时不可用（301）」。\n- 修复帖子正文里的链接点不动。\n- 帖子页滚动性能优化：跨行复用段落高度与文本视图。",
+          "downloadURL": "https://github.com/infinityf4p/TiebaPure-iOS/releases/download/v1.4.2/TiebaPure-v1.4.2-unsigned.ipa",
+          "size": 3006440,
+          "sha256": "c95b0933c229c6876526b4e61d40b4c6b7b74cdddc20a00a73223a5c8b7cf76f",
+          "minOSVersion": "18.0"
+        },
+        {
+          "version": "1.4.1",
+          "buildVersion": "31",
+          "date": "2026-08-04T00:31:54Z",
+          "localizedDescription": "正式版 · GitHub v1.4.1\nhttps://github.com/infinityf4p/TiebaPure-iOS/releases/tag/v1.4.1\n\n## 修改内容\n\n- 重新设计用户主页：移除背景图，调整头像、资料和统计布局，关注按钮改为统一的浅蓝色样式。\n- 更新 README 的未登录真实页面截图和功能说明。\n- 底栏改为 iOS 26 原生悬浮 Liquid Glass 样式；修复底部灰色区域遮挡和刷新容器裁切，让内容自然延伸到底栏后方。",
+          "downloadURL": "https://github.com/infinityf4p/TiebaPure-iOS/releases/download/v1.4.1/TiebaPure-v1.4.1-unsigned.ipa",
+          "size": 2876856,
+          "sha256": "b60aa0c6947f85dbd2bcf6350e100cc05d2562364213f5f7af6b66743fda8478",
+          "minOSVersion": "18.0"
+        },
+        {
+          "version": "1.3.9",
+          "buildVersion": "28",
+          "date": "2026-08-02T08:21:13Z",
+          "localizedDescription": "正式版 · GitHub v1.3.9\nhttps://github.com/infinityf4p/TiebaPure-iOS/releases/tag/v1.3.9\n\n## 主要更新\n\n- 完善本机帖子收藏、浏览历史、阅读位置、分享入口与阅读偏好设置。\n- 支持语音回复播放，改进视频预览、刷新状态和媒体返回体验。\n- 增加用户主页、关注关系与社交状态管理；用户主页改为 TiebaPure 统一的简洁无背景布局。\n- 加入实验性的发帖、回帖与楼中楼回复能力，并提供“允许发帖 / 允许回帖 / 允许点赞”独立开关；关闭点赞后仍显示赞数。\n- 压缩楼层时间、IP 与回复操作的竖向占用，并补齐小屏、动态字体和无障碍状态。\n\n## 验证\n\n- PR #8 至 PR #14 均完成审查并按顺序合并；最终 PR 的 GitHub Actions 单元测试、两轮 fixture UI smoke 和 Release 构建均通过。\n- 本地完整单元测试执行 582 项，0 失败、7 项按设计跳过；用户主页与写操作开关完成标准字号和 Accessibility XXXL 定向 UI 验收。\n- `xcodebuild analyze`、无签名 Release 设备构建和 XcodeGen 重建一致性检查均通过。\n- 最终 IPA 从合并后的 `main` 提交 `ef75c562a644c3d7148639a81027f378cd00dd1b` 构建，并核验 ZIP 结构、版本、最低系统、隐私清单、许可证、分享扩展、ProMotion 配置、arm64 架构和未签名状态。\n\n## 安装说明\n\n附件为 unsigned IPA，需要使用自己的 Apple 证书和描述文件签名后安装。\n\n- 版本：1.3.9 (28)\n- 最低系统版本：iOS 18.0\n- Bundle ID：dev.infinityf4p.tiebapure\n- SHA-256：`d2b22d055e600070ab372e08192d1d45c404ef26ce2efda224781fe7b76b1d4d`\n\n## 致谢与许可证\n\nTiebaPure-iOS 以 GPL-3.0-only 发布。感谢 TiebaLite 为早期开发提供参考，也感谢 aiotieba 对贴吧协议的整理与开源实现。SwiftProtobuf 采用 Apache-2.0 许可证及 Runtime Library Exception。",
+          "downloadURL": "https://github.com/infinityf4p/TiebaPure-iOS/releases/download/v1.3.9/TiebaPure-v1.3.9-unsigned.ipa",
+          "size": 2877256,
+          "sha256": "d2b22d055e600070ab372e08192d1d45c404ef26ce2efda224781fe7b76b1d4d",
+          "minOSVersion": "18.0"
+        },
+        {
+          "version": "1.3.1",
+          "buildVersion": "19",
+          "date": "2026-07-31T11:56:49Z",
+          "localizedDescription": "正式版 · GitHub v1.3.1\nhttps://github.com/infinityf4p/TiebaPure-iOS/releases/tag/v1.3.1\n\n## 主要更新\n\n- 将 Proto 输入收敛为 26 个 TiebaPure 自行维护的最小协议定义，并保留生成一致性与 wire fixture 验证。\n- 移除内置 WebP 表情资源，改为通过 HTTPS 百度 CDN 按需下载并使用有界缓存。\n- 更新开源许可、关于页、合成截图与 CI；应用包内包含 GPL 和 SwiftProtobuf Apache-2.0 许可证。\n- 更新为 Pure Page 自适应应用图标，并加入 iOS 深色外观图标。\n\n## 验证\n\n- PR #6 和 PR #7 的 GitHub Actions 均通过。\n- Proto/CDN 迁移完成 326 项单元测试连续两轮、90 项 UI 测试连续两轮、SE/iPad 视觉矩阵及匿名线上冒烟。\n- 图标变更完成 326 项单元测试、两轮 fixture UI 冒烟及 Release 构建。\n- 最终 IPA 从合并后的 `main` 提交 `9024bef` 构建，并核验 ZIP 结构、版本、最低系统、浅色/深色图标、隐私清单、许可证、ProMotion 配置和未签名状态。\n\n## 安装说明\n\n附件为 unsigned IPA，需要使用自己的 Apple 证书和描述文件签名后安装。\n\n- 版本：1.3.1 (19)\n- 最低系统版本：iOS 18.0\n- Bundle ID：dev.infinityf4p.tiebapure\n- SHA-256：`8ac65ea763d378a527a14e7ded78c002f3e7e3766ae40b2bd3627a6b10134e39`\n\n## 致谢与许可证\n\nTiebaPure-iOS 以 GPL-3.0-only 发布。感谢 TiebaLite 为早期开发提供参考，也感谢 aiotieba 对贴吧协议的整理与开源实现。SwiftProtobuf 采用 Apache-2.0 许可证及 Runtime Library Exception。",
+          "downloadURL": "https://github.com/infinityf4p/TiebaPure-iOS/releases/download/v1.3.1/TiebaPure-v1.3.1-unsigned.ipa",
+          "size": 2225487,
+          "sha256": "8ac65ea763d378a527a14e7ded78c002f3e7e3766ae40b2bd3627a6b10134e39",
+          "minOSVersion": "18.0"
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": {
+          "NSPhotoLibraryAddUsageDescription": "用于将您选择的贴吧原图保存到系统照片。"
+        }
+      }
+    },
+    {
+      "name": "EhPanda",
+      "bundleIdentifier": "app.ehpanda",
+      "developerName": "EhPanda Team",
+      "subtitle": "开源 E-Hentai 客户端",
+      "localizedDescription": "开源的原生 iOS E-Hentai 客户端。IPA 直接下载自 EhPanda-Team/EhPanda 的 GitHub Releases，使用 SideStore 签名安装。本源包含预发布版本，请留意各版本的最低 iOS 要求。",
+      "iconURL": "https://raw.githubusercontent.com/EhPanda-Team/EhPanda/3.0.0/App/Assets.xcassets/AppIcon.appiconset/1024.png",
+      "tintColor": "F29A38",
+      "versions": [
+        {
+          "version": "3.0.0",
+          "buildVersion": "158",
+          "date": "2026-08-20T02:37:46Z",
+          "localizedDescription": "预发布 · GitHub 3.0.0\nhttps://github.com/EhPanda-Team/EhPanda/releases/tag/3.0.0\n\n## Features\n\n- **Offline downloads.** Save galleries to your device and read them with no connection. Sort them into folders, and let the app repair a download that got interrupted or update it later. Downloads keep going while the app is in the background and won't get cut off partway.\n- **Date Seek.** Jump straight to a specific date while paging through a gallery. It works on the Frontpage, Watched and Favorites lists.\n- **WebP images** are now supported.\n- **Redesigned toasts.** Progress and status messages (login, page jump, background updates, and more) now show as a sleek glass toast at the bottom of the screen instead of a pop-up spinner.\n\n## Bugfixes\n\n- The page slider and the current page no longer drift out of sync\n- Fixed a gesture problem in the reading control panel\n- Fixed a crash on the EH settings page\n- Fixed the missing toolbar item on the reading settings page\n- Fixed an empty cell in quick search\n- Fixed layout issues on the tags extension settings, the About page, and gallery cells in other languages\n- Fixed the search title disappearing\n- Fixed two settings pages opening at once on iPad\n- Fixed page tracking and zoom boundaries while reading\n\n## Refactoring\n\nPlenty changed under the hood. The app now targets iOS 26 and was rebuilt on Apple's latest frameworks for smoother performance and fewer bugs down the road. Downloads moved to a new storage system that's faster and more reliable. Navigation was rebuilt on Apple's modern stack-based APIs, and several third-party dependencies (AlertKit, TTProgressHUD, FilePicker, SwiftUINavigation) were dropped in favor of native equivalents. We also reworked the reading view and rewrote the test suite to keep future updates stable.",
+          "downloadURL": "https://github.com/EhPanda-Team/EhPanda/releases/download/3.0.0/EhPanda.ipa",
+          "size": 10143094,
+          "sha256": "b7de953acb001c0cf7887a5b405a8328f88d3be403c458ec4689e56a96dabbae",
+          "minOSVersion": "26.0"
+        },
+        {
+          "version": "2.8.1",
+          "buildVersion": "158",
+          "date": "2026-07-20T12:12:04Z",
+          "localizedDescription": "正式版 · GitHub v2.8.1\nhttps://github.com/EhPanda-Team/EhPanda/releases/tag/v2.8.1\n\n1. feat: Adapt to the new Liquid Glass design.\n3. fix: Gesture issue in the reading page.\n4. fix: Crash issue in eh setting page.\n5. fix: A minor issue in search page.",
+          "downloadURL": "https://github.com/EhPanda-Team/EhPanda/releases/download/v2.8.1/EhPanda.ipa",
+          "size": 7352364,
+          "sha256": "2f389e36270414a8d9f3537e330f5c2bbff80887109c56ff9b4ba68ed377d62b",
+          "minOSVersion": "26.0"
+        },
+        {
+          "version": "2.7.10",
+          "buildVersion": "156",
+          "date": "2024-12-21T03:22:53Z",
+          "localizedDescription": "正式版 · GitHub v2.7.10\nhttps://github.com/EhPanda-Team/EhPanda/releases/tag/v2.7.10\n\n1. Fixed reading page scroll functionality.",
+          "downloadURL": "https://github.com/EhPanda-Team/EhPanda/releases/download/v2.7.10/EhPanda.ipa",
+          "size": 7231227,
+          "sha256": "91980fdc3efb8a5aceb9fcaacc6ef4f19e1637793f8e4e717afe415fd2678c67",
+          "minOSVersion": "17.0"
+        },
+        {
+          "version": "2.7.9",
+          "buildVersion": "155",
+          "date": "2024-12-15T05:32:14Z",
+          "localizedDescription": "正式版 · GitHub v2.7.9\nhttps://github.com/EhPanda-Team/EhPanda/releases/tag/v2.7.9\n\n1. Fixed reading page gestures not responding issue when scale is greater than 1.\n閲覧ページでスケール係数が 1 より大きい場合にジェスチャーが動作しなくなる不具合を修正しました。\n修正了閱讀頁面中縮放比例大於 1 時出現的手勢失效問題。\n\n2. Improved Taiwanese Mandarin & Traditional Chinese (HK) localizations. (credit @NeKoOuO)\n台湾華語と中国語繁体字（香港）の翻訳を改善しました。\n改善了台灣華語和繁體中文（香港）翻譯。",
+          "downloadURL": "https://github.com/EhPanda-Team/EhPanda/releases/download/v2.7.9/EhPanda.ipa",
+          "size": 7231285,
+          "sha256": "54f37081fb319c8c1c0d6b24de637785c87c479e511518b535234622c6d58f05",
+          "minOSVersion": "17.0"
+        },
+        {
+          "version": "2.7.8",
+          "buildVersion": "154",
+          "date": "2024-11-11T05:44:32Z",
+          "localizedDescription": "正式版 · GitHub v2.7.8\nhttps://github.com/EhPanda-Team/EhPanda/releases/tag/v2.7.8\n\n1. fix: Gallery preview parsing issue, again.",
+          "downloadURL": "https://github.com/EhPanda-Team/EhPanda/releases/download/v2.7.8/EhPanda.ipa",
+          "size": 7193274,
+          "sha256": "2c9699736e319c7c852b849d62cd7a90e066804a313c7ab4f5858083f0ccee3b",
+          "minOSVersion": "17.0"
+        },
+        {
+          "version": "2.7.7",
+          "buildVersion": "153",
+          "date": "2024-10-28T16:28:28Z",
+          "localizedDescription": "正式版 · GitHub v2.7.7\nhttps://github.com/EhPanda-Team/EhPanda/releases/tag/v2.7.7\n\n1. fix: Gallery page parsing issue when thumbnail size is set to small or auto. (credit @vvbbnn00)\nギャラリー画面のサムネイルサイズが「小さめ」・「自動」に設定された場合に解析エラーになる不具合を修正。\n修正了當縮圖被設定為「小型」或「自動」時的畫廊頁面的解析問題。\n\n2. fix: Gallery preview infinite loading issue. (credit @vvbbnn00)\nギャラリープレビューの読み込みが終わらない不具合を修正。\n修正了畫廊預覽永遠在載入的問題。\n\n3. fix: A crash when closing the keyboard. (credit @vvbbnn00)\nキーボードを閉じる時にクラッシュする不具合を修正。\n修正了關閉鍵盤時當機的問題。",
+          "downloadURL": "https://github.com/EhPanda-Team/EhPanda/releases/download/v2.7.7/EhPanda.ipa",
+          "size": 6870884,
+          "sha256": "d84649be0e6efd6adbbdfec218dd70fc19d91a5c7c7204ec2fc99441b190a60d",
+          "minOSVersion": "17.0"
+        },
+        {
+          "version": "2.7.6",
+          "buildVersion": "152",
+          "date": "2024-10-27T15:32:51Z",
+          "localizedDescription": "正式版 · GitHub v2.7.6\nhttps://github.com/EhPanda-Team/EhPanda/releases/tag/v2.7.6\n\n1. fix: Gallery and account configuration pages parsing issue. (credit @vvbbnn00)\nギャラリーとアカウント設定画面の解析エラーを修正。\n修正了畫廊和帳號設定頁面的解析問題。\n\n2. fix: Gallery page header layout issue.\nギャラリー画面上部のレイアウト不具合を修正。\n修正了畫廊頁面的 header 佈局錯誤。",
+          "downloadURL": "https://github.com/EhPanda-Team/EhPanda/releases/download/v2.7.6/EhPanda.ipa",
+          "size": 6878436,
+          "sha256": "5b105b860abf062cf4fa449d7826a29a21cf55e6c7f3817fb877f40ea86b8c19",
+          "minOSVersion": "17.0"
+        },
+        {
+          "version": "2.7.5",
+          "buildVersion": "151",
+          "date": "2024-07-10T13:28:20Z",
+          "localizedDescription": "正式版 · GitHub v2.7.5\nhttps://github.com/EhPanda-Team/EhPanda/releases/tag/v2.7.5\n\n1. Migrate to TCA 1.0. credit @Jimmy-Prime",
+          "downloadURL": "https://github.com/EhPanda-Team/EhPanda/releases/download/v2.7.5/EhPanda.ipa",
+          "size": 6590738,
+          "sha256": "0a30d6fd89327925ebdaa4c83529ccc0c62c5553ccd0e5fd043da020aa68bb09",
+          "minOSVersion": "16.0"
+        },
+        {
+          "version": "2.7.4",
+          "buildVersion": "150",
+          "date": "2023-11-02T14:11:51Z",
+          "localizedDescription": "正式版 · GitHub v2.7.4\nhttps://github.com/EhPanda-Team/EhPanda/releases/tag/v2.7.4\n\n1. fix: Previews parsing.\nプレビューの解析エラーを修正。\n修正了縮圖的解析錯誤。",
+          "downloadURL": "https://github.com/EhPanda-Team/EhPanda/releases/download/v2.7.4/EhPanda.ipa",
+          "size": 6685295,
+          "sha256": "93e2c153cd10c3dac059eba5b294f3bb9c9cbd27597ab55c80481dc5a28aa1a7",
+          "minOSVersion": "16.0"
+        },
+        {
+          "version": "2.7.3",
+          "buildVersion": "149",
+          "date": "2023-11-02T12:06:10Z",
+          "localizedDescription": "正式版 · GitHub v2.7.3\nhttps://github.com/EhPanda-Team/EhPanda/releases/tag/v2.7.3\n\n1. fix: Multiple page viewer mode.\nマルチページビューアモードを修正。\n修正了多頁瀏覽模式。",
+          "downloadURL": "https://github.com/EhPanda-Team/EhPanda/releases/download/v2.7.3/EhPanda.ipa",
+          "size": 6684864,
+          "sha256": "d1697f11458d302116bbcfab80e15396e34155483ce724c2d2299690679b5128",
+          "minOSVersion": "16.0"
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": {
+          "NSFaceIDUsageDescription": "We need this permission to provide Face ID option while unlocking the App.",
+          "NSPhotoLibraryAddUsageDescription": "We need this permission to save images to your photo library."
+        }
+      }
+    }
+  ],
+  "news": []
+}
