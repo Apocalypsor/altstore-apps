@@ -2,7 +2,7 @@
   "source": {
     "name": "Apocalypsor's Apps",
     "identifier": "io.github.apocalypsor.altstore-apps",
-    "subtitle": "TiebaPure · EhPanda",
+    "subtitle": "TiebaPure · EhPanda · NeoBili",
     "localizedDescription": "自动跟踪上游 GitHub Releases，包含预发布版本。版本号、构建号及最低系统要求均读取自原始 IPA。",
     "websiteURL": "https://github.com/Apocalypsor/altstore-apps",
     "tintColor": "3478F6"
@@ -32,6 +32,18 @@
       "localizedDescription": "开源的原生 iOS E-Hentai 客户端。IPA 直接下载自 EhPanda-Team/EhPanda 的 GitHub Releases，使用 SideStore 签名安装。本源包含预发布版本，请留意各版本的最低 iOS 要求。",
       "iconURL": "https://raw.githubusercontent.com/EhPanda-Team/EhPanda/3.0.0/App/Assets.xcassets/AppIcon.appiconset/1024.png",
       "tintColor": "F29A38"
+    },
+    {
+      "name": "NeoBili",
+      "repository": "Fab1e2000/NeoBili",
+      "bundleIdentifier": "com.elsterlee.NeoBili",
+      "asset_pattern": "NeoBili-*-unsigned.ipa",
+      "include_prereleases": true,
+      "developerName": "Fab1e2000",
+      "subtitle": "原生 iOS 哔哩哔哩客户端",
+      "localizedDescription": "开源的原生 iOS 哔哩哔哩客户端，使用 SwiftUI 和 MPVKit。IPA 直接下载自 Fab1e2000/NeoBili 的 GitHub Releases，使用 SideStore 签名安装。本源包含预发布版本。",
+      "iconURL": "https://raw.githubusercontent.com/Fab1e2000/NeoBili/v1.3.0/NeoBili/Resources/Assets.xcassets/AppIcon.appiconset/AppIcon.png",
+      "tintColor": "FB7299"
     }
   ]
 }
