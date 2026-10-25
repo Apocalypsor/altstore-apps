@@ -252,6 +252,16 @@
       "tintColor": "FB7299",
       "versions": [
         {
+          "version": "1.3.1",
+          "buildVersion": "18",
+          "date": "2026-10-25T03:01:07Z",
+          "localizedDescription": "正式版 · GitHub v1.3.1\nhttps://github.com/Fab1e2000/NeoBili/releases/tag/v1.3.1\n\n## 外观\n\n- 推荐、搜索、资料库、关注、直播改用系统原生大标题，头像入口移到导航栏右侧，下滑时导航栏自动收起（收起行为需 iOS 27）。移除「标题栏」设置项和顶部渐变模糊。\n- 新增「字体风格」：默认字体或内置思源宋体（SIL OFL），中英文使用同一套衬线字形；重新打开应用后生效。\n\n## 刷新\n\n- 稍后再看、历史、收藏夹及其内容、UP 主空间的下拉刷新与推荐页一致：同样的下拉距离，旧内容淡出、新内容到了再换入，失败时保留旧内容。\n- 收藏、历史、稍后再看的卡片支持进入和退出动画，可在「设置 → 动画」中分别开关；空间页支持刷新时的退出淡出。\n- 从「我的服务」进入稍后再看、收藏、历史时，右上角增加刷新按钮；作为底部标签页挂载时不显示。\n- 关闭系统下拉刷新转圈的隐藏，保留原生刷新提示。\n\n## 视频页\n\n- 评论层级与评论输入框（玻璃浮层）调整，评论元信息保持在同一行。\n- 视频简介页更紧凑；合集与分 P 列表随内容展示。\n- 标签行不再显示滚动条。\n\n## 已知限制\n\n- 导航栏自动收起仅 iOS 27 起生效，iOS 26 只有大标题。\n- 宋体风格只内置 Regular 与 SemiBold 两个字重，字体中没有的生僻字回退为苹方。\n\n本次构建号为 18。\n\n## 安装\n\n最低系统要求 iOS 26。发布后提供未签名 IPA，需使用自己的证书签名后安装；可用同页的 `SHA256SUMS.txt` 校验文件。\n\n**构建信息**：提交 `32c2215`，Xcode 27.1 Build version 27A9275，由 [GitHub Actions](https://github.com/Fab1e2000/NeoBili/actions/runs/40156371188) 构建。",
+          "downloadURL": "https://github.com/Fab1e2000/NeoBili/releases/download/v1.3.1/NeoBili-v1.3.1-unsigned.ipa",
+          "size": 134553901,
+          "sha256": "2606d6ff5e200368da747b5771ecfd352778da27c6527b7227cfeb840bad3309",
+          "minOSVersion": "26.0"
+        },
+        {
           "version": "1.3.0",
           "buildVersion": "17",
           "date": "2026-10-22T02:45:57Z",
@@ -339,16 +349,6 @@
           "downloadURL": "https://github.com/Fab1e2000/NeoBili/releases/download/v1.1.0/NeoBili-v1.1.0-unsigned.ipa",
           "size": 129281479,
           "sha256": "fd90874675ee2404a48f007c381f214f641b6cc062d8d834ac8696d7d74f379d",
-          "minOSVersion": "26.0"
-        },
-        {
-          "version": "1.0.5",
-          "buildVersion": "6",
-          "date": "2026-09-17T06:50:11Z",
-          "localizedDescription": "正式版 · GitHub v1.0.5\nhttps://github.com/Fab1e2000/NeoBili/releases/tag/v1.0.5\n\nNeoBili v1.0.5，构建号 6。\n\n### 首页发热修复\n- 修复主题图标切换请求成功后，系统仍暂时报告旧图标名时重复提交请求的问题。\n- 主题切换仍在请求期间发生变化时，继续应用最新选中的图标。\n- 加入宿主机离线回归，覆盖上报滞后、请求失败、并发主题切换与默认图标恢复。\n\n### 验证与安装\n- 离线回归套件全部通过；Release 包使用无签名配置构建。\n- 要求 iOS 26 或更高版本。\n- `NeoBili-v1.0.5-unsigned.ipa` 使用 Release 配置构建，未签名；请使用自己的签名方式安装。\n- `SHA256SUMS.txt` 用于校验下载文件。",
-          "downloadURL": "https://github.com/Fab1e2000/NeoBili/releases/download/v1.0.5/NeoBili-v1.0.5-unsigned.ipa",
-          "size": 124413819,
-          "sha256": "a86fd0d9eef25e6f07c6de270e44516c52f5ac963bae2b6ff2b097e4e61d4dd6",
           "minOSVersion": "26.0"
         }
       ],
