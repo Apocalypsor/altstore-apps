@@ -139,9 +139,9 @@
           "date": "2026-08-20T02:37:46Z",
           "localizedDescription": "预发布 · GitHub 3.0.0\nhttps://github.com/EhPanda-Team/EhPanda/releases/tag/3.0.0\n\n## Features\n\n- **Offline downloads.** Save galleries to your device and read them with no connection. Sort them into folders, and let the app repair a download that got interrupted or update it later. Downloads keep going while the app is in the background and won't get cut off partway.\n- **Date Seek.** Jump straight to a specific date while paging through a gallery. It works on the Frontpage, Watched and Favorites lists.\n- **WebP images** are now supported.\n- **Redesigned toasts.** Progress and status messages (login, page jump, background updates, and more) now show as a sleek glass toast at the bottom of the screen instead of a pop-up spinner.\n\n## Bugfixes\n\n- The page slider and the current page no longer drift out of sync\n- Fixed a gesture problem in the reading control panel\n- Fixed a crash on the EH settings page\n- Fixed the missing toolbar item on the reading settings page\n- Fixed an empty cell in quick search\n- Fixed layout issues on the tags extension settings, the About page, and gallery cells in other languages\n- Fixed the search title disappearing\n- Fixed two settings pages opening at once on iPad\n- Fixed page tracking and zoom boundaries while reading\n\n## Refactoring\n\nPlenty changed under the hood. The app now targets iOS 26 and was rebuilt on Apple's latest frameworks for smoother performance and fewer bugs down the road. Downloads moved to a new storage system that's faster and more reliable. Navigation was rebuilt on Apple's modern stack-based APIs, and several third-party dependencies (AlertKit, TTProgressHUD, FilePicker, SwiftUINavigation) were dropped in favor of native equivalents. We also reworked the reading view and rewrote the test suite to keep future updates stable.",
           "downloadURL": "https://github.com/EhPanda-Team/EhPanda/releases/download/3.0.0/EhPanda.ipa",
-          "size": 10143094,
-          "sha256": "b7de953acb001c0cf7887a5b405a8328f88d3be403c458ec4689e56a96dabbae",
-          "minOSVersion": "26.0"
+          "size": 19041995,
+          "sha256": "e4bea6a954242430c3db031d8bf68649640884fb9911eb6aa972f3ef150eaa89",
+          "minOSVersion": "27.0"
         },
         {
           "version": "2.8.1",
