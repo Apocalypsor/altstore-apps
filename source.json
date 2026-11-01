@@ -255,10 +255,10 @@
           "version": "1.3.1",
           "buildVersion": "18",
           "date": "2026-10-25T03:01:07Z",
-          "localizedDescription": "正式版 · GitHub v1.3.1\nhttps://github.com/Fab1e2000/NeoBili/releases/tag/v1.3.1\n\n## 外观\n\n- 推荐、搜索、资料库、关注、直播改用系统原生大标题，头像入口移到导航栏右侧，下滑时导航栏自动收起（收起行为需 iOS 27）。移除「标题栏」设置项和顶部渐变模糊。\n- 新增「字体风格」：默认字体或内置思源宋体（SIL OFL），中英文使用同一套衬线字形；重新打开应用后生效。\n\n## 刷新\n\n- 稍后再看、历史、收藏夹及其内容、UP 主空间的下拉刷新与推荐页一致：同样的下拉距离，旧内容淡出、新内容到了再换入，失败时保留旧内容。\n- 收藏、历史、稍后再看的卡片支持进入和退出动画，可在「设置 → 动画」中分别开关；空间页支持刷新时的退出淡出。\n- 从「我的服务」进入稍后再看、收藏、历史时，右上角增加刷新按钮；作为底部标签页挂载时不显示。\n- 关闭系统下拉刷新转圈的隐藏，保留原生刷新提示。\n\n## 视频页\n\n- 评论层级与评论输入框（玻璃浮层）调整，评论元信息保持在同一行。\n- 视频简介页更紧凑；合集与分 P 列表随内容展示。\n- 标签行不再显示滚动条。\n\n## 已知限制\n\n- 导航栏自动收起仅 iOS 27 起生效，iOS 26 只有大标题。\n- 宋体风格只内置 Regular 与 SemiBold 两个字重，字体中没有的生僻字回退为苹方。\n\n本次构建号为 18。\n\n## 安装\n\n最低系统要求 iOS 26。发布后提供未签名 IPA，需使用自己的证书签名后安装；可用同页的 `SHA256SUMS.txt` 校验文件。\n\n**构建信息**：提交 `32c2215`，Xcode 27.1 Build version 27A9275，由 [GitHub Actions](https://github.com/Fab1e2000/NeoBili/actions/runs/40156371188) 构建。",
+          "localizedDescription": "正式版 · GitHub v1.3.1\nhttps://github.com/Fab1e2000/NeoBili/releases/tag/v1.3.1\n\n## 外观\n\n- 推荐、搜索、资料库、关注、直播改用系统原生大标题，头像入口移到导航栏右侧，下滑时导航栏自动收起（收起行为需 iOS 27）。移除「标题栏」设置项和顶部渐变模糊。\n- 新增「字体风格」：默认字体或内置思源宋体（SIL OFL），中英文使用同一套衬线字形；重新打开应用后生效。\n\n## 刷新\n\n- 稍后再看、历史、收藏夹及其内容、UP 主空间的下拉刷新与推荐页一致：同样的下拉距离，旧内容淡出、新内容到了再换入，失败时保留旧内容。\n- 收藏、历史、稍后再看的卡片支持进入和退出动画，可在「设置 → 动画」中分别开关；空间页支持刷新时的退出淡出。\n- 从「我的服务」进入稍后再看、收藏、历史时，右上角增加刷新按钮；作为底部标签页挂载时不显示。\n- 关闭系统下拉刷新转圈的隐藏，保留原生刷新提示。\n\n## 视频页\n\n- 评论层级与评论输入框（玻璃浮层）调整，评论元信息保持在同一行。\n- 视频简介页更紧凑；合集与分 P 列表随内容展示。\n- 标签行不再显示滚动条。\n\n## 已知限制\n\n- 导航栏自动收起仅 iOS 27 起生效，iOS 26 只有大标题。\n- 宋体风格只内置 Regular 与 SemiBold 两个字重，字体中没有的生僻字回退为苹方。\n\n本次构建号为 18。\n\n## 安装\n\n最低系统要求 iOS 26。安装包没有 Apple 开发者证书，只带 ad-hoc 签名。\n\nIPA链接：\n\nhttps://n015.top/neobili/NeoBili-v1.3.1-unsigned.ipa\n\n源链接：\n\nhttps://n015.top/neobili/apps.json\n\nhttps://cdn.jsdelivr.net/gh/Fab1e2000/NeoBili@main/sidestore/apps.json\n\n**构建信息**：提交 `32c2215`，Xcode 27.1 Build version 27A9275，由 [GitHub Actions](https://github.com/Fab1e2000/NeoBili/actions/runs/40156371188) 构建。",
           "downloadURL": "https://github.com/Fab1e2000/NeoBili/releases/download/v1.3.1/NeoBili-v1.3.1-unsigned.ipa",
-          "size": 134553901,
-          "sha256": "2606d6ff5e200368da747b5771ecfd352778da27c6527b7227cfeb840bad3309",
+          "size": 134716974,
+          "sha256": "73740df9c05a83e72f6a4fb510ebc5a5554d760b57888786aa32b50bbc60e914",
           "minOSVersion": "26.0"
         },
         {
