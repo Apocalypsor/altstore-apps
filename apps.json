@@ -2,7 +2,7 @@
   "source": {
     "name": "Apocalypsor's Apps",
     "identifier": "io.github.apocalypsor.altstore-apps",
-    "subtitle": "TiebaPure · EhPanda · NeoBili",
+    "subtitle": "TiebaPure · EhPanda · NeoBili · AirSIM",
     "localizedDescription": "自动跟踪上游 GitHub Releases，包含预发布版本。版本号、构建号及最低系统要求均读取自原始 IPA。",
     "websiteURL": "https://github.com/Apocalypsor/altstore-apps",
     "tintColor": "3478F6"
@@ -44,6 +44,19 @@
       "localizedDescription": "开源的原生 iOS 哔哩哔哩客户端，使用 SwiftUI 和 MPVKit。IPA 直接下载自 Fab1e2000/NeoBili 的 GitHub Releases，使用 SideStore 签名安装。本源包含预发布版本。",
       "iconURL": "https://raw.githubusercontent.com/Fab1e2000/NeoBili/v1.3.0/NeoBili/Resources/Assets.xcassets/AppIcon.appiconset/AppIcon.png",
       "tintColor": "FB7299"
+    },
+    {
+      "name": "AirSIM",
+      "repository": "kai-wu-cortex/AirSIM",
+      "bundleIdentifier": "com.eric3u.airsim",
+      "asset_pattern": "AirSIM-iOS-*-sideload-unsigned.ipa",
+      "include_prereleases": true,
+      "published_since": "2026-11-03T05:04:37Z",
+      "developerName": "kai-wu-cortex",
+      "subtitle": "连接 Android 的通话与短信客户端",
+      "localizedDescription": "在 iPhone 上连接 Android AirSIM，使用通话与短信功能。IPA 直接下载自 kai-wu-cortex/AirSIM 的 GitHub Releases，选用不含 Apple Watch 的 sideload 未签名包，由 SideStore 重签安装。本源包含预发布版本。远程推送需另行配置与签名身份匹配的 Relay/APNs；小组件与短信通知解密需正确配置共享 App Group 和钥匙串权限。",
+      "iconURL": "https://raw.githubusercontent.com/Apocalypsor/altstore-apps/main/assets/airsim/icon.png",
+      "tintColor": "2F80ED"
     }
   ]
 }

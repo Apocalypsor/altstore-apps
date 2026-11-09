@@ -85,8 +85,12 @@ def list_releases(repository, token):
 
 def select_releases(releases, app, limit):
     candidates = []
+    # A new bundle identity must not inherit releases of the previous app ID.
+    published_since = timestamp(app["published_since"]) if "published_since" in app else None
     for release in releases:
         if release["draft"] or (release["prerelease"] and not app["include_prereleases"]):
+            continue
+        if published_since is not None and timestamp(release["published_at"]) < published_since:
             continue
         assets = [asset for asset in release["assets"]
                   if fnmatch.fnmatchcase(asset["name"], app["asset_pattern"])]

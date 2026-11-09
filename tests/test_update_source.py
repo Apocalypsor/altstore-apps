@@ -93,6 +93,26 @@ class ReleaseTests(unittest.TestCase):
         releases = [release("old-edited", 1), release("middle", 2), release("new", 3)]
         self.assertEqual([r["tag_name"] for r, _ in source.select_releases(releases, APP, 2)], ["new", "middle"])
 
+    def test_published_since_excludes_previous_bundle_identity(self):
+        releases = [release("old-id", 1), release("new-id", 2), release("update", 3)]
+        app = dict(APP, published_since="2026-01-02T01:00:00+01:00")
+        candidates = source.select_releases(releases, app, 10)
+        self.assertEqual([r["tag_name"] for r, _ in candidates], ["update", "new-id"])
+        data = {1: dict(metadata(), CFBundleIdentifier="org.example.old"),
+                2: metadata("1.0", "2"), 3: metadata("1.0", "3")}
+        result = source.build_app(app, candidates, lambda a: data[a["id"]])
+        self.assertEqual([v["buildVersion"] for v in result["versions"]], ["3", "2"])
+        # The date filter must not weaken identity checks on future releases.
+        data[3]["CFBundleIdentifier"] = "org.example.changed"
+        with self.assertRaisesRegex(source.SourceError, "bundle ID"):
+            source.build_app(app, candidates, lambda a: data[a["id"]])
+
+    def test_published_since_requires_timezone_and_eligible_releases(self):
+        with self.assertRaisesRegex(source.SourceError, "timezone"):
+            source.select_releases([release("v1", 1)], dict(APP, published_since="2026-01-01"), 10)
+        with self.assertRaisesRegex(source.SourceError, "No eligible"):
+            source.select_releases([release("v1", 1)], dict(APP, published_since="2026-02-01T00:00:00Z"), 10)
+
     def test_ambiguous_asset_and_empty_feed_fail(self):
         r = release("v1", 1)
         r["assets"].append(dict(r["assets"][0], name="Other.ipa"))
