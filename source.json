@@ -134,16 +134,6 @@
       "tintColor": "F29A38",
       "versions": [
         {
-          "version": "3.0.0",
-          "buildVersion": "158",
-          "date": "2026-11-11T14:08:56Z",
-          "localizedDescription": "预发布 · GitHub 3.0.0\nhttps://github.com/EhPanda-Team/EhPanda/releases/tag/3.0.0\n\n## Features\n\n- **Offline downloads.** Save galleries to your device and read them with no connection. Sort them into folders, and let the app repair a download that got interrupted or update it later. Downloads keep going while the app is in the background and won't get cut off partway.\n- **Date Seek.** Jump straight to a specific date while paging through a gallery. It works on the Frontpage, Watched and Favorites lists.\n- **WebP images** are now supported.\n- **Redesigned toasts.** Progress and status messages (login, page jump, background updates, and more) now show as a sleek glass toast at the bottom of the screen instead of a pop-up spinner.\n\n## Bugfixes\n\n- The page slider and the current page no longer drift out of sync\n- Fixed a gesture problem in the reading control panel\n- Fixed a crash on the EH settings page\n- Fixed the missing toolbar item on the reading settings page\n- Fixed an empty cell in quick search\n- Fixed layout issues on the tags extension settings, the About page, and gallery cells in other languages\n- Fixed the search title disappearing\n- Fixed two settings pages opening at once on iPad\n- Fixed page tracking and zoom boundaries while reading\n\n## Refactoring\n\nPlenty changed under the hood. The app now targets iOS 26 and was rebuilt on Apple's latest frameworks for smoother performance and fewer bugs down the road. Downloads moved to a new storage system that's faster and more reliable. Navigation was rebuilt on Apple's modern stack-based APIs, and several third-party dependencies (AlertKit, TTProgressHUD, FilePicker, SwiftUINavigation) were dropped in favor of native equivalents. We also reworked the reading view and rewrote the test suite to keep future updates stable.",
-          "downloadURL": "https://github.com/EhPanda-Team/EhPanda/releases/download/3.0.0/EhPanda.ipa",
-          "size": 19041995,
-          "sha256": "e4bea6a954242430c3db031d8bf68649640884fb9911eb6aa972f3ef150eaa89",
-          "minOSVersion": "27.0"
-        },
-        {
           "version": "2.8.1",
           "buildVersion": "158",
           "date": "2026-07-20T12:12:04Z",
@@ -231,6 +221,16 @@
           "downloadURL": "https://github.com/EhPanda-Team/EhPanda/releases/download/v2.7.3/EhPanda.ipa",
           "size": 6684864,
           "sha256": "d1697f11458d302116bbcfab80e15396e34155483ce724c2d2299690679b5128",
+          "minOSVersion": "16.0"
+        },
+        {
+          "version": "2.7.2",
+          "buildVersion": "148",
+          "date": "2023-09-08T05:20:21Z",
+          "localizedDescription": "正式版 · GitHub v2.7.2\nhttps://github.com/EhPanda-Team/EhPanda/releases/tag/v2.7.2\n\n1. fix: A parsing error occurring when attempting to access the gallery detail page.\nギャラリー詳細画面にアクセスしようとした際に発生した解析エラーを修正。\n修正了在嘗試存取畫廊詳細頁面時出現的解析錯誤。\n\n2. fix: Page range filter mistakenly requires both minimum and maximum values, rather than either.\nページ範囲の上下限を同時に指定しないとそのフィルターが予期通りに動作しない不具合を修正。\n修正了頁數篩選器僅在同時指定了頁數的上下限時才正常運作的問題。",
+          "downloadURL": "https://github.com/EhPanda-Team/EhPanda/releases/download/v2.7.2/EhPanda.ipa",
+          "size": 6725554,
+          "sha256": "2b0b589e8676d4fb903562d20cb4dd7e067374b3cce3e1fd0135d5c740d80aaa",
           "minOSVersion": "16.0"
         }
       ],
