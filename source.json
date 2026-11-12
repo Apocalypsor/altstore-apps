@@ -429,6 +429,26 @@
       "tintColor": "FF9500",
       "versions": [
         {
+          "version": "1.2.2",
+          "buildVersion": "1.2.2",
+          "date": "2026-11-12T22:25:05Z",
+          "localizedDescription": "正式版 · GitHub v1.2.2-ios\nhttps://github.com/LNPANDY/HGhub-MacOS-iOS-Version/releases/tag/v1.2.2-ios\n\n## HGhub iOS 增强版 (v1.2.2)\n\n### ✨ 核心特性\n- **多档位 GPU 实时视频超分引擎（WebGL2 / Apple Metal）**：针对低码率片源提供「自然清透 / 影院质感 / 超清锐利 / 漫剧锐线 / 二次元重绘 / 原画直通」6 大可实时直达切换的画质档位（支持零涂抹保纹理 AI/3D 漫剧锐线、播放及暂停静帧瞬时对比、像素健康自检与硬件卷积零黑屏回退）。\n- **沉浸式竖屏刷剧流**：支持首页无限推荐流、题材分类、三大榜单（热门/推荐/潜力）、搜索、吃瓜社区图文与视频帖、选集与历史续播。\n- **原生横竖屏智能切换**：横屏视频支持一键「横屏全屏」（调用 iOS 原生屏幕方向旋转），支持手机物理横置自动全屏、竖回自动退出，独立固定舞台层渲染不跑偏、不闪封面。\n- **丰富触控手势**：\n  - **双指自由缩放（1x~4x）与平移**：竖屏观看横屏视频可自由缩放，并提供「放大铺满 / 完整适应 / 还原缩放」胶囊按钮；\n  - **单击清屏 / 双击暂停**：单击屏幕隐藏所有控件与遮罩纯享画面，双击屏幕暂停/播放；\n  - **长按 2.0x 倍速 + 上滑锁定**：长按画面开启 2.0x 倍速，上滑即可锁定倍速；\n  - **左右横滑预览定位**：任意位置横滑精准跳转进度。\n- **HLS 播放稳定性加固**：内置 AES Key 与分片内存缓存、拖动进度条防卡死自愈重连、全屏旋转过渡期持续保活与片尾自动连播下一集。\n- **多线路与镜像测速**：内置固定主备线路 + 自动抓取最新镜像域名 + 一键延迟测速切换。\n\n### 📲 安装说明（免证书生产包 `.ipa`）\n1. **TrollStore（巨魔商店）**：下载 `HGhub_1.2.2_ios.ipa` 后直接导入巨魔永久安装。\n2. **AltStore / SideStore / Sideloadly**：使用个人 Apple ID 自签安装。\n3. **轻松签（ESign）/ 牛蛙助手 / Feather / 全能签**：导入证书签名后直接安装。",
+          "downloadURL": "https://github.com/LNPANDY/HGhub-MacOS-iOS-Version/releases/download/v1.2.2-ios/HGhub_1.2.2_ios.ipa",
+          "size": 3028648,
+          "sha256": "03a688abc3e66680c21ee425b37491cd89f62dd7fdc18d7b9274763d1568d5c7",
+          "minOSVersion": "15.0"
+        },
+        {
+          "version": "1.2.1",
+          "buildVersion": "1.2.1",
+          "date": "2026-11-12T19:55:51Z",
+          "localizedDescription": "正式版 · GitHub v1.2.1-ios\nhttps://github.com/LNPANDY/HGhub-MacOS-iOS-Version/releases/tag/v1.2.1-ios\n\n## HGhub iOS 增强版 (v1.2.1)\n\n### ✨ 核心特性\n- **沉浸式竖屏刷剧流**：支持首页无限推荐流、题材分类、三大榜单（热门/推荐/潜力）、搜索、吃瓜社区图文与视频帖、选集与历史续播。\n- **原生横竖屏智能切换**：横屏视频支持一键「横屏全屏」（调用 iOS 原生屏幕方向旋转），支持手机物理横置自动全屏、竖回自动退出，独立固定舞台层渲染不跑偏、不闪封面。\n- **丰富触控手势**：\n  - **双指自由缩放（1x~4x）与平移**：竖屏观看横屏视频可自由缩放，并提供「放大铺满 / 完整适应 / 还原缩放」胶囊按钮；\n  - **单击清屏 / 双击暂停**：单击屏幕隐藏所有控件与遮罩纯享画面，双击屏幕暂停/播放；\n  - **长按 2.0x 倍速 + 上滑锁定**：长按画面开启 2.0x 倍速，上滑即可锁定倍速；\n  - **左右横滑预览定位**：任意位置横滑精准跳转进度。\n- **HLS 播放稳定性加固**：内置 AES Key 与分片内存缓存、拖动进度条防卡死自愈重连、全屏旋转过渡期持续保活与片尾自动连播下一集。\n- **多线路与镜像测速**：内置固定主备线路 + 自动抓取最新镜像域名 + 一键延迟测速切换。\n\n### 📲 安装说明（免证书生产包 `.ipa`）\n1. **TrollStore（巨魔商店）**：下载 `HGhub_1.2.1_ios.ipa` 后直接导入巨魔永久安装。\n2. **AltStore / SideStore / Sideloadly**：使用个人 Apple ID 自签安装。\n3. **轻松签（ESign）/ 牛蛙助手 / Feather / 全能签**：导入证书签名后直接安装。",
+          "downloadURL": "https://github.com/LNPANDY/HGhub-MacOS-iOS-Version/releases/download/v1.2.1-ios/HGhub_1.2.1_ios.ipa",
+          "size": 3022231,
+          "sha256": "caeb57813fb1fdbee332f3e8dd79cdbfc8b77825221bf5def2fdac7499cda74a",
+          "minOSVersion": "15.0"
+        },
+        {
           "version": "1.2.0",
           "buildVersion": "1.2.0",
           "date": "2026-11-09T22:37:07Z",
