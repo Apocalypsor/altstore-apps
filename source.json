@@ -1,7 +1,7 @@
 {
   "name": "Apocalypsor's Apps",
   "identifier": "io.github.apocalypsor.altstore-apps",
-  "subtitle": "TiebaPure · EhPanda · NeoBili · AirSIM",
+  "subtitle": "TiebaPure · EhPanda · NeoBili · AirSIM · HGhubX",
   "localizedDescription": "自动跟踪上游 GitHub Releases，包含预发布版本。版本号、构建号及最低系统要求均读取自原始 IPA。",
   "websiteURL": "https://github.com/Apocalypsor/altstore-apps",
   "tintColor": "3478F6",
@@ -417,6 +417,31 @@
           "NSLocalNetworkUsageDescription": "用于在三星热点内发现并安全配对 AirSIM 电话桥。",
           "NSMicrophoneUsageDescription": "用于通过 AirSIM VoWLAN 或云端模式进行双向语音通话。"
         }
+      }
+    },
+    {
+      "name": "HGhubX",
+      "bundleIdentifier": "com.hghubx.app",
+      "developerName": "zxsos",
+      "subtitle": "黄果短剧 iOS 客户端",
+      "localizedDescription": "黄果短剧 iOS 客户端，支持短剧推荐、搜索、榜单、社区和连续播放。IPA 直接下载自 zxsos/HGhubX 的 GitHub Releases，仅收录 iOS 版本并由 SideStore 重签安装。本源包含预发布版本。",
+      "iconURL": "https://raw.githubusercontent.com/zxsos/HGhubX/main/app-icon.png",
+      "tintColor": "FF9500",
+      "versions": [
+        {
+          "version": "2.0.0",
+          "buildVersion": "2.0.0",
+          "date": "2026-11-13T18:12:46Z",
+          "localizedDescription": "正式版 · GitHub v2.0.0\nhttps://github.com/zxsos/HGhubX/releases/tag/v2.0.0\n\n## HGhubX 2.0.0\n\nHGhubX 2.0 是一次完整的品牌、网络、播放和跨平台界面升级。\n\n### 更新点\n\n- **播放源与线路**：恢复发布页线路解析、自动选线和手动选线；线路切换、取消和重新加载使用会话保护；保存的线路可在重启后恢复。\n- **镜像与代理**：新增自定义镜像；支持跟随系统代理、自定义代理和直连三种模式；应用代理覆盖请求与播放链路。\n- **网络诊断**：区分 DNS、TCP、代理和 HTTP 传输问题；补充线路、目标地址、耗时和处理建议；复制报告时自动隐藏代理凭据。\n- **界面**：更新了 UI，自己体验。\n\n### 修复点\n\n- 修复 Linux WebKit 将本机媒体请求错误送入系统代理，导致接口可用但视频无法播放的问题。\n- 修复重复 `Content-Length`、Linux 开发 CSP 和播放失败后的重试状态问题。\n- 修复 iOS 生成工程仍使用 Tauri 默认图标的问题。\n- 修复 Windows NSIS 构建中图标生成脚本嵌套启动 `pnpm.cmd` 导致 `spawnSync EINVAL` 的问题。\n\n\n### 构建产物\n\n- Linux amd64：`.deb`\n- Android：arm64、arm、x86_64 分 ABI APK\n- Windows：x64 安装包和便携版 ZIP\n- macOS：Universal `.dmg`\n- iOS：未签名 `.ipa`\n\n## What's Changed\n* feat: HGhubX 1.3.0 品牌收口与功能更新 by @zxsos in https://github.com/zxsos/HGhubX/pull/71\n* 修复 HGhubX 播放与移动端布局，恢复选线并增加应用代理 by @zxsos in https://github.com/zxsos/HGhubX/pull/73\n* 统一 HGhubX 命名，迁移旧本地数据并兼容旧环境变量 by @zxsos in https://github.com/zxsos/HGhubX/pull/72\n* chore(release): prepare v2.0.0 by @zxsos in https://github.com/zxsos/HGhubX/pull/79\n* fix(build): avoid Windows pnpm wrapper in icon generation by @zxsos in https://github.com/zxsos/HGhubX/pull/80\n\n\n**Full Changelog**: https://github.com/zxsos/HGhubX/compare/v1.2.19...v2.0.0",
+          "downloadURL": "https://github.com/zxsos/HGhubX/releases/download/v2.0.0/HGhubX_2.0.0_ios.ipa",
+          "size": 3757105,
+          "sha256": "b041224e4066c448439403bd27e7d2d86d4e65cc2fb2282642315ed782663f1a",
+          "minOSVersion": "15.0"
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": {}
       }
     }
   ],
