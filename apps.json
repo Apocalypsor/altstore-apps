@@ -2,7 +2,7 @@
   "source": {
     "name": "Apocalypsor's Apps",
     "identifier": "io.github.apocalypsor.altstore-apps",
-    "subtitle": "TiebaPure · EhPanda · NeoBili · AirSIM",
+    "subtitle": "TiebaPure · EhPanda · NeoBili · AirSIM · HGhubX",
     "localizedDescription": "自动跟踪上游 GitHub Releases，包含预发布版本。版本号、构建号及最低系统要求均读取自原始 IPA。",
     "websiteURL": "https://github.com/Apocalypsor/altstore-apps",
     "tintColor": "3478F6"
@@ -57,6 +57,18 @@
       "localizedDescription": "在 iPhone 上连接 Android AirSIM，使用通话与短信功能。IPA 直接下载自 kai-wu-cortex/AirSIM 的 GitHub Releases，选用不含 Apple Watch 的 sideload 未签名包，由 SideStore 重签安装。本源包含预发布版本。远程推送需另行配置与签名身份匹配的 Relay/APNs；小组件与短信通知解密需正确配置共享 App Group 和钥匙串权限。",
       "iconURL": "https://raw.githubusercontent.com/Apocalypsor/altstore-apps/main/assets/airsim/icon.png",
       "tintColor": "2F80ED"
+    },
+    {
+      "name": "HGhubX",
+      "repository": "zxsos/HGhubX",
+      "bundleIdentifier": "com.hghub.huangguo",
+      "asset_pattern": "HGhub*_ios.ipa",
+      "include_prereleases": true,
+      "developerName": "zxsos",
+      "subtitle": "黄果短剧 iOS 客户端",
+      "localizedDescription": "黄果短剧 iOS 客户端，支持短剧推荐、搜索、榜单、社区和连续播放。IPA 直接下载自 zxsos/HGhubX 的 GitHub Releases，仅收录 iOS 版本并由 SideStore 重签安装。本源包含预发布版本。",
+      "iconURL": "https://raw.githubusercontent.com/zxsos/HGhubX/main/app-icon.png",
+      "tintColor": "FF9500"
     }
   ]
 }
