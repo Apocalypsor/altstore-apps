@@ -61,9 +61,10 @@
     {
       "name": "HGhubX",
       "repository": "zxsos/HGhubX",
-      "bundleIdentifier": "com.hghub.huangguo",
+      "bundleIdentifier": "com.hghubx.app",
       "asset_pattern": "HGhub*_ios.ipa",
       "include_prereleases": true,
+      "published_since": "2026-11-13T18:12:46Z",
       "developerName": "zxsos",
       "subtitle": "黄果短剧 iOS 客户端",
       "localizedDescription": "黄果短剧 iOS 客户端，支持短剧推荐、搜索、榜单、社区和连续播放。IPA 直接下载自 zxsos/HGhubX 的 GitHub Releases，仅收录 iOS 版本并由 SideStore 重签安装。本源包含预发布版本。",
