@@ -439,13 +439,33 @@
       "tintColor": "FF9500",
       "versions": [
         {
-          "version": "2.0.0",
-          "buildVersion": "2.0.0",
-          "date": "2026-11-13T18:12:46Z",
-          "localizedDescription": "正式版 · GitHub v2.0.0\nhttps://github.com/zxsos/HGhubX/releases/tag/v2.0.0\n\n## HGhubX 2.0.0\n\nHGhubX 2.0 是一次完整的品牌、网络、播放和跨平台界面升级。\n\n### 更新点\n\n- **播放源与线路**：恢复发布页线路解析、自动选线和手动选线；线路切换、取消和重新加载使用会话保护；保存的线路可在重启后恢复。\n- **镜像与代理**：新增自定义镜像；支持跟随系统代理、自定义代理和直连三种模式；应用代理覆盖请求与播放链路。\n- **网络诊断**：区分 DNS、TCP、代理和 HTTP 传输问题；补充线路、目标地址、耗时和处理建议；复制报告时自动隐藏代理凭据。\n- **界面**：更新了 UI，自己体验。\n\n### 修复点\n\n- 修复 Linux WebKit 将本机媒体请求错误送入系统代理，导致接口可用但视频无法播放的问题。\n- 修复重复 `Content-Length`、Linux 开发 CSP 和播放失败后的重试状态问题。\n- 修复 iOS 生成工程仍使用 Tauri 默认图标的问题。\n- 修复 Windows NSIS 构建中图标生成脚本嵌套启动 `pnpm.cmd` 导致 `spawnSync EINVAL` 的问题。\n\n\n### 构建产物\n\n- Linux amd64：`.deb`\n- Android：arm64、arm、x86_64 分 ABI APK\n- Windows：x64 安装包和便携版 ZIP\n- macOS：Universal `.dmg`\n- iOS：未签名 `.ipa`\n\n## What's Changed\n* feat: HGhubX 1.3.0 品牌收口与功能更新 by @zxsos in https://github.com/zxsos/HGhubX/pull/71\n* 修复 HGhubX 播放与移动端布局，恢复选线并增加应用代理 by @zxsos in https://github.com/zxsos/HGhubX/pull/73\n* 统一 HGhubX 命名，迁移旧本地数据并兼容旧环境变量 by @zxsos in https://github.com/zxsos/HGhubX/pull/72\n* chore(release): prepare v2.0.0 by @zxsos in https://github.com/zxsos/HGhubX/pull/79\n* fix(build): avoid Windows pnpm wrapper in icon generation by @zxsos in https://github.com/zxsos/HGhubX/pull/80\n\n\n**Full Changelog**: https://github.com/zxsos/HGhubX/compare/v1.2.19...v2.0.0",
-          "downloadURL": "https://github.com/zxsos/HGhubX/releases/download/v2.0.0/HGhubX_2.0.0_ios.ipa",
-          "size": 3757105,
-          "sha256": "b041224e4066c448439403bd27e7d2d86d4e65cc2fb2282642315ed782663f1a",
+          "version": "2.1.2",
+          "buildVersion": "2.1.2",
+          "date": "2026-11-15T16:56:37Z",
+          "localizedDescription": "正式版 · GitHub v2.1.2\nhttps://github.com/zxsos/HGhubX/releases/tag/v2.1.2\n\n## HGhubX 2.1.2\n\n### 更新点\n\n- 标签详情同时展示短剧和吃瓜帖子，并分别分页；标签热度会明确标注，不再与内容数量混淆。\n- 横屏视频按当前播放源的媒体尺寸识别，尺寸确认前使用完整画面适配。\n\n### 修复点\n\n- 修复社区标签只查询短剧接口，导致官网存在帖子但应用显示空列表的问题。\n- 修复切集、切源时媒体尺寸报告竞态导致首页横屏视频被裁切或未显示横屏控制的问题。\n\n\n**Full Changelog**: https://github.com/zxsos/HGhubX/compare/v2.1.1...v2.1.2",
+          "downloadURL": "https://github.com/zxsos/HGhubX/releases/download/v2.1.2/HGhubX_2.1.2_ios.ipa",
+          "size": 3852817,
+          "sha256": "fdf8a64f296d7aa38720c21e440504dbfe6018bdc348b559902ce35382465254",
+          "minOSVersion": "15.0"
+        },
+        {
+          "version": "2.1.1",
+          "buildVersion": "2.1.1",
+          "date": "2026-11-15T15:26:37Z",
+          "localizedDescription": "正式版 · GitHub v2.1.1\nhttps://github.com/zxsos/HGhubX/releases/tag/v2.1.1\n\n## HGhubX 2.1.1\n\n### 更新点\n\n- **线路选择**：合并重复的“推荐镜像”和“镜像线路”区域为一个镜像列表，当前线路置顶。\n- **启动体验**：统一各平台启动背景，减少启动首帧闪烁。\n- **搜索**：热门题材使用真实标签数据，并可直接打开对应片单。\n\n### 修复点\n\n- 修复播放恢复、代理切换后的恢复队列及媒体分片缓存隔离问题。\n- 修复专题分页、收藏同步空状态和搜索框焦点处理。\n- 补齐 iOS 原生媒体传输的 Range 响应，改善视频探测与播放兼容性。\n- 修复帖子详情热度和清理观看历史前的确认交互。\n\n### 构建产物\n\n- Linux amd64：`.deb`\n- Android：arm64、arm、x86_64 分 ABI  `.apk`\n- Windows：x64 安装包 `.exe` 和便携版 `.zip`\n- macOS：Universal `.dmg`\n- iOS：未签名 `.ipa`\n\n\n## What's Changed\n* fix: 2026-11-15 修复轮次合并 by @zxsos in https://github.com/zxsos/HGhubX/pull/131\n* fix: 修复播放恢复、缓存与收藏状态回归 by @zxsos in https://github.com/zxsos/HGhubX/pull/133\n* fix(launch): 补齐 Android 夜间与 macOS 启动背景 by @zxsos in https://github.com/zxsos/HGhubX/pull/132\n* fix(ios): 修复原生播放器的本地媒体传输 by @zxsos in https://github.com/zxsos/HGhubX/pull/130\n\n\n**Full Changelog**: https://github.com/zxsos/HGhubX/compare/v2.1.0...v2.1.1",
+          "downloadURL": "https://github.com/zxsos/HGhubX/releases/download/v2.1.1/HGhubX_2.1.1_ios.ipa",
+          "size": 3849882,
+          "sha256": "e7db7afc6e39df3658d5e0c76e5a1950dbd8f5669bb0acf04c11de45d7c133cb",
+          "minOSVersion": "15.0"
+        },
+        {
+          "version": "2.1.0",
+          "buildVersion": "2.1.0",
+          "date": "2026-11-15T08:37:59Z",
+          "localizedDescription": "正式版 · GitHub v2.1.0\nhttps://github.com/zxsos/HGhubX/releases/tag/v2.1.0\n\n## HGhubX 2.1.0\n\nHGhubX 2.1 新增标签屏蔽，完善账号同步，并优化播放和加载体验。\n\n### 更新点\n\n- **内容偏好**：新增按标签屏蔽，可在设置或视频“不感兴趣”中添加规则；首页自动跳过命中内容，列表支持临时展开，收藏和历史保留记录。\n- **播放手势**：手机端支持左下长按减速、右上长按加速，中心小方块长按“不感兴趣”；首次进入播放器显示区域提示，视频详情支持点击标签跳转。\n- **启动体验**：新增开屏动画和首次使用协议。\n- **性能**：优化页面按需加载、下一条视频和下一集预取，精简无效代码与重复请求。\n- **界面**：更新了 UI，自己体验。\n\n### 修复点\n\n- 修复游客模式保存观看进度、收藏等数据时回滚设置的问题，包括自动恢复静音，以及音量、启动静音、优先高清、滑动切集和搜索历史被旧快照覆盖。\n- 修复评论区出现 HTML 标签和脚本片段、长评论和长昵称换行异常的问题；手机播放页面显示评论数量，评论面板读取当前剧集的数量。\n- 修复首页刷视频后进入全屏跳到其他视频的问题。\n- 修复手机端吃瓜视频控制按钮隐藏的问题，调整小屏控制栏，并补充全屏失败时的屏幕内全屏模式。\n- 修复收藏和观看历史只显示首批内容、账号数据未完整回填的问题，完善关注列表分页和失败重试。\n- 修复账号、线路切换后的迟到请求污染当前数据，以及互动操作失败仍显示成功的问题。\n- 修复详情封面加载状态异常，优先加载详情封面，并合并同地址的下载和解密请求。\n- 补齐原生播放器的单段 Range 响应，返回正确的 `206`、`416` 和 `Content-Range`，改善 iOS 媒体探测流程。\n\n### 构建产物\n\n- Linux amd64：`.deb`\n- Android：arm64、arm、x86_64 分 ABI  `.apk`\n- Windows：x64 安装包 `.exe` 和便携版 `.zip`\n- macOS：Universal `.dmg`\n- iOS：未签名 `.ipa`\n\n\n## What's Changed\n* feat(app): integrate UI and playback updates for v2.1.0 by @zxsos in https://github.com/zxsos/HGhubX/pull/110\n* fix(comments): 修复评论显示并发布 v2.1.1 by @zxsos in https://github.com/zxsos/HGhubX/pull/111\n* fix(account): 修复游客设置被重置并重新发布 v2.1.0 by @zxsos in https://github.com/zxsos/HGhubX/pull/113\n\n\n**Full Changelog**: https://github.com/zxsos/HGhubX/compare/v2.0.0...v2.1.0",
+          "downloadURL": "https://github.com/zxsos/HGhubX/releases/download/v2.1.0/HGhubX_2.1.0_ios.ipa",
+          "size": 3819956,
+          "sha256": "7f9035c02a52c717eb87b7742331174c801a0d1f38225a6dd005ee054583bd98",
           "minOSVersion": "15.0"
         }
       ],
