@@ -252,6 +252,16 @@
       "tintColor": "FB7299",
       "versions": [
         {
+          "version": "1.3.3",
+          "buildVersion": "20",
+          "date": "2026-11-16T05:10:48Z",
+          "localizedDescription": "正式版 · GitHub v1.3.3\nhttps://github.com/Fab1e2000/NeoBili/releases/tag/v1.3.3\n\n## 离线缓存\n\n- 支持缓存普通视频、多 P 和 UP 主合集，可选择画质并批量添加任务。\n- 新增底部「缓存」页和「我的 → 离线缓存」入口，支持查看进度、暂停、继续、重试及批量删除。\n- 默认仅通过 Wi-Fi 下载，可为单个任务确认使用蜂窝网络。\n- 保存音视频、封面、弹幕及可用字幕；完成后可从「已缓存」离线观看，在线与离线分别记录播放进度。\n- 缓存标签支持调整顺序、隐藏及设为启动页。\n\n## 播放与界面\n\n- 合集与分 P 列表打开时定位当前播放项，切换选集后保留列表位置。\n- 修复无独立音轨的静音视频加载问题。\n- 优化视频详情滚动衔接、内容布局及列表滚动指示器显示。\n\n本次构建号为 20。\n\n## 安装\n\n最低系统要求 iOS 26。安装包带 ad-hoc 签名，可通过 SideStore、AltStore 或 Sideloadly 使用自己的 Apple ID 重签安装。\n\n下载附件 `NeoBili-v1.3.3-unsigned.ipa`，使用同页 `SHA256SUMS.txt` 校验。\n\nSideStore 软件源：[国内源](https://n015.top/neobili/apps.json) · [备用源](https://cdn.jsdelivr.net/gh/Fab1e2000/NeoBili@main/sidestore/apps.json)\n\n\n**构建信息**：提交 `6647ae6c74e469d8d88595347a9e6a0afa64b706`，由 [Xcode Cloud](https://appstoreconnect.apple.com/teams/2d9bb309-ce66-4d6f-a5e9-1bea4f68843e/apps//ci/builds/57c329c8-9d80-4402-9048-30d3668f5fee) 构建。",
+          "downloadURL": "https://github.com/Fab1e2000/NeoBili/releases/download/v1.3.3/NeoBili-v1.3.3-unsigned.ipa",
+          "size": 134035734,
+          "sha256": "ae191255ebe5427bd53a7f05a7387477ab9d3075413903b4517fd2e6757dc29b",
+          "minOSVersion": "26.0"
+        },
+        {
           "version": "1.3.2",
           "buildVersion": "19",
           "date": "2026-11-03T03:14:15Z",
@@ -339,16 +349,6 @@
           "downloadURL": "https://github.com/Fab1e2000/NeoBili/releases/download/v1.1.2/NeoBili-v1.1.2-unsigned.ipa",
           "size": 58292737,
           "sha256": "35da6119b6197fc233e681b96e69fd56d0b1cd967224026c7e1d3928719608ca",
-          "minOSVersion": "26.0"
-        },
-        {
-          "version": "1.1.1",
-          "buildVersion": "9",
-          "date": "2026-09-26T08:31:20Z",
-          "localizedDescription": "正式版 · GitHub v1.1.1\nhttps://github.com/Fab1e2000/NeoBili/releases/tag/v1.1.1\n\nNeoBili v1.1.1（构建 9）把图标换成**立体 B 字**，播放器控件改用**透明玻璃**，并调整了视频页操作和设置分组。\n\n## 亮点\n\n- **新图标**：立体挤出的 B 字，24 个主题色图标一起更新\n- **透明玻璃播放控件**：画面透出来，控件出现时自动压暗，亮画面上也看得清\n- **操作更快**：点赞、投币、收藏等轻点即执行；按住点赞 0.5 秒一键三连\n- **设置重新分组**：外观、浏览、播放、高级、账号\n\n## 新功能与改进\n\n### 图标\n\n- 主屏幕图标由立体 N 字改为立体 B 字：白色字面、主题色细边和向左下的挤出，两个字腔透出主题色。24 个主题色图标全部更新，深色与着色外观由系统生成。\n\n### 播放器\n\n- 播放器控件统一改用透明玻璃，让画面透出来。控件出现时画面整体轻微压暗，上下两排控件和中间的播放按钮背后再加深；控件隐藏后恢复原画面。出错时只在仍然显示的按钮背后压暗，错误提示保持原样。\n- 时间文字加粗；拖动进度时的预览框和直播间的「重新连接」按钮也改用透明玻璃。\n- 控件位置设置的边距改为按看得见的控件计算，调到 0 时控件正好贴边；拖动滑条时播放器控件实时重排。已保存的设置继续有效。\n\n### 视频页\n\n- 点赞、不喜欢、投币、收藏、分享改为轻点即执行（原来需要长按后松手）。按住点赞 0.5 秒一键三连，按住收藏 0.5 秒选择收藏夹（原来都是 1.2 秒）。\n- UP 主的关注按钮改用液态玻璃样式，与 UP 主空间页一致。\n\n### 关注\n\n- 长按头像条里的 UP 主时，预览带圆角底板并显示完整名字，菜单可进入直播间或 UP 主主页。\n\n### 设置与提示\n\n- 设置首页分为外观、浏览、播放、高级、账号五组：内容过滤移到「浏览」，动画、播放器手势、播放器控件位置等细调项收进「高级」。\n- 操作提示浮层改用系统玻璃，深色模式下也能和背景分开；使用 VoiceOver 时会播报提示内容。\n\n## 下载与安装\n\n| 文件 | 说明 |\n| --- | --- |\n| `NeoBili-v1.1.1-unsigned.ipa` | Release 配置构建，**未签名** |\n| `SHA256SUMS.txt` | 下载文件的 SHA-256 校验值 |\n\n1. 下载 IPA 和 `SHA256SUMS.txt`，在同一目录下运行 `shasum -a 256 -c SHA256SUMS.txt` 校验。\n2. 使用你自己的开发者证书或常用的签名工具签名，然后安装到设备。\n\n**系统要求**：iOS 26.0 或更高版本。\n\n**验证**：离线回归套件全部通过。\n\n---\n\nNeoBili 是独立的第三方项目，与哔哩哔哩无任何官方关联。完整功能介绍见 [README](https://github.com/Fab1e2000/NeoBili#readme)。\n\n**构建信息**：提交 `60d6058`，Xcode 27.0 Build version 27A266a，由 [GitHub Actions](https://github.com/Fab1e2000/NeoBili/actions/runs/36229814362) 构建。",
-          "downloadURL": "https://github.com/Fab1e2000/NeoBili/releases/download/v1.1.1/NeoBili-v1.1.1-unsigned.ipa",
-          "size": 126737964,
-          "sha256": "ccf79bac251896cbddcf345ab2d3b216dbc34337d4ee3183af3051a95fd0703f",
           "minOSVersion": "26.0"
         }
       ],
