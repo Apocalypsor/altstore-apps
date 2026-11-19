@@ -1,7 +1,7 @@
 {
   "name": "Apocalypsor's Apps",
   "identifier": "io.github.apocalypsor.altstore-apps",
-  "subtitle": "TiebaPure · EhPanda · NeoBili · AirSIM · HGhubX",
+  "subtitle": "TiebaPure · EhPanda · NeoBili · AirSIM · HGhubX · LiLite",
   "localizedDescription": "自动跟踪上游 GitHub Releases，包含预发布版本。版本号、构建号及最低系统要求均读取自原始 IPA。",
   "websiteURL": "https://github.com/Apocalypsor/altstore-apps",
   "tintColor": "3478F6",
@@ -492,6 +492,125 @@
       "appPermissions": {
         "entitlements": [],
         "privacy": {}
+      }
+    },
+    {
+      "name": "LiLite",
+      "bundleIdentifier": "com.liuliuya.PiliNative",
+      "developerName": "liuliuya2333",
+      "subtitle": "轻哩 · 原生 iOS 哔哩哔哩客户端",
+      "localizedDescription": "轻哩是使用 SwiftUI 和 UIKit 编写的第三方哔哩哔哩客户端。IPA 直接下载自 liuliuya2333/LiLite 的 GitHub Releases，由 SideStore 签名安装。本源包含预发布版本。",
+      "iconURL": "https://raw.githubusercontent.com/liuliuya2333/LiLite/v1.0.18/Resources/Brand/icon.png",
+      "tintColor": "3F8DF5",
+      "versions": [
+        {
+          "version": "1.0.18",
+          "buildVersion": "35",
+          "date": "2026-11-19T10:43:36Z",
+          "localizedDescription": "正式版 · GitHub v1.0.18\nhttps://github.com/liuliuya2333/LiLite/releases/tag/v1.0.18\n\n- 搜索页重做为官方布局：返回、搜索框和放大镜按钮在一行，搜索后自动收起键盘，联想词可以填入继续输入\n- 修复搜索时可能卡死的问题\n- 评论详情面板支持下拉跟手收起，在列表顶部或标题栏往下拉即可\n- 修复观看历史、稍后再看轻轻上滑时列表抖动的问题，搜索改为右上角放大镜打开\n- 视频详情页、评论区和视频列表的字号与间距对齐官方客户端\n\n附件为未签名 IPA，需要自行签名安装",
+          "downloadURL": "https://github.com/liuliuya2333/LiLite/releases/download/v1.0.18/LiLite-1.0.18-unsigned.ipa",
+          "size": 112257572,
+          "sha256": "922fcc7f711b4dcf5adc6238c81ef076d33024b38d3545cefd8bd565d491667f",
+          "minOSVersion": "17.0"
+        },
+        {
+          "version": "1.0.17",
+          "buildVersion": "34",
+          "date": "2026-11-19T07:08:54Z",
+          "localizedDescription": "正式版 · GitHub v1.0.17\nhttps://github.com/liuliuya2333/LiLite/releases/tag/v1.0.17\n\n- 修复 iOS 17、18 上从视频页返回后底部标签栏变透明、盖在列表上的问题（#3）\n- 兼容性说明改为支持 iOS 17+\n\n附件为未签名 IPA，需要自行签名安装",
+          "downloadURL": "https://github.com/liuliuya2333/LiLite/releases/download/v1.0.17/LiLite-1.0.17-unsigned.ipa",
+          "size": 112157012,
+          "sha256": "6dcc739de726ebb868712c78788a1753162553bb3fce05f96f079585e4870c38",
+          "minOSVersion": "17.0"
+        },
+        {
+          "version": "1.0.16",
+          "buildVersion": "33",
+          "date": "2026-11-19T06:43:23Z",
+          "localizedDescription": "正式版 · GitHub v1.0.16\nhttps://github.com/liuliuya2333/LiLite/releases/tag/v1.0.16\n\n- 修复转过一次全屏后视频页不再锁定竖屏、之后整页跟着手机旋转的问题\n- 修复首页向下滚动时底部标签栏不按设置收起\n- 首页顶栏改为官方布局：左侧头像、中间搜索、右侧消息；频道栏放得下时居中\n- 评论设置新增「滚动时隐藏发评论按钮」，关闭后发评论按钮常驻\n- 我的页观看记录预览固定在最上方，卡片缩小为一行三个（已自定义过我的页的，可在 设置 › 导航布局 › 我的页预览 中添加观看记录）\n- iPad 等大屏默认不再使用侧边栏，改为顶部标签栏；导航布局新增「改用侧边栏」开关，打开后仅横屏使用侧边栏（#2）\n- 大屏宽窗口下首页频道栏与搜索、消息、头像并成一行\n\n附件为未签名 IPA，需要自行签名安装",
+          "downloadURL": "https://github.com/liuliuya2333/LiLite/releases/download/v1.0.16/LiLite-1.0.16-unsigned.ipa",
+          "size": 112156740,
+          "sha256": "7a6d49bcfa041095d2a6174a7b7771fe98d3b4c470b8c6280cb0ab207789cb3b",
+          "minOSVersion": "17.0"
+        },
+        {
+          "version": "1.0.15",
+          "buildVersion": "32",
+          "date": "2026-11-19T04:39:05Z",
+          "localizedDescription": "正式版 · GitHub v1.0.15\nhttps://github.com/liuliuya2333/LiLite/releases/tag/v1.0.15\n\n最低支持版本降到 iOS 17，现支持 iOS 17+\n\n附件为未签名 IPA，需要自行签名安装",
+          "downloadURL": "https://github.com/liuliuya2333/LiLite/releases/download/v1.0.15/LiLite-1.0.15-unsigned.ipa",
+          "size": 112062932,
+          "sha256": "b4c78ae6fa20194f70214d270a91dfde6055b19db1bc5f1f89d726b56869151b",
+          "minOSVersion": "17.0"
+        },
+        {
+          "version": "1.0.14",
+          "buildVersion": "31",
+          "date": "2026-11-19T02:49:26Z",
+          "localizedDescription": "正式版 · GitHub v1.0.14\nhttps://github.com/liuliuya2333/LiLite/releases/tag/v1.0.14\n\n动态卡片按官方样式重做：视频动态显示大封面、时长、播放和弹幕，转发动态完整显示原动态的文字、图片和视频\n整张动态卡片可点：视频动态直接进视频，其他进入动态详情；修复点卡片打开错误页面的问题\n动态详情显示完整发布时间，底部为转发、分享、评论、点赞，点评论直接定位到评论区\nUP 主空间按官方布局重做，主页、动态、投稿等栏目可左右滑动切换，相邻栏目提前加载\n空间投稿列表改为官方样式，合集和列表显示播放数与发布日期\n全屏转场：进入时从小窗位置放大并旋转，退出时缩回小窗\n首页卡片对齐官方双列布局，首个大卡片可在设置中开启（默认关闭）\n详情页默认不自动播放、字幕默认大小等多项行为与原版对齐\n\n附件为未签名 IPA，需要自行签名安装",
+          "downloadURL": "https://github.com/liuliuya2333/LiLite/releases/download/v1.0.14/LiLite-1.0.14-unsigned.ipa",
+          "size": 109988756,
+          "sha256": "0fe2bde715d8a9db429bc098ff4a96aa159eb922803699b76b9c0326c250e7a7",
+          "minOSVersion": "26.0"
+        },
+        {
+          "version": "1.0.13",
+          "buildVersion": "30",
+          "date": "2026-11-18T15:21:27Z",
+          "localizedDescription": "正式版 · GitHub v1.0.13\nhttps://github.com/liuliuya2333/LiLite/releases/tag/v1.0.13\n\n视频链接直接打开完整视频页，修复普通 iPhone 顶部卡片圆角和重复留白\n暂停时在简介和评论之间横滑会保留播放器的折叠高度，以及各页的阅读位置\n评论里的 @ 进入个人主页，侧滑返回可继续阅读，保留视频进度和播放状态\n减少评论滚动时的视图更新，按需启动画中画画面拷贝\n\n附件为未签名 IPA，需要自行签名安装",
+          "downloadURL": "https://github.com/liuliuya2333/LiLite/releases/download/v1.0.13/LiLite-1.0.13-unsigned.ipa",
+          "size": 105773220,
+          "sha256": "24eb69b144affa67ca391527af3831b03b4c9055ff2f314d4a5890cb3c71233d",
+          "minOSVersion": "26.0"
+        },
+        {
+          "version": "1.0.12",
+          "buildVersion": "25",
+          "date": "2026-11-18T14:28:26Z",
+          "localizedDescription": "正式版 · GitHub v1.0.12\nhttps://github.com/liuliuya2333/LiLite/releases/tag/v1.0.12\n\n修复竖版视频被拉宽的问题。竖片在普通 iPhone 的视频页展开显示，全屏跟随片源方向，手动选择的画面比例仍可使用\n修复带旋转标记的视频在软件渲染和后台画中画中的方向与裁切问题\n\n附件为未签名 IPA，需要自行签名安装",
+          "downloadURL": "https://github.com/liuliuya2333/LiLite/releases/download/v1.0.12/LiLite-1.0.12-unsigned.ipa",
+          "size": 105703300,
+          "sha256": "eb7c9b95a10c353e7be3df2faafc009b648de415778e7a2ab0eb8a017463e5e2",
+          "minOSVersion": "26.0"
+        },
+        {
+          "version": "1.0.11",
+          "buildVersion": "23",
+          "date": "2026-11-18T14:01:28Z",
+          "localizedDescription": "正式版 · GitHub v1.0.11\nhttps://github.com/liuliuya2333/LiLite/releases/tag/v1.0.11\n\n修复从视频画面、简介或评论区左缘滑动时无法返回，以及取消后再次滑动失效的问题\n修复 UP 主主页“投稿”等横向分页抢走边缘返回手势的问题\n视频页改用横向推入转场，屏幕中间仍可拖进度或切换简介和评论\n\n附件为未签名 IPA，需要自行签名安装",
+          "downloadURL": "https://github.com/liuliuya2333/LiLite/releases/download/v1.0.11/LiLite-1.0.11-unsigned.ipa",
+          "size": 105681828,
+          "sha256": "7bab3d0b0e6450948dc6e9461c11185f7f2d142453e72de62b20268c0016f913",
+          "minOSVersion": "26.0"
+        },
+        {
+          "version": "1.0.10",
+          "buildVersion": "16",
+          "date": "2026-11-18T13:05:27Z",
+          "localizedDescription": "正式版 · GitHub v1.0.10\nhttps://github.com/liuliuya2333/LiLite/releases/tag/v1.0.10\n\n修复 iPhone 使用 mpv 硬件解码播放视频时出现红绿偏色、蓝色变紫和人脸发绿的问题。保留默认硬件解码，无需更改播放器设置\n\n附件为未签名 IPA，需要自行签名安装",
+          "downloadURL": "https://github.com/liuliuya2333/LiLite/releases/download/v1.0.10/LiLite-1.0.10-unsigned.ipa",
+          "size": 105719028,
+          "sha256": "1a8576b9e3b3c3c6cdee04e5073c0db9afd7b6f55b92947bc2a73c98d9d2223b",
+          "minOSVersion": "26.0"
+        },
+        {
+          "version": "1.0.9",
+          "buildVersion": "15",
+          "date": "2026-11-18T12:37:59Z",
+          "localizedDescription": "正式版 · GitHub v1.0.9\nhttps://github.com/liuliuya2333/LiLite/releases/tag/v1.0.9\n\n修复首页快速上下滑动时，「推荐」等频道的选中背景短暂偏离文字、闪现的问题。横向切换频道时，高亮仍会跟随手势移动\n\n附件为未签名 IPA，需要自行签名安装",
+          "downloadURL": "https://github.com/liuliuya2333/LiLite/releases/download/v1.0.9/LiLite-1.0.9-unsigned.ipa",
+          "size": 105735411,
+          "sha256": "e362c5cf4075338093345d9d2a6702f6a3f2a5adc2f3c6940b989862a23ea9c0",
+          "minOSVersion": "26.0"
+        }
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": {
+          "NSFaceIDUsageDescription": "验证身份以导入或导出登录账号",
+          "NSLocalNetworkUsageDescription": "发现并连接同一网络上的投屏设备",
+          "NSPhotoLibraryAddUsageDescription": "保存你选择的图片、实况照片或视频截图"
+        }
       }
     }
   ],
