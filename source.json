@@ -504,6 +504,16 @@
       "tintColor": "3F8DF5",
       "versions": [
         {
+          "version": "1.0.19",
+          "buildVersion": "36",
+          "date": "2026-11-19T18:09:56Z",
+          "localizedDescription": "正式版 · GitHub v1.0.19\nhttps://github.com/liuliuya2333/LiLite/releases/tag/v1.0.19\n\n- 全屏播放器重做：状态栏、对齐的工具图标、清晰度与选集面板、倍速菜单、手势提示和锁定；内嵌播放器改用同一套进度条与拖动预览\n- 番剧简介按官方客户端重排：分类标签、标题与追番、数据与详情、单集互动数据、选集卡片、花絮分组、相关 UP 主和相关推荐；上滑时播放器折叠\n- 选集与花絮面板分段显示，支持左右滑动翻页\n- 首页顶栏与状态栏改为毛玻璃，内容从下方滑过，头像套玻璃圆\n- 视频或番剧页在后台被系统回收后，重新打开会回到原页面和进度\n- “我的”页面观看记录移到历史、稍后再看、收藏、离线下方，分组标题字号调小\n- 发评论按钮和图标加大；视频详情页内容延伸到屏幕底部，去掉底部白条\n- 大幅减少首页、视频详情页、评论区、动态和切换标签时的卡顿掉帧\n- 预加载：首页封面提前解码，按下视频卡片即开始加载详情，列表提前加载下一页，启动后在后台预热图形与字体\n\n附件为未签名 IPA，需要自行签名安装",
+          "downloadURL": "https://github.com/liuliuya2333/LiLite/releases/download/v1.0.19/LiLite-1.0.19-unsigned.ipa",
+          "size": 115589636,
+          "sha256": "4d0aabc8a1fa3071c654a9017870661eab6d59c54fd1bf1111e81086f4026e73",
+          "minOSVersion": "17.0"
+        },
+        {
           "version": "1.0.18",
           "buildVersion": "35",
           "date": "2026-11-19T10:43:36Z",
@@ -591,16 +601,6 @@
           "downloadURL": "https://github.com/liuliuya2333/LiLite/releases/download/v1.0.10/LiLite-1.0.10-unsigned.ipa",
           "size": 105719028,
           "sha256": "1a8576b9e3b3c3c6cdee04e5073c0db9afd7b6f55b92947bc2a73c98d9d2223b",
-          "minOSVersion": "26.0"
-        },
-        {
-          "version": "1.0.9",
-          "buildVersion": "15",
-          "date": "2026-11-18T12:37:59Z",
-          "localizedDescription": "正式版 · GitHub v1.0.9\nhttps://github.com/liuliuya2333/LiLite/releases/tag/v1.0.9\n\n修复首页快速上下滑动时，「推荐」等频道的选中背景短暂偏离文字、闪现的问题。横向切换频道时，高亮仍会跟随手势移动\n\n附件为未签名 IPA，需要自行签名安装",
-          "downloadURL": "https://github.com/liuliuya2333/LiLite/releases/download/v1.0.9/LiLite-1.0.9-unsigned.ipa",
-          "size": 105735411,
-          "sha256": "e362c5cf4075338093345d9d2a6702f6a3f2a5adc2f3c6940b989862a23ea9c0",
           "minOSVersion": "26.0"
         }
       ],
