@@ -168,6 +168,18 @@ class IpaTests(unittest.TestCase):
             with self.assertRaises(source.SourceError):
                 source.signed_entitlements(b"binary", Path(directory))
 
+    @patch.object(source.subprocess, "run")
+    def test_text_entitlements_are_retried_as_xml(self, run):
+        run.side_effect = [
+            subprocess.CompletedProcess([], 0, b"[Dict]\n", b""),
+            subprocess.CompletedProcess([], 0, plistlib.dumps({"example.entitlement": True}), b""),
+        ]
+        with tempfile.TemporaryDirectory() as directory:
+            self.assertEqual(source.signed_entitlements(b"binary", Path(directory)), ["example.entitlement"])
+        self.assertEqual(run.call_count, 2)
+        self.assertNotIn("--xml", run.call_args_list[0].args[0])
+        self.assertIn("--xml", run.call_args_list[1].args[0])
+
     @patch.object(source, "inspect_ipa", return_value=metadata())
     @patch.object(source, "request")
     def test_cache_reuse_and_reuploaded_asset_invalidation(self, request, inspect):

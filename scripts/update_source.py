@@ -112,8 +112,9 @@ def signed_entitlements(executable, directory):
     """Use Apple's parser; never execute or install downloaded code."""
     binary = directory / "executable"
     binary.write_bytes(executable)
+    command = ["codesign", "--display", "--entitlements", "-"]
     result = subprocess.run(
-        ["codesign", "--display", "--entitlements", "-", str(binary)],
+        [*command, str(binary)],
         capture_output=True, check=False,
     )
     if result.returncode:
@@ -122,7 +123,16 @@ def signed_entitlements(executable, directory):
         raise SourceError(f"Cannot inspect IPA entitlements: {result.stderr.decode(errors='replace')}")
     if not result.stdout.strip():
         return []
-    entitlements = plistlib.loads(result.stdout)
+    try:
+        entitlements = plistlib.loads(result.stdout)
+    except plistlib.InvalidFileException:
+        # Newer codesign versions can display entitlements as text by default.
+        result = subprocess.run(
+            [*command, "--xml", str(binary)], capture_output=True, check=False,
+        )
+        if result.returncode:
+            raise SourceError(f"Cannot inspect IPA entitlements: {result.stderr.decode(errors='replace')}")
+        entitlements = plistlib.loads(result.stdout)
     return sorted(entitlements)
 
 
