@@ -252,6 +252,16 @@
       "tintColor": "FB7299",
       "versions": [
         {
+          "version": "1.3.4",
+          "buildVersion": "21",
+          "date": "2026-11-20T08:21:30Z",
+          "localizedDescription": "正式版 · GitHub v1.3.4\nhttps://github.com/Fab1e2000/NeoBili/releases/tag/v1.3.4\n\n## 直播与缓存\n\n- 直播页顶部展示已关注且正在开播的主播，点头像即可进入直播间。下方可以直接浏览推荐直播。\n- 缓存页顶部可切换「已缓存」和「下载中」。删除缓存或取消任务后，后面的卡片会自动补上空位。\n\n## 收藏与评论\n\n- 收藏夹以带封面的列表展示。点右上角按钮可新建收藏夹，长按自己创建的收藏夹可删除，删除后可短暂撤销。\n- 修复长按菜单偶尔选中相邻卡片的问题。移除收藏、历史记录、稍后再看或自己的评论后，后续条目会补位。开启系统「减弱动态效果」时直接重排。\n- 在回复详情顶部下拉即可关闭。评论中指向视频第一分 P 的分享链接现在可在应用内打开。\n- 视频详情的「发弹幕」入口与旁边的分段栏对齐。\n\n## 权限与软件源\n\n- 移除了旧扫码登录所用的相册写入权限。登录继续使用短信验证码。\n- SideStore 软件源使用新版应用图标，并展示该版本实际使用的权限。\n\n本次构建号为 21。\n\n## 安装\n\n支持 iOS 26 及以上版本。下载附件 `NeoBili-v1.3.4-unsigned.ipa`，可用同页的 `SHA256SUMS.txt` 校验。通过 SideStore、AltStore 或 Sideloadly 使用自己的 Apple ID 重签安装。\n\nSideStore 可添加[国内源](https://n015.top/neobili/apps.json)或[备用源](https://cdn.jsdelivr.net/gh/Fab1e2000/NeoBili@main/sidestore/apps.json)。\n\n\n**构建信息**：提交 `5dbcc8db0a6d5b8e4324429e4c4b7ff93836c6ca`，由 [Xcode Cloud](https://appstoreconnect.apple.com/teams/2d9bb309-ce66-4d6f-a5e9-1bea4f68843e/apps//ci/builds/48ce8196-d52a-4a9e-a754-213a8e9a7409) 构建。",
+          "downloadURL": "https://github.com/Fab1e2000/NeoBili/releases/download/v1.3.4/NeoBili-v1.3.4-unsigned.ipa",
+          "size": 134123157,
+          "sha256": "78c887e10de4ccc18c995df14e9b394b1f2df095bba76368f90692a3e8dc29ba",
+          "minOSVersion": "26.0"
+        },
+        {
           "version": "1.3.3",
           "buildVersion": "20",
           "date": "2026-11-16T05:10:48Z",
@@ -339,16 +349,6 @@
           "downloadURL": "https://github.com/Fab1e2000/NeoBili/releases/download/v1.1.3/NeoBili-v1.1.3-unsigned.ipa",
           "size": 58308460,
           "sha256": "43d8486acbfc2110a85a0de2afcc14c2dd6a31e6ed48eee73c456ce33c3bd473",
-          "minOSVersion": "26.0"
-        },
-        {
-          "version": "1.1.2",
-          "buildVersion": "10",
-          "date": "2026-09-30T16:13:18Z",
-          "localizedDescription": "正式版 · GitHub v1.1.2\nhttps://github.com/Fab1e2000/NeoBili/releases/tag/v1.1.2\n\nNeoBili v1.1.2（构建 10）新增视频详情自动播放开关，并改进首页、视频页布局和图片加载。\n\n## 新功能与改进\n\n- 新增视频详情自动播放开关，默认开启。关闭后可先浏览简介和评论，点击播放按钮再开始播放。\n- 手动播放模式支持先选择分集；进入其他视频时重新读取播放设置。缩略播放器也支持开始播放等待中的视频。\n- 重做首页推荐信息流，并优化图片加载和播放进度跟踪。\n- 修复视频页顶部安全区域及播放器与页面内容之间的间隙。\n- 补充手动播放、页面切换和缩略播放器回归测试，改进测试隔离与开发文档。\n- 将独立产品网站和旧图标方案移出 App 源码仓库，保留当前图标源文件和必要开发资源。\n\n感谢 @yamakze（Zeno.Chen）贡献视频详情自动播放开关。\n\n## 下载与安装\n\n- `NeoBili-v1.1.2-unsigned.ipa`：Release 配置构建，未签名；安装前需要使用自己的证书或签名工具签名。\n- `SHA256SUMS.txt`：下载校验文件，在同一目录运行 `shasum -a 256 -c SHA256SUMS.txt` 校验。\n\n**系统要求**：iOS 26.0 或更高版本的 iPhone。\n\nNeoBili 是独立的第三方项目，与哔哩哔哩无官方关联。\n\n**构建信息**：提交 `f6c0827`，Xcode 26.6 Build version 17F113，由 [GitHub Actions](https://github.com/Fab1e2000/NeoBili/actions/runs/36735995520) 构建。",
-          "downloadURL": "https://github.com/Fab1e2000/NeoBili/releases/download/v1.1.2/NeoBili-v1.1.2-unsigned.ipa",
-          "size": 58292737,
-          "sha256": "35da6119b6197fc233e681b96e69fd56d0b1cd967224026c7e1d3928719608ca",
           "minOSVersion": "26.0"
         }
       ],
@@ -439,6 +439,26 @@
       "tintColor": "FF9500",
       "versions": [
         {
+          "version": "2.2.5",
+          "buildVersion": "2.2.5",
+          "date": "2026-11-20T18:49:08Z",
+          "localizedDescription": "正式版 · GitHub v2.2.5\nhttps://github.com/zxsos/HGhubX/releases/tag/v2.2.5\n\n# HGhubX v2.2.5\n\n聚焦多语言支持（简体中文、繁体中文、英语）、播放器微光效果与多端播放交互修复；覆盖 Windows、macOS、Linux、Android 与 iOS 标准版。\n\n## 新增与优化\n1. **简体中文、繁体中文与英语界面切换（#190）**：默认使用简体中文，可在「设置 → 外观 → 语言」中一键切换简体中文、繁體中文与 English，切换后立即生效并跨重启持久化；繁体中文与英语词典按需异步加载，首屏默认体积接近零增长。\n2. **播放器微光效果（#192）**：低分辨率实时采样当前播放画面颜色并柔和扩散至视频黑边区域；可在「设置 → 播放 → 微光效果」中随时开关（默认开启，关闭后不挂载采样层以节省电量）。\n3. **精简移动端长按倍速交互（#193）**：移除拖动至顶部胶囊锁定倍速的繁琐交互，长按右侧仅作临时加速、长按左侧临时 0.5x 减速、松手即恢复原倍速；持久倍速统一在全屏倍速按钮或「更多 → 播放设置」中调整。\n\n## 修复\n1. **桌面端开启「上下划切集」滚轮切集失效（#195）**：桌面端开启「上下划切集」后，鼠标滚轮或触控板纵向滑动原本直接触发列表原生滚动跳到下一部剧；现拦截播放区纵向滚轮并在当前剧内顺滑切集、弹出集数提示，底部控制栏「下一集 ↓ / 下一部 ↓」按钮同步遵循该开关。\n2. **清屏锁定后锁图标常驻遮挡画面（#194）**：移动端清屏模式点击锁定后立即隐藏右侧锁图标，锁定期间仅在点按屏幕触发「轻触即可解锁」提示时同步显示解锁按钮 2.2 秒，避免图标常驻干扰观看。\n3. **横屏全屏切集时集数提示重复闪现（#191）**：横屏全屏切集时暂存集数提示，待下一集视频尺寸解析完成并真正开播后再于横屏旋转舞台弹出一次，消除切换瞬间在竖屏和横屏位置各弹一次的问题。\n\n## 安装与兼容提示\n- Windows 提供 NSIS 安装包与便携压缩包；macOS 提供 Universal DMG；Linux 提供 amd64 `.deb`；Android 标准版按 ABI 提供已签名 APK（`versionCode=2002005`）；iOS 提供未签名 `.ipa`（需自行签名安装）。\n- 覆盖安装保留本机收藏、观看记录、界面语言、线路与内容偏好；Android TV 版（`com.hghubx.tv`）由独立 `tv-v*` 标签单独发布。\n\n## 致谢\n- 感谢 `@makisekurisu-jp` 贡献 #191、#192、#193、#194 播放器视觉与手势交互优化。\n\n## 验证\n- 本地 `make check`（Rust 114 项单元测试、TypeScript 三套配置与 Vite 构建、791 项多语言词典键一致性校验、文档链接、尺寸预算、版本同步）、`pnpm test:smoke`（8/8 套件通过）与 `pnpm test:playback`（`seek`、`gesture`、`episode-toast`、`ambient`、`portrait-fit` 5/5 场景通过）全量验证通过。\n- 各平台正式安装包由 `v2.2.5` 标签触发的 GitHub Actions `CI/CD` 工作流构建并校验。",
+          "downloadURL": "https://github.com/zxsos/HGhubX/releases/download/v2.2.5/HGhubX_2.2.5_ios.ipa",
+          "size": 3927965,
+          "sha256": "42e95bf6d45997d6124506acefa9af43a93f56973ac2571da7e5ae3aa4904276",
+          "minOSVersion": "15.0"
+        },
+        {
+          "version": "2.2.4",
+          "buildVersion": "2.2.4",
+          "date": "2026-11-20T15:17:02Z",
+          "localizedDescription": "正式版 · GitHub v2.2.4\nhttps://github.com/zxsos/HGhubX/releases/tag/v2.2.4\n\n# HGhubX v2.2.4\n\n聚焦播放交互细节打磨、搜索历史批量管理和桌面全屏体验优化，并完成 Android TV 子项目与标准版发版流程解耦；覆盖 Windows、macOS、Linux、Android 与 iOS 标准版。\n@makisekurisu-jp @zxsos\n\n## 新增与优化\n1. **启动页偏好设置（#180 / #185）**：可在「设置」中选择应用启动后默认进入的页面 。\n2. **搜索历史支持长按批量删除（#184）**：在搜索页与就地搜索面板长按历史词条即可进入多选批量删除。\n3. **清屏锁屏按钮对齐与状态提示（#187）**：对齐横屏与净屏模式下的锁屏/解锁锚点，并补齐锁定状态提示。\n4. **TV 子项目版本与 CI/CD 独立解耦（#189）**：标准版 `v*` 与 TV 版 `tv-v*` 拆分至各自工作流与独立版本号，后续互不阻塞发版。\n\n## 修复\n1. **桌面全屏定位与空闲隐藏（#180 / #183）**：修复桌面端全屏区域锚点偏移，播放空闲时自动隐藏悬浮控件与鼠标指针。\n2. **暂停时点击中央播放图标恢复播放（#182）**：暂停态点击画面中央播放图标直接恢复播放，不再被外层手势拦截。\n3. **移除横版视频上方重复控件（#177）**：去掉与底部操作栏重复的铺满与横屏悬浮按钮，减少画面遮挡。\n4. **全屏切集方向与提示去重（#176 / #178 / #179 / #181）**：统一全屏上下划切集方向与信息流一致，旋转全屏切集提示固定在视频底部，并消除快速切换上下划开关或触及剧集边界时的提示重复堆叠。\n\n## 安装与兼容提示\n- Windows 提供 NSIS 安装包与便携压缩包；macOS 提供 Universal DMG；Linux 提供 amd64 `.deb`；Android 标准版按 ABI 提供已签名 APK（`versionCode=2002004`）；iOS 提供未签名 `.ipa`（需自行签名安装）。\n- 覆盖安装保留本机收藏、观看记录、线路与内容偏好；Android TV 版（`com.hghubx.tv`）即日起由独立 `tv-v*` 标签单独发布，不包含在本标准版 Release 附件中。\n\n## 致谢\n- 感谢 @makisekurisu-jp 贡献 #176、#177、#178、#179、#181、#182、#184、#187 全部交互修复与增强。\n\n## 验证\n- 本地 `make check`（Rust `cargo check --all-targets` + `cargo test --lib`、标准版 `pnpm build`、文档链接、尺寸预算、标准版与 TV 版版本校验）与 `pnpm test:smoke` 全量通过。\n- 各平台构建产物由 `v2.2.4` 标签触发的 GitHub Actions `CI/CD` 工作流产出并验证。",
+          "downloadURL": "https://github.com/zxsos/HGhubX/releases/download/v2.2.4/HGhubX_2.2.4_ios.ipa",
+          "size": 3897090,
+          "sha256": "469f34608cec04de4d85d51a605dc777603b82a582bf3a20184ed6cd4df43f5d",
+          "minOSVersion": "15.0"
+        },
+        {
           "version": "2.2.3",
           "buildVersion": "2.2.3",
           "date": "2026-11-20T05:33:55Z",
@@ -513,6 +533,26 @@
       "iconURL": "https://raw.githubusercontent.com/liuliuya2333/LiLite/v1.0.18/Resources/Brand/icon.png",
       "tintColor": "3F8DF5",
       "versions": [
+        {
+          "version": "1.0.23",
+          "buildVersion": "40",
+          "date": "2026-11-20T17:32:37Z",
+          "localizedDescription": "正式版 · GitHub v1.0.23\nhttps://github.com/liuliuya2333/LiLite/releases/tag/v1.0.23\n\n- 视频详情页的点赞、不喜欢、投币、收藏、分享换成官方客户端图标，加上玻璃底和点按动画\n- 修复进入视频不自动播放\n- 一镜到底：从首页、空间等卡片打开视频时页面从卡片展开，返回时缩回卡片；同时修复打开页面没有转场动画\n- 修复从视频返回首页时底栏透明、闪一下\n- 楼中楼里侧滑只关闭楼中楼，不再直接退出视频\n- 评论图片改为全屏查看器，打开时先显示缩略图，单击关闭\n- 评论区装扮卡片按官方客户端布局重做，编号不再和卡图叠在一起，支持渐变色编号\n- 番剧页显示评论数，新增“点我发弹幕”\n- 追番追剧页按官方布局重做（追番 / 追剧、想看 / 在看 / 看过、管理），返回后列表不再残留选中态\n- UP 主空间：投稿里显示图文，主页背景改为白色，进入时顶部不再闪白条\n- 首页点头像切到“我的”加入过渡动画，简介展开、列表加载、关注等切换补上动画\n\n附件为未签名 IPA，需要自行签名安装",
+          "downloadURL": "https://github.com/liuliuya2333/LiLite/releases/download/v1.0.23/LiLite-1.0.23-unsigned.ipa",
+          "size": 117684148,
+          "sha256": "06e9c66b18bb722a0349a73e9dd5006afc3ac9de64230456b6ef50b5810e9467",
+          "minOSVersion": "17.0"
+        },
+        {
+          "version": "1.0.22",
+          "buildVersion": "39",
+          "date": "2026-11-20T10:07:20Z",
+          "localizedDescription": "正式版 · GitHub v1.0.22\nhttps://github.com/liuliuya2333/LiLite/releases/tag/v1.0.22\n\n- 直播间按官方客户端重做：模糊封面暗色背景、主播栏（看过人数、开播时长、关注、高能榜）、深色弹幕列表（粉丝牌、主播标签、新消息提示）和底部输入栏；画质、线路、定时停止等设置收进 ⋯ 菜单；竖屏直播和横屏有各自的布局\n- 修复直播实时弹幕连不上（提示“Brotli 直播帧无效”）\n- 修复视频全屏时点几次就卡死、锁定后解不开\n- 修复番剧和剧集弹幕密集时闪烁\n- 修复界面缩放调小后首页加载不出来、顶栏跑到右边；运行中切换缩放后频道页不再错位\n- 首页推荐像官方客户端一样无限下滑自动加载，不再显示“加载更多”按钮\n- 性能优化：首页封面预取更快，打开视频、简介与评论滑动、UP 主空间更流畅\n\n附件为未签名 IPA，需要自行签名安装",
+          "downloadURL": "https://github.com/liuliuya2333/LiLite/releases/download/v1.0.22/LiLite-1.0.22-unsigned.ipa",
+          "size": 116795428,
+          "sha256": "92c6c7c2a1ef53a0082ef419451b02b7f9831f079b3f106f2ea2d49a1c9f0121",
+          "minOSVersion": "17.0"
+        },
         {
           "version": "1.0.21",
           "buildVersion": "38",
@@ -591,26 +631,6 @@
           "downloadURL": "https://github.com/liuliuya2333/LiLite/releases/download/v1.0.14/LiLite-1.0.14-unsigned.ipa",
           "size": 109988756,
           "sha256": "0fe2bde715d8a9db429bc098ff4a96aa159eb922803699b76b9c0326c250e7a7",
-          "minOSVersion": "26.0"
-        },
-        {
-          "version": "1.0.13",
-          "buildVersion": "30",
-          "date": "2026-11-18T15:21:27Z",
-          "localizedDescription": "正式版 · GitHub v1.0.13\nhttps://github.com/liuliuya2333/LiLite/releases/tag/v1.0.13\n\n视频链接直接打开完整视频页，修复普通 iPhone 顶部卡片圆角和重复留白\n暂停时在简介和评论之间横滑会保留播放器的折叠高度，以及各页的阅读位置\n评论里的 @ 进入个人主页，侧滑返回可继续阅读，保留视频进度和播放状态\n减少评论滚动时的视图更新，按需启动画中画画面拷贝\n\n附件为未签名 IPA，需要自行签名安装",
-          "downloadURL": "https://github.com/liuliuya2333/LiLite/releases/download/v1.0.13/LiLite-1.0.13-unsigned.ipa",
-          "size": 105773220,
-          "sha256": "24eb69b144affa67ca391527af3831b03b4c9055ff2f314d4a5890cb3c71233d",
-          "minOSVersion": "26.0"
-        },
-        {
-          "version": "1.0.12",
-          "buildVersion": "25",
-          "date": "2026-11-18T14:28:26Z",
-          "localizedDescription": "正式版 · GitHub v1.0.12\nhttps://github.com/liuliuya2333/LiLite/releases/tag/v1.0.12\n\n修复竖版视频被拉宽的问题。竖片在普通 iPhone 的视频页展开显示，全屏跟随片源方向，手动选择的画面比例仍可使用\n修复带旋转标记的视频在软件渲染和后台画中画中的方向与裁切问题\n\n附件为未签名 IPA，需要自行签名安装",
-          "downloadURL": "https://github.com/liuliuya2333/LiLite/releases/download/v1.0.12/LiLite-1.0.12-unsigned.ipa",
-          "size": 105703300,
-          "sha256": "eb7c9b95a10c353e7be3df2faafc009b648de415778e7a2ab0eb8a017463e5e2",
           "minOSVersion": "26.0"
         }
       ],
