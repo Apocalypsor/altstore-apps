@@ -370,6 +370,16 @@
       "versions": [
         {
           "version": "0.9.8",
+          "buildVersion": "185",
+          "date": "2026-11-21T08:36:42Z",
+          "localizedDescription": "正式版 · GitHub v0.9.8.26\nhttps://github.com/kai-wu-cortex/AirSIM/releases/tag/v0.9.8.26\n\n# AirSIM Apps v0.9.8.26 — 通话界面、多卡信号与稳定性\n\n2026-11-21（Asia/Shanghai），基于 develop。Android Standalone／AVF Bridge **0.9.8.26（141）**；iPhone／Watch／Widget／短信通知扩展 **0.9.8（185）**。\n\n## 更新内容\n\n- 更新拨号页的大圆按键、最近通话列表与蓝灰通话界面。通话中可收起界面并返回；保留现有通话、选卡、连接和音频控制逻辑。\n- iPhone 和 Watch 在 PushKit 回调中及时上报 CallKit，补齐无效／过期推送的系统收尾与仅一次 completion，避免结束另一通电话；修复已确认的未处理 VoIP 推送崩溃路径。\n- Root 短信使用 App 持有的逐段系统发送回执。只有确认未发送时才允许安全回退；发送结果未知时停止重试。补齐多用户和系统接口兼容，保留 140 版 Shizuku 回执修复。\n- 修复云端 SIM 列表及拨号／短信命令入口对安卓三行 PhoneAccount 标识的兼容；仍严格校验格式和长度。自检补充所选 SIM 确认状态。\n- 修复云端呼出状态处理，避免把呼出接通当作来电接听命令；保留命令去重与通话身份校验。\n- 灵动岛与桌面小组件显示各张 SIM 的信号，需要新版安卓上报；无可靠采样、旧端或过期数据显示未知，不猜测信号或影响在线判定。\n- 手机与手表短信列表增加精确号码匹配的服务号码图标，联系人照片优先；资源说明见 [SMSCarrierIcons](https://github.com/kai-wu-cortex/AirSIM/blob/v0.9.8.26/docs/SMSCarrierIcons.md)。\n- 开屏加入“拨号与通话界面”“多卡信号与稳定性”两组本地 SVG 介绍；保留减少动态效果设置。Android 更新说明同步。\n\n## 升级与验收边界\n\n- Android 正式包沿用原发行证书；Debug 安装不能直接覆盖为正式包，不建议卸载丢失配对数据。\n- 公开 full／sideload IPA 是未签名包，需自行签署主 App 和全部扩展；full 包含 Watch，sideload 不含 Watch。TestFlight 使用独立 App Store 签名上传。\n- 本次同步 Cloudflare 与阿里云 ECS 的 AirSIM Relay；不修改同机的 AirSIM Cloud／TURN，不更新独立 AVF Linux Agent 或 U30Air 固件。\n- 系统发送成功不等于对方收到；其他厂商、多段短信和更多 Root 环境仍需实测。历史缺失的发信记录不会自动补回。\n- 已确认的 PushKit 崩溃路径修复不代表所有 TestFlight 崩溃均解决；iPhone／Watch 锁屏推送与真实通话仍需回归。\n- UI 184 已在 iPhone Air 覆盖安装并启动。模拟器 UI 测试受启动环境阻塞，未完成截图用例，不能宣称全尺寸视觉验收通过。\n- 实验性 ANCS 通知转发已撤回，不包含在本次发布。纯本地跨端零 Relay 流量、Watch 全链路仍需专项验收。\n\n## 发布验证\n\n- Android 全量回归通过；Worker 84 项、自托管 5 项通过。\n- PushKit 26 项拒绝／错误路径、同步上报、completion 与 UUID 隔离检查通过；云端 SIM 协议和诊断 smoke、更新策略与生命周期检查通过。\n- 追加短信逐段回执、Root provider 边界、API 29／30／35／36 分卡信号测试通过；VoBLE 恢复／音频一致性及 Watch 341 项可靠性断言通过。\n- 两种正式 APK 的原发行证书、build 141、API 29 最低要求和不可调试属性已核验。\n- 代码提交 `8bab98a` 已推送 develop。主 App、Watch、小组件、短信扩展 Release 归档通过，统一 build 185。App Store 导出、深度签名、production APNs、App Group、不可调试属性及 4 个 Mach-O 的 Date 导入检查通过。\n- full／sideload IPA 由同一归档的独立副本去除签名后打包，不包含描述文件和签名；full 保留 Watch，sideload 移除 Watch。原始归档与 dSYM 保留用于崩溃分析。\n- GitHub 发布附件共 8 个，已重新下载验证：SHA-256 清单一致，7 个有效载荷全部校验通过。\n- 2026-11-21 16:34（Asia/Shanghai），Xcode 确认 build 185 上传 App Store Connect 成功，Apple 已开始处理。尚未确认 TestFlight 处理完成或外部测试可用；自动化测试不等同于真机通话验收。\n\n## Relay 部署状态\n\n- 阿里云 ECS 已更新到本版业务代码，内部与公网 HTTPS/WSS 合成验证通过，其他 AirSIM Cloud／TURN 服务未重启。\n- Cloudflare 已部署新版本，但平台当前返回 HTTP 429／1027（免费层每日请求额度超限），额度恢复前公网链路不可用。未自动升级付费计划。\n- 完整部署与回退记录见 [部署记录](https://github.com/kai-wu-cortex/AirSIM/blob/v0.9.8.26/docs/reviews/2026-11-21-relay-deployment.md)。\n\n## SHA-256\n\n```text\n04a96a1f8fea6e42afaae5ba12e76799c6794256118800249649efef33cc551c  AirSIM-Android-AVF-0.9.8.26-build141.apk\n3d3febea27c6f79163e464161e9c02041d96f3b06cb804752ef22fb480b95a0f  AirSIM-Android-Standalone-0.9.8.26-build141.apk\ne81e954c61521b7ce439c040333e21310b1a5f43f689f6c189a99a706eb811fe  AirSIM-iOS-0.9.8-build185-sideload-unsigned.ipa\nc72b26887affd3f87aca2c940add76d9e0eaee122d72b2d87c571075d0cea419  AirSIM-iOS-0.9.8-build185-unsigned.ipa\nc0ea4a896d2c8c394b29f9427589996db826cd501c512279ff0ed3ef48fabbe5  LICENSE\n82bb82e0816c778a09b7ddc8cea0f9126847d6e489bf0aeb7fb1dff2dfc54454  NOTICE\n97191d13afac2690c676558dd012a8f365da50c1659d27dd5d8a1226a1f19d93  THIRD_PARTY_NOTICES.md\n```",
+          "downloadURL": "https://github.com/kai-wu-cortex/AirSIM/releases/download/v0.9.8.26/AirSIM-iOS-0.9.8-build185-sideload-unsigned.ipa",
+          "size": 11625899,
+          "sha256": "e81e954c61521b7ce439c040333e21310b1a5f43f689f6c189a99a706eb811fe",
+          "minOSVersion": "16.3"
+        },
+        {
+          "version": "0.9.8",
           "buildVersion": "176",
           "date": "2026-11-14T13:24:47Z",
           "localizedDescription": "正式版 · GitHub v0.9.8.25\nhttps://github.com/kai-wu-cortex/AirSIM/releases/tag/v0.9.8.25\n\n# AirSIM Apps v0.9.8.25 — 蓝牙通话恢复与短信回执\n\n2026-11-14（Asia/Shanghai），基于 `develop`。Android Standalone／AVF Bridge **0.9.8.25（140）**；iPhone／Watch／Widget／短信通知扩展 **0.9.8（176）**。\n\n## 更新内容\n\n- VoBLE 来电由 PushKit 唤醒后，等待对应已配对设备恢复认证，再沿蓝牙接听；固定蓝牙模式不误走云端。恢复有时间上限，严格匹配设备、通话与连接代次，不接管其他通话。\n- 优化蓝牙运营商接通前音频的通知合包、队列与协商保活。接通前只接收真实下行，不开启麦克风、不提前计时；不保证运营商每次拒接都有公告。\n- 蓝牙地址变化时通过认证身份恢复已有配对；补齐 VoBLE 设备电量、App／小组件展示及 Android 10–12 短信能力检测。\n- 修复部分安卓 PhoneAccount 与短信订阅映射；保留精确 SIM 选择，不猜测卡槽或静默切换默认卡。\n- Shizuku 短信发送接入系统逐段发送回执。调用异常但系统确认已发送时正确返回成功，并由 iPhone 保存发信记录；结果不确定时不回退重发，避免重复短信。仅系统确认发送不等于对方收达。\n- 云端心跳与状态提供按设备隔离的 SIM 列表，拨号和短信传递所选卡；同一个操作不能用重试换卡。需配套新版 Relay 和具备该能力的设备端。\n- 整合 Watch 来电状态与终态身份同步、兼容端的直接接听和短信会话／回复，保留媒体授权和旧端回退边界。\n- 开屏新增“蓝牙连接与音频”和“短信发送与记录”两组本地 SVG 动画；Android 更新介绍同步，保留减少动态效果支持。\n\n## 升级与限制\n\n- Android 正式 APK 沿用原发行证书；当前 Debug 包不能直接覆盖为正式包，请勿盲目卸载丢失配对数据。\n- GitHub full／sideload IPA 为未签名包，需自行配置 Apple Team、Bundle ID、App Group、共享钥匙串并签署全部扩展；full 含 Watch，sideload 不含 Watch。这些包不能直接安装或上传 TestFlight。\n- iOS／Android 建议配套升级。独立 AVF Linux Agent 与 U30Air 固件不在本次发布内；不能把 Standalone 的新能力视为这些设备端已经支持。\n- 既有缺失的 iPhone 发信历史不会自动补回。Root-only 短信回执、多段短信与更多厂商机型仍待实机验收；厂商发送后的空指针未宣称消失，新版通过系统回执正确收敛结果。\n- 运营商语音依赖实际音频下行与设备能力。纯本地跨端零 Relay 流量、Watch 全链路及云端双卡实际出号仍需专项验收。\n- 本轮仅发布应用和源码，不另行部署 Worker／ECS。自托管用户需同步包含 SIM 列表与选卡转发的新 Relay 源码。\n\n## 验证与发布状态\n\n- Redmi 9 + iPhone 的蓝牙早期语音流畅性及 140 版短信发送／iPhone 发信记录由用户实测确认。单段短信日志显示同一尝试获得系统成功回执，未触发跨路径重发。\n- Android 全套回归通过；权限短信 23 项、API 29–35 能力与回执分类测试通过。Worker 82 项测试通过。\n- iOS 蓝牙冷启动恢复、地址认证恢复、早期媒体与正式通话音频一致性、云端 SIM 模型、更新策略、Watch 镜像／传输／可靠性和短信身份定向回归通过。测试使用模拟边界，不等同于真实无线链路验收。\n- Android 两种正式 APK 的原发行证书、build 140 和不可调试标志已核验；两张新 SVG 的 XML 和静态预览检查通过。主 App、Watch、小组件和通知扩展的 Release 归档通过，统一 build 176。App Store 包深度签名、production APNs、App Group、共享钥匙串与不可调试标志通过；4 个 Mach-O 的 Date 导入检查通过。\n- 两种 unsigned IPA 的无签名检查通过，full 保留 Watch、sideload 移除 Watch。附件 SHA-256 见下。源码修复提交 `9348d4f` 已推送 develop。\n- TestFlight 176 已于 2026-11-14 21:24（Asia/Shanghai）上传成功，Apple 返回 `Upload succeeded`，上传包正在处理。外测审核和测试者可用状态尚未确认。\n- GitHub Release `v0.9.8.25` 已公开，标签指向 `796067e`；包含两种正式 APK、两种 unsigned IPA、三份许可文件及 SHA-256 清单，共 8 个附件。所有附件已重新下载，校验清单与本机一致，7 个有效载荷 SHA-256 全部通过。\n- 既有云端 SIM XCTest 模拟器宿主未能启动用例；已有构建通过与独立协议 smoke，不宣称该组 XCTest 已执行通过。\n\n具体行为与验收边界见 [VoBLE 恢复与早期媒体](https://github.com/kai-wu-cortex/AirSIM/blob/v0.9.8.25/docs/fixes/2026-11-14-voble-push-answer-early-media.md)、[短信回执](https://github.com/kai-wu-cortex/AirSIM/blob/v0.9.8.25/docs/fixes/2026-11-14-miui-sms-confirmation.md)、[SIM 映射](https://github.com/kai-wu-cortex/AirSIM/blob/v0.9.8.25/docs/fixes/2026-11-14-sms-sim-subscription-mapping.md)、[云端选卡](https://github.com/kai-wu-cortex/AirSIM/blob/v0.9.8.25/docs/fixes/2026-11-14-relay-sim-selection.md)。\n\n## SHA-256\n\n```text\na558594fb770a069df29d7a6e8f391be8f2acc89d9ef61d1f8218e20c704e630  AirSIM-Android-AVF-0.9.8.25-build140.apk\n2e58172696d1e669b90662c914e44b266d03f3a18a3e454a6ecca5a6251be4fe  AirSIM-Android-Standalone-0.9.8.25-build140.apk\n97775525857997ff8901fb5483e2551fd50b9c09c3a23086a6362ea31dabbe14  AirSIM-iOS-0.9.8-build176-sideload-unsigned.ipa\nb8af16479ebbba531c397dfdbabcecb3fb08cbbbf5cd05b7559ac18edf613533  AirSIM-iOS-0.9.8-build176-unsigned.ipa\nc0ea4a896d2c8c394b29f9427589996db826cd501c512279ff0ed3ef48fabbe5  LICENSE\n82bb82e0816c778a09b7ddc8cea0f9126847d6e489bf0aeb7fb1dff2dfc54454  NOTICE\n73029345e741647eed21961df8112cc4167e1e89ee1ebaf2570f8007b4ba7042  THIRD_PARTY_NOTICES.md\n```",
@@ -438,6 +448,16 @@
       "iconURL": "https://raw.githubusercontent.com/zxsos/HGhubX/main/app-icon.png",
       "tintColor": "FF9500",
       "versions": [
+        {
+          "version": "2.2.6",
+          "buildVersion": "2.2.6",
+          "date": "2026-11-21T17:01:54Z",
+          "localizedDescription": "正式版 · GitHub v2.2.6\nhttps://github.com/zxsos/HGhubX/releases/tag/v2.2.6\n\n# HGhubX v2.2.6\n\n聚焦分类频道与官网排序同步、全站分页上滑自动加载、海报角标、多页左右滑动切栏与 FakeIP 代理连接修复；覆盖 Windows、macOS、Linux、Android 与 iOS 标准版。\n\n## 新增与优化\n1. **分类与原创频道与官网排序同步（#202、#211）**：短剧、漫剧频道的「最近更新」「当前热播」「精选推荐」以及「原创」频道的「全部原创」「原创漫剧」「原创短剧」优先解析官网服务端渲染频道页，与网站更新排序、总页数、标签及统计保持一致，解析异常时自动回退原有 JSON 接口。\n2. **海报左上角新增「原创」「热播」「新片」角标（#202、#211）**：瀑布流与横向预览卡片海报左上角按「原创」「热播」「新片」（72 小时窗口）顺序显示高对比度角标，避免与右上角评分重叠；集数状态移至海报底部遮罩左侧与播放量同排展示，「我的」页继续保留「新更 N 集」角标。\n3. **分页列表统一改为上滑自动加载（#202、#211）**：频道页、吃瓜列表、专题详情、标签详情、关注/创作者作品与全局/栏目搜索均在接近底部时自动续载下一页，不再常驻手动「加载更多」按钮；开启标签屏蔽时同样保持自动加载，仅当连续 2 页过滤后均无可见条目时熔断暂停并展示手动兜底按钮。\n4. **多页面支持左右滑动切换标签栏（#208、#209）**：排行榜支持左右滑动切换热播/推荐/潜力榜；「我的」页支持左右滑动切换收藏/历史；分类频道页支持左右滑动切换筛选 tab。\n5. **「我的」页批量管理新增「全选」（#205）**：收藏与观看历史进入多选模式后支持一键「全选」，并移除历史页底部多余的独立清空按钮，统一收口到批量管理操作栏。\n\n## 修复\n1. **iOS / 桌面 TUN FakeIP 代理导致请求全部被拒（#199）**：开启 Shadowrocket / Clash / Surge / sing-box 等 FakeIP 代理后，系统 DNS 同时返回 FakeIP IPv4 与合成 ULA IPv6 假地址，此前整组校验会误判私网并拒绝请求；现严格模式在系统解析路径丢弃不可直达的假 IPv6 ULA、仅固定可放行的地址，整组均不可放行时仍拒绝，且不放宽任何安全白名单。\n2. **搜索历史长按编辑态胶囊字号与尺寸异常（#207）**：修正搜索历史进入编辑态时胶囊字号与内边距跳动问题，保持常规态与编辑态视觉一致。\n\n## 安装与兼容提示\n- Windows 提供 NSIS 安装包与便携压缩包；macOS 提供 Universal DMG；Linux 提供 amd64 `.deb`；Android 标准版按 ABI 提供已签名 APK（`versionCode=2002006`）；iOS 提供未签名 `.ipa`（需自行签名安装）。\n- 覆盖安装保留本机收藏、观看记录、界面语言、线路与内容偏好；Android TV 版（`com.hghubx.tv`）由独立 `tv-v2.2.4` 标签单独发布。\n\n## 致谢\n- 感谢 @zxsos 完成 #202/#211 分类频道与官网排序同步、全站上滑自动加载、海报角标以及 #210/#212/#214 工作流拆分与自动预览体系建设。\n- 感谢 @oahceh 贡献 #199 FakeIP DNS 混合结果固定修复。\n- 感谢 @makisekurisu-jp 贡献 #205、#207、#208、#209 批量全选、搜索历史样式与多页滑动切栏优化。\n\n## 验证\n- 本地 `make check`（Rust 118 项单元测试通过 / 0 失败 / 4 联网测试跳过、TypeScript 三套配置与 Vite 构建、789 项多语言词典键一致性校验、文档链接、尺寸预算、版本同步）与 `pnpm test:smoke`（12/12 套件通过，含 `channel-autoload-badges`、`profile-swipe`、`channel-swipe`、`rank-swipe`）全量通过。\n- 各平台正式安装包由 `v2.2.6` 标签触发的 GitHub Actions `Release` 工作流构建并校验。",
+          "downloadURL": "https://github.com/zxsos/HGhubX/releases/download/v2.2.6/HGhubX_2.2.6_ios.ipa",
+          "size": 3990783,
+          "sha256": "c581c6718c758fc2769cfd16255e7bdf391231bcdd2eb65e120ed5834be674af",
+          "minOSVersion": "15.0"
+        },
         {
           "version": "2.2.5",
           "buildVersion": "2.2.5",
@@ -534,6 +554,16 @@
       "tintColor": "3F8DF5",
       "versions": [
         {
+          "version": "1.0.25",
+          "buildVersion": "42",
+          "date": "2026-11-21T18:39:41Z",
+          "localizedDescription": "正式版 · GitHub v1.0.25\nhttps://github.com/liuliuya2333/LiLite/releases/tag/v1.0.25\n\n**交互与返回**\n- 直播间、视频页、番剧页、UP 主空间、搜索结果等页面支持全屏宽度右划返回；在后面的标签页右划先回到上一个标签，播放器区域仍用于拖动进度\n- 评论区点开图片后可以右划关闭，只关闭图片，视频继续播放，不会再退回首页\n- 播放器左上角的回到首页按钮已移除\n- 长按倍速按官方客户端的判定（0.25 秒），倍速时手指轻微移动不再变成拖动进度条\n\n**界面**\n- 合集改为从播放器下方滑出的面板，风格与评论详情一致：顶部固定封面、标题、视频数和订阅按钮，支持分节与正倒序，自动定位到正在播放的一集\n- 视频简介、全屏“更多”面板按官方客户端重做\n- 官方赛事直播间新增赛程、回放、选手评分\n\n**iPad 与 iPhone Duo**\n- 一镜到底在 iPad 与 Duo（展开、半折叠）上直接落到播放器位置，过渡连贯；右划缩回卡片的手感与手机一致\n- 视频页并排布局与侧栏宽度调整，窄栏中的标签与发弹幕按钮不再被截断\n\n**性能与修复**\n- 修复播放视频时返回首页、再进入视频的卡顿\n- 修复听视频部分地址 403 无法播放\n- 离开播放后释放播放器与渲染资源，降低内存占用\n- 改用 Xcode 原生构建\n\n附件为未签名 IPA，需要自行签名安装",
+          "downloadURL": "https://github.com/liuliuya2333/LiLite/releases/download/v1.0.25/LiLite-1.0.25-unsigned.ipa",
+          "size": 23543836,
+          "sha256": "058513c7b45e890019edd3f85109d8b1f30305afc8e118d02ae65cdd299fd32b",
+          "minOSVersion": "17.0"
+        },
+        {
           "version": "1.0.24",
           "buildVersion": "41",
           "date": "2026-11-21T01:08:27Z",
@@ -621,16 +651,6 @@
           "downloadURL": "https://github.com/liuliuya2333/LiLite/releases/download/v1.0.16/LiLite-1.0.16-unsigned.ipa",
           "size": 112156740,
           "sha256": "7a6d49bcfa041095d2a6174a7b7771fe98d3b4c470b8c6280cb0ab207789cb3b",
-          "minOSVersion": "17.0"
-        },
-        {
-          "version": "1.0.15",
-          "buildVersion": "32",
-          "date": "2026-11-19T04:39:05Z",
-          "localizedDescription": "正式版 · GitHub v1.0.15\nhttps://github.com/liuliuya2333/LiLite/releases/tag/v1.0.15\n\n最低支持版本降到 iOS 17，现支持 iOS 17+\n\n附件为未签名 IPA，需要自行签名安装",
-          "downloadURL": "https://github.com/liuliuya2333/LiLite/releases/download/v1.0.15/LiLite-1.0.15-unsigned.ipa",
-          "size": 112062932,
-          "sha256": "b4c78ae6fa20194f70214d270a91dfde6055b19db1bc5f1f89d726b56869151b",
           "minOSVersion": "17.0"
         }
       ],
