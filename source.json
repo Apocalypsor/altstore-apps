@@ -442,7 +442,7 @@
           "version": "2.2.5",
           "buildVersion": "2.2.5",
           "date": "2026-11-20T18:49:08Z",
-          "localizedDescription": "正式版 · GitHub v2.2.5\nhttps://github.com/zxsos/HGhubX/releases/tag/v2.2.5\n\n# HGhubX v2.2.5\n\n聚焦多语言支持（简体中文、繁体中文、英语）、播放器微光效果与多端播放交互修复；覆盖 Windows、macOS、Linux、Android 与 iOS 标准版。\n\n## 新增与优化\n1. **简体中文、繁体中文与英语界面切换（#190）**：默认使用简体中文，可在「设置 → 外观 → 语言」中一键切换简体中文、繁體中文与 English，切换后立即生效并跨重启持久化；繁体中文与英语词典按需异步加载，首屏默认体积接近零增长。\n2. **播放器微光效果（#192）**：低分辨率实时采样当前播放画面颜色并柔和扩散至视频黑边区域；可在「设置 → 播放 → 微光效果」中随时开关（默认开启，关闭后不挂载采样层以节省电量）。\n3. **精简移动端长按倍速交互（#193）**：移除拖动至顶部胶囊锁定倍速的繁琐交互，长按右侧仅作临时加速、长按左侧临时 0.5x 减速、松手即恢复原倍速；持久倍速统一在全屏倍速按钮或「更多 → 播放设置」中调整。\n\n## 修复\n1. **桌面端开启「上下划切集」滚轮切集失效（#195）**：桌面端开启「上下划切集」后，鼠标滚轮或触控板纵向滑动原本直接触发列表原生滚动跳到下一部剧；现拦截播放区纵向滚轮并在当前剧内顺滑切集、弹出集数提示，底部控制栏「下一集 ↓ / 下一部 ↓」按钮同步遵循该开关。\n2. **清屏锁定后锁图标常驻遮挡画面（#194）**：移动端清屏模式点击锁定后立即隐藏右侧锁图标，锁定期间仅在点按屏幕触发「轻触即可解锁」提示时同步显示解锁按钮 2.2 秒，避免图标常驻干扰观看。\n3. **横屏全屏切集时集数提示重复闪现（#191）**：横屏全屏切集时暂存集数提示，待下一集视频尺寸解析完成并真正开播后再于横屏旋转舞台弹出一次，消除切换瞬间在竖屏和横屏位置各弹一次的问题。\n\n## 安装与兼容提示\n- Windows 提供 NSIS 安装包与便携压缩包；macOS 提供 Universal DMG；Linux 提供 amd64 `.deb`；Android 标准版按 ABI 提供已签名 APK（`versionCode=2002005`）；iOS 提供未签名 `.ipa`（需自行签名安装）。\n- 覆盖安装保留本机收藏、观看记录、界面语言、线路与内容偏好；Android TV 版（`com.hghubx.tv`）由独立 `tv-v*` 标签单独发布。\n\n## 致谢\n- 感谢 `@makisekurisu-jp` 贡献 #191、#192、#193、#194 播放器视觉与手势交互优化。\n\n## 验证\n- 本地 `make check`（Rust 114 项单元测试、TypeScript 三套配置与 Vite 构建、791 项多语言词典键一致性校验、文档链接、尺寸预算、版本同步）、`pnpm test:smoke`（8/8 套件通过）与 `pnpm test:playback`（`seek`、`gesture`、`episode-toast`、`ambient`、`portrait-fit` 5/5 场景通过）全量验证通过。\n- 各平台正式安装包由 `v2.2.5` 标签触发的 GitHub Actions `CI/CD` 工作流构建并校验。",
+          "localizedDescription": "正式版 · GitHub v2.2.5\nhttps://github.com/zxsos/HGhubX/releases/tag/v2.2.5\n\n# HGhubX v2.2.5\n\n聚焦多语言支持（简体中文、繁体中文、英语）、播放器微光效果与多端播放交互修复；覆盖 Windows、macOS、Linux、Android 与 iOS 标准版。\n@makisekurisu-jp @zxsos\n## 新增与优化\n1. **简体中文、繁体中文与英语界面切换（#190）**：默认使用简体中文，可在「设置 → 外观 → 语言」中一键切换简体中文、繁體中文与 English，切换后立即生效并跨重启持久化；繁体中文与英语词典按需异步加载，首屏默认体积接近零增长。\n2. **播放器微光效果（#192）**：低分辨率实时采样当前播放画面颜色并柔和扩散至视频黑边区域；可在「设置 → 播放 → 微光效果」中随时开关（默认开启，关闭后不挂载采样层以节省电量）。\n3. **精简移动端长按倍速交互（#193）**：移除拖动至顶部胶囊锁定倍速的繁琐交互，长按右侧仅作临时加速、长按左侧临时 0.5x 减速、松手即恢复原倍速；持久倍速统一在全屏倍速按钮或「更多 → 播放设置」中调整。\n\n## 修复\n1. **桌面端开启「上下划切集」滚轮切集失效（#195）**：桌面端开启「上下划切集」后，鼠标滚轮或触控板纵向滑动原本直接触发列表原生滚动跳到下一部剧；现拦截播放区纵向滚轮并在当前剧内顺滑切集、弹出集数提示，底部控制栏「下一集 ↓ / 下一部 ↓」按钮同步遵循该开关。\n2. **清屏锁定后锁图标常驻遮挡画面（#194）**：移动端清屏模式点击锁定后立即隐藏右侧锁图标，锁定期间仅在点按屏幕触发「轻触即可解锁」提示时同步显示解锁按钮 2.2 秒，避免图标常驻干扰观看。\n3. **横屏全屏切集时集数提示重复闪现（#191）**：横屏全屏切集时暂存集数提示，待下一集视频尺寸解析完成并真正开播后再于横屏旋转舞台弹出一次，消除切换瞬间在竖屏和横屏位置各弹一次的问题。\n\n## 安装与兼容提示\n- Windows 提供 NSIS 安装包与便携压缩包；macOS 提供 Universal DMG；Linux 提供 amd64 `.deb`；Android 标准版按 ABI 提供已签名 APK（`versionCode=2002005`）；iOS 提供未签名 `.ipa`（需自行签名安装）。\n- 覆盖安装保留本机收藏、观看记录、界面语言、线路与内容偏好；Android TV 版（`com.hghubx.tv`）由独立 `tv-v*` 标签单独发布。\n\n## 致谢\n- 感谢 `@makisekurisu-jp` 贡献 #191、#192、#193、#194 播放器视觉与手势交互优化。\n\n## 验证\n- 本地 `make check`（Rust 114 项单元测试、TypeScript 三套配置与 Vite 构建、791 项多语言词典键一致性校验、文档链接、尺寸预算、版本同步）、`pnpm test:smoke`（8/8 套件通过）与 `pnpm test:playback`（`seek`、`gesture`、`episode-toast`、`ambient`、`portrait-fit` 5/5 场景通过）全量验证通过。\n- 各平台正式安装包由 `v2.2.5` 标签触发的 GitHub Actions `CI/CD` 工作流构建并校验。",
           "downloadURL": "https://github.com/zxsos/HGhubX/releases/download/v2.2.5/HGhubX_2.2.5_ios.ipa",
           "size": 3927965,
           "sha256": "42e95bf6d45997d6124506acefa9af43a93f56973ac2571da7e5ae3aa4904276",
@@ -534,6 +534,16 @@
       "tintColor": "3F8DF5",
       "versions": [
         {
+          "version": "1.0.24",
+          "buildVersion": "41",
+          "date": "2026-11-21T01:08:27Z",
+          "localizedDescription": "正式版 · GitHub v1.0.24\nhttps://github.com/liuliuya2333/LiLite/releases/tag/v1.0.24\n\n- 头像上的大会员角标改为原版尺寸：列表头像 14pt，UP 主空间大头像 20pt，不再过大\n\n附件为未签名 IPA，需要自行签名安装",
+          "downloadURL": "https://github.com/liuliuya2333/LiLite/releases/download/v1.0.24/LiLite-1.0.24-unsigned.ipa",
+          "size": 117700532,
+          "sha256": "3d2cb4c8b5c21ebd7b9e7f1d4f6746664c8ef2b8dcc51c50fabcab012f6881e2",
+          "minOSVersion": "17.0"
+        },
+        {
           "version": "1.0.23",
           "buildVersion": "40",
           "date": "2026-11-20T17:32:37Z",
@@ -622,16 +632,6 @@
           "size": 112062932,
           "sha256": "b4c78ae6fa20194f70214d270a91dfde6055b19db1bc5f1f89d726b56869151b",
           "minOSVersion": "17.0"
-        },
-        {
-          "version": "1.0.14",
-          "buildVersion": "31",
-          "date": "2026-11-19T02:49:26Z",
-          "localizedDescription": "正式版 · GitHub v1.0.14\nhttps://github.com/liuliuya2333/LiLite/releases/tag/v1.0.14\n\n动态卡片按官方样式重做：视频动态显示大封面、时长、播放和弹幕，转发动态完整显示原动态的文字、图片和视频\n整张动态卡片可点：视频动态直接进视频，其他进入动态详情；修复点卡片打开错误页面的问题\n动态详情显示完整发布时间，底部为转发、分享、评论、点赞，点评论直接定位到评论区\nUP 主空间按官方布局重做，主页、动态、投稿等栏目可左右滑动切换，相邻栏目提前加载\n空间投稿列表改为官方样式，合集和列表显示播放数与发布日期\n全屏转场：进入时从小窗位置放大并旋转，退出时缩回小窗\n首页卡片对齐官方双列布局，首个大卡片可在设置中开启（默认关闭）\n详情页默认不自动播放、字幕默认大小等多项行为与原版对齐\n\n附件为未签名 IPA，需要自行签名安装",
-          "downloadURL": "https://github.com/liuliuya2333/LiLite/releases/download/v1.0.14/LiLite-1.0.14-unsigned.ipa",
-          "size": 109988756,
-          "sha256": "0fe2bde715d8a9db429bc098ff4a96aa159eb922803699b76b9c0326c250e7a7",
-          "minOSVersion": "26.0"
         }
       ],
       "appPermissions": {
