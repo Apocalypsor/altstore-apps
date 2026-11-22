@@ -252,6 +252,16 @@
       "tintColor": "FB7299",
       "versions": [
         {
+          "version": "1.3.5",
+          "buildVersion": "22",
+          "date": "2026-11-22T04:51:39Z",
+          "localizedDescription": "正式版 · GitHub v1.3.5\nhttps://github.com/Fab1e2000/NeoBili/releases/tag/v1.3.5\n\n## DLNA 投屏\n\n- 视频、直播间与离线缓存的「播放器更多菜单」均新增「投屏」入口，支持自动发现局域网内的 DLNA/UPnP 设备（无多播权限的自签环境自动回退同网段单播扫描），也支持手动输入设备地址并自动记住最近使用过的设备。\n- 投屏以持久模式运行：开启后可离开当前页面继续浏览，底部状态条保留播控与退出入口；点播其他视频、离线缓存或直播间时自动将新内容切换到当前投屏设备。\n- 在线点播通过本地实时无损混流支持全画质（含 1080P60 / 4K）与独立音质（含 192K / 杜比 / Hi-Res）热切换，直播支持清晰度热切换；点播与离线缓存支持进度拖动、音量调节及退出投屏后自动回接本地进度。\n- 投屏期间横屏视频保持固定不收缩，竖屏视频最多收缩至默认横视频尺寸。\n\n## 加载体验与前台优先\n\n- 推荐页、视频简介、相关视频与评论（含回复详情）在首批加载期间展示卡片占位，减少空白等待。\n- 改善各列表与详情页的内联加载失败提示与就地重试，手动刷新失败时保留已有内容。\n- 在线播放或加载视频及直播时自动收紧离线缓存并发，优先保障前台播放与图片加载速度。\n\n## 直播、收藏与交互细节\n\n- 直播页顶部改为横向展示「已关注且正在开播」的房间卡片，与关注页面同样式。\n- 收藏夹列表改用圆角分组样式并支持下拉刷新；历史、收藏与稍后再看的长按菜单命中更准确，简介下方推荐视频支持长按加入稍后再看。\n- 优化离线缓存选集、楼中楼单条回复长按复制等细节交互。\n\n## 权限\n\n- 新增本地网络访问权限说明，用于发现局域网内的投屏设备及在本地转发投屏媒体流。\n\n本次构建号为 22。\n\n## 安装\n\n支持 iOS 26 及以上版本。下载附件 `NeoBili-v1.3.5-unsigned.ipa`，可用同页的 `SHA256SUMS.txt` 校验。通过 SideStore、AltStore 或 Sideloadly 使用自己的 Apple ID 重签安装。\n\nSideStore 可添加[国内源](https://n015.top/neobili/apps.json)或[备用源](https://cdn.jsdelivr.net/gh/Fab1e2000/NeoBili@main/sidestore/apps.json)。\n\n\n**构建信息**：提交 `976ab1f3565dce1a07a6f0079296155fe44f85f7`，由 [Xcode Cloud](https://appstoreconnect.apple.com/teams/2d9bb309-ce66-4d6f-a5e9-1bea4f68843e/apps//ci/builds/8bb6674e-0a43-4d66-b2a4-f0773fb9a1b0) 构建。",
+          "downloadURL": "https://github.com/Fab1e2000/NeoBili/releases/download/v1.3.5/NeoBili-v1.3.5-unsigned.ipa",
+          "size": 134554988,
+          "sha256": "4e565c4135a35b0d797e9a7997f5336f2cbf61f12bc185d5e7e6fe77ed0fa7f3",
+          "minOSVersion": "26.0"
+        },
+        {
           "version": "1.3.4",
           "buildVersion": "21",
           "date": "2026-11-20T08:21:30Z",
@@ -340,21 +350,12 @@
           "size": 58972132,
           "sha256": "94bdd8c91826cfb9ed2e824eaa4b83483b759a9f5785917057adfc3195c138f8",
           "minOSVersion": "26.0"
-        },
-        {
-          "version": "1.1.3",
-          "buildVersion": "11",
-          "date": "2026-10-02T11:32:13Z",
-          "localizedDescription": "正式版 · GitHub v1.1.3\nhttps://github.com/Fab1e2000/NeoBili/releases/tag/v1.1.3\n\nNeoBili v1.1.3（构建 11）改进推荐流分页与刷新，统一为普通 Android 客户端身份，并新增标题栏背景选项。\n\n## 新功能与改进\n\n- 标题栏提供「随内容滚动」「固定·切边」「固定·渐变」三种样式，适用于推荐、搜索、收藏、历史和稍后再看。旧的固定设置保留为固定渐变。\n- 关注与直播的标题、头像条或切换器始终固定，使用切边背景，不受标题栏设置影响。\n- 修正 App 推荐分页：使用服务端游标，避免广告、无效卡片和本地过滤影响后续加载；失败重试保留请求位置。\n- 根据服务端配置，在恢复前台、返回推荐页或关闭内容页时自动刷新；滚动、加载或显示弹层时不会触发，网页推荐继续使用手动刷新。\n- 登录、推荐、反馈和直播统一为普通 Android 手机客户端身份，使用配套的登录与业务签名。\n- 改进 Xcode 26 编译兼容性，并补充推荐、账号凭据迁移、标题栏设置及播放器过渡回归测试。\n\n## 升级说明\n\n旧 HD App 凭据不会发送给新的 Android 接口。升级后保留网页登录状态，并尝试换取新的 App 凭据；若失败，可在「设置 → 推荐流」中补充 App 授权。\n\n客户端身份统一不保证推荐质量提升，已登录账号的服务端推荐效果仍取决于实际使用情况。\n\n## 下载与安装\n\n- `NeoBili-v1.1.3-unsigned.ipa`：Release 配置构建，未签名；安装前需要使用自己的证书或签名工具签名。\n- `SHA256SUMS.txt`：下载校验文件，在同一目录运行 `shasum -a 256 -c SHA256SUMS.txt` 校验。\n\n**系统要求**：iOS 26.0 或更高版本的 iPhone。\n\nNeoBili 是独立的第三方项目，与哔哩哔哩无官方关联。\n\n**构建信息**：提交 `adb6782`，Xcode 26.6 Build version 17F113，由 [GitHub Actions](https://github.com/Fab1e2000/NeoBili/actions/runs/37000893745) 构建。",
-          "downloadURL": "https://github.com/Fab1e2000/NeoBili/releases/download/v1.1.3/NeoBili-v1.1.3-unsigned.ipa",
-          "size": 58308460,
-          "sha256": "43d8486acbfc2110a85a0de2afcc14c2dd6a31e6ed48eee73c456ce33c3bd473",
-          "minOSVersion": "26.0"
         }
       ],
       "appPermissions": {
         "entitlements": [],
         "privacy": {
+          "NSLocalNetworkUsageDescription": "用于发现局域网内的投屏设备并将视频投送到电视",
           "NSPhotoLibraryAddUsageDescription": "保存登录二维码到相册，便于在哔哩哔哩 App 的扫一扫里从相册识别登录。"
         }
       }
@@ -554,6 +555,16 @@
       "tintColor": "3F8DF5",
       "versions": [
         {
+          "version": "1.0.26",
+          "buildVersion": "43",
+          "date": "2026-11-22T05:07:27Z",
+          "localizedDescription": "正式版 · GitHub v1.0.26\nhttps://github.com/liuliuya2333/LiLite/releases/tag/v1.0.26\n\n**iPad**\n- 评论区开着“横屏时在面板中查看”时，看图后右划只关闭图片，视频继续播放，不会再退出视频页；图片面板新增关闭按钮和图片菜单\n- 动态页重做：去掉左栏，关注的人改为顶部横排，标题栏按钮合并，内容不再被遮挡\n- 搜索结果改为多列网格\n- 首页信息流滑动更流畅，减少掉帧\n- 修复部分情况下进入视频只有声音、画面黑屏\n\n**iPhone Duo**\n- 半折叠时首页顶栏按折痕分成两段，频道标签不再被挤压\n- 折叠、展开过程中顶部搜索栏不再来回跳动\n- 折叠、展开时视频画面不再黑一下\n\n**播放**\n- 音量调节（手势、键盘、触控板）改为调节设备系统音量，按实体音量键时显示音量提示\n- 修复快速返回后再打开另一个视频时只有声音没有画面\n- 大屏视频页并排布局时，简介放到播放器下方，利用播放器下面的空间\n- 移除标签页中的“选集”（与合集重复）及对应设置\n\n**界面**\n- 视频简介等页面的字号跟随阅读字号与系统字体大小，iPhone 上各页面比例统一\n\n附件为未签名 IPA，需要自行签名安装",
+          "downloadURL": "https://github.com/liuliuya2333/LiLite/releases/download/v1.0.26/LiLite-1.0.26-unsigned.ipa",
+          "size": 23573515,
+          "sha256": "fc27f3f838845ec663768754a66fbb99adbb492bebfbdb93ce22dffa3b522eac",
+          "minOSVersion": "17.0"
+        },
+        {
           "version": "1.0.25",
           "buildVersion": "42",
           "date": "2026-11-21T18:39:41Z",
@@ -641,16 +652,6 @@
           "downloadURL": "https://github.com/liuliuya2333/LiLite/releases/download/v1.0.17/LiLite-1.0.17-unsigned.ipa",
           "size": 112157012,
           "sha256": "6dcc739de726ebb868712c78788a1753162553bb3fce05f96f079585e4870c38",
-          "minOSVersion": "17.0"
-        },
-        {
-          "version": "1.0.16",
-          "buildVersion": "33",
-          "date": "2026-11-19T06:43:23Z",
-          "localizedDescription": "正式版 · GitHub v1.0.16\nhttps://github.com/liuliuya2333/LiLite/releases/tag/v1.0.16\n\n- 修复转过一次全屏后视频页不再锁定竖屏、之后整页跟着手机旋转的问题\n- 修复首页向下滚动时底部标签栏不按设置收起\n- 首页顶栏改为官方布局：左侧头像、中间搜索、右侧消息；频道栏放得下时居中\n- 评论设置新增「滚动时隐藏发评论按钮」，关闭后发评论按钮常驻\n- 我的页观看记录预览固定在最上方，卡片缩小为一行三个（已自定义过我的页的，可在 设置 › 导航布局 › 我的页预览 中添加观看记录）\n- iPad 等大屏默认不再使用侧边栏，改为顶部标签栏；导航布局新增「改用侧边栏」开关，打开后仅横屏使用侧边栏（#2）\n- 大屏宽窗口下首页频道栏与搜索、消息、头像并成一行\n\n附件为未签名 IPA，需要自行签名安装",
-          "downloadURL": "https://github.com/liuliuya2333/LiLite/releases/download/v1.0.16/LiLite-1.0.16-unsigned.ipa",
-          "size": 112156740,
-          "sha256": "7a6d49bcfa041095d2a6174a7b7771fe98d3b4c470b8c6280cb0ab207789cb3b",
           "minOSVersion": "17.0"
         }
       ],
