@@ -450,6 +450,16 @@
       "tintColor": "FF9500",
       "versions": [
         {
+          "version": "2.2.7",
+          "buildVersion": "2.2.7",
+          "date": "2026-11-22T12:13:11Z",
+          "localizedDescription": "正式版 · GitHub v2.2.7\nhttps://github.com/zxsos/HGhubX/releases/tag/v2.2.7\n\n# HGhubX v2.2.7\n\n围绕搜索与排行榜、标签排序、吃瓜正文站内视频直达及播放器全屏交互稳定性打磨体验，并新增 Android 13+ Material You 动态主题图标适配；覆盖 Windows、macOS、Linux、Android 与 iOS 标准版。\n\n## 新增与优化\n1. **Android 13+ Material You 动态主题图标（#216）**：补充 `108dp × 108dp` 纯单色自适应矢量图层（`ic_launcher_monochrome.xml`）及圆角/默认自适应配置，支持 Android 13+ 启动器按壁纸动态着色，同时保持 Android 8–12 与既有彩色桌面图标外观不变。\n2. **搜索热搜榜官网同步与单行紧凑布局（#221、#225）**：搜索页热搜请求改为直连干净路径 `{base}/search/`（移除防缓存查询串），与官网 CDN 边缘快照条目、名次及播放量保持同源同序；卡片布局调整为「序号 + 单行省略片名 + 右对齐播放量 + 右箭头」的官网紧凑单行样式。\n3. **视频页操作区与全屏交互打磨（#217、#218、#219、#220）**：统一视频页顶部「搜短剧」与清晰度徽标高度及基线对齐；右侧评论入口改为与点赞/收藏一致的空心线条图标；点赞、收藏、关注共用 `playback-hint` 提示单槽位避免连续点击堆叠；全屏锁屏图标改为随闲置控件同步自动隐藏。\n\n## 修复\n1. **排行榜「热播榜」与官网实时热度不同步（#221、#226）**：修正匿名 JSON `/api/ranks/hot` 返回历史累计总榜导致的内容偏差，热播榜改为优先解析官网 `/ranks/hot/` 服务端渲染页面中的实时热度 TOP20（解析失败自动回退 `/api/ranks/hot`），「推荐榜」「潜力榜」与既有 `RankItem` 契约保持不变。\n2. **标签页短剧默认排序与官网不一致（#223、#228）**：`api_tag_videos` 与前端 `tagVideos` 显式默认携带 `sort=latest`（仅明确指定 `\"hot\"` 时切热播排序），使标准版标签页与 TV 端标签筛选对齐官网 `/tag/{slug}/` 默认最新排序。\n3. **吃瓜详情「点击观看」站内短剧链接跳出系统浏览器（#224、#229）**：新增主站及当前激活线路同源 `/video/{id}/` 严格识别校验；在吃瓜详情与 Feed 图文详情中点击站内视频链接时直接在应用内打开播放页，其余外链与非规范路径仍按原安全策略交由系统浏览器或剪贴板处理。\n4. **横屏全屏切集时旋转舞台瞬时退回竖屏与提示坐标错位（#200、#215）**：同剧同作用域切集加载期间保留最近确认的视频宽高比例，避免 `.player-root` 丢掉 `.fs-landscape` 导致切集提示闪现竖屏底部；`ToastHost` 改由 `registerRotatedToastHost` 响应式同步挂载宿主，退全屏时立即回归竖屏底部。\n\n## 安装与兼容提示\n- Windows 提供 NSIS 安装包与便携压缩包；macOS 提供 Universal DMG；Linux 提供 amd64 `.deb`；Android 标准版按 ABI 提供已签名 APK（`versionCode=2002007`）；iOS 提供未签名 `.ipa`（需自行签名安装）。\n- 覆盖安装保留本机收藏、观看记录、界面语言、线路与内容偏好；Android TV 版（`com.hghubx.tv`）独立沿用 `tv-v2.2.4` 发布。\n\n## 致谢\n- 感谢 @zxsos 审查整合全部待合入 PR、排查并修复热播榜/热搜榜/标签排序/站内视频跳转及全屏舞台问题并完成发布验证。\n- 感谢 @makisekurisu-jp 贡献视频页顶部布局对齐、空心评论图标、操作提示防堆叠、全屏锁随控隐藏等体验优化并提交多项缺陷反馈。\n\n## 验证\n- 合入后本地严检：`make check`（Rust `118 passed; 0 failed; 4 ignored`、`pnpm build` 三套 `tsc` + Vite 构建、789 项 i18n 键校验、文档链接、代码尺寸预算及 `release-check: ok 2.2.7, android versionCode=2002007`）、`pnpm test:smoke`（12/12 套件通过）、`pnpm test:playback`（6/6 场景通过，含 `episode-toast` 与 `portrait-fit`）以及 TV 兼容性验证 `make test-tv` + `node scripts/test-tv-remote.mjs`（14/14 场景通过）全部通过。\n- 合入后默认分支 GitHub Actions：`CI`（`45019595931`）与 `TV CI`（`45019595940`）全绿通过；各平台正式产物由 `v2.2.7` 标签触发的 GitHub Actions `Release` 工作流构建并校验。",
+          "downloadURL": "https://github.com/zxsos/HGhubX/releases/download/v2.2.7/HGhubX_2.2.7_ios.ipa",
+          "size": 3992968,
+          "sha256": "9d8e99969f6e078d29fb96007b41b8035d72b3fa1001b0af4bfae075072c5fac",
+          "minOSVersion": "15.0"
+        },
+        {
           "version": "2.2.6",
           "buildVersion": "2.2.6",
           "date": "2026-11-21T17:01:54Z",
@@ -528,16 +538,6 @@
           "size": 3849882,
           "sha256": "e7db7afc6e39df3658d5e0c76e5a1950dbd8f5669bb0acf04c11de45d7c133cb",
           "minOSVersion": "15.0"
-        },
-        {
-          "version": "2.1.0",
-          "buildVersion": "2.1.0",
-          "date": "2026-11-15T08:37:59Z",
-          "localizedDescription": "正式版 · GitHub v2.1.0\nhttps://github.com/zxsos/HGhubX/releases/tag/v2.1.0\n\n## HGhubX 2.1.0\n\nHGhubX 2.1 新增标签屏蔽，完善账号同步，并优化播放和加载体验。\n\n### 更新点\n\n- **内容偏好**：新增按标签屏蔽，可在设置或视频“不感兴趣”中添加规则；首页自动跳过命中内容，列表支持临时展开，收藏和历史保留记录。\n- **播放手势**：手机端支持左下长按减速、右上长按加速，中心小方块长按“不感兴趣”；首次进入播放器显示区域提示，视频详情支持点击标签跳转。\n- **启动体验**：新增开屏动画和首次使用协议。\n- **性能**：优化页面按需加载、下一条视频和下一集预取，精简无效代码与重复请求。\n- **界面**：更新了 UI，自己体验。\n\n### 修复点\n\n- 修复游客模式保存观看进度、收藏等数据时回滚设置的问题，包括自动恢复静音，以及音量、启动静音、优先高清、滑动切集和搜索历史被旧快照覆盖。\n- 修复评论区出现 HTML 标签和脚本片段、长评论和长昵称换行异常的问题；手机播放页面显示评论数量，评论面板读取当前剧集的数量。\n- 修复首页刷视频后进入全屏跳到其他视频的问题。\n- 修复手机端吃瓜视频控制按钮隐藏的问题，调整小屏控制栏，并补充全屏失败时的屏幕内全屏模式。\n- 修复收藏和观看历史只显示首批内容、账号数据未完整回填的问题，完善关注列表分页和失败重试。\n- 修复账号、线路切换后的迟到请求污染当前数据，以及互动操作失败仍显示成功的问题。\n- 修复详情封面加载状态异常，优先加载详情封面，并合并同地址的下载和解密请求。\n- 补齐原生播放器的单段 Range 响应，返回正确的 `206`、`416` 和 `Content-Range`，改善 iOS 媒体探测流程。\n\n### 构建产物\n\n- Linux amd64：`.deb`\n- Android：arm64、arm、x86_64 分 ABI  `.apk`\n- Windows：x64 安装包 `.exe` 和便携版 `.zip`\n- macOS：Universal `.dmg`\n- iOS：未签名 `.ipa`\n\n\n## What's Changed\n* feat(app): integrate UI and playback updates for v2.1.0 by @zxsos in https://github.com/zxsos/HGhubX/pull/110\n* fix(comments): 修复评论显示并发布 v2.1.1 by @zxsos in https://github.com/zxsos/HGhubX/pull/111\n* fix(account): 修复游客设置被重置并重新发布 v2.1.0 by @zxsos in https://github.com/zxsos/HGhubX/pull/113\n\n\n**Full Changelog**: https://github.com/zxsos/HGhubX/compare/v2.0.0...v2.1.0",
-          "downloadURL": "https://github.com/zxsos/HGhubX/releases/download/v2.1.0/HGhubX_2.1.0_ios.ipa",
-          "size": 3819956,
-          "sha256": "7f9035c02a52c717eb87b7742331174c801a0d1f38225a6dd005ee054583bd98",
-          "minOSVersion": "15.0"
         }
       ],
       "appPermissions": {
@@ -554,6 +554,16 @@
       "iconURL": "https://raw.githubusercontent.com/liuliuya2333/LiLite/v1.0.18/Resources/Brand/icon.png",
       "tintColor": "3F8DF5",
       "versions": [
+        {
+          "version": "1.0.27",
+          "buildVersion": "44",
+          "date": "2026-11-22T17:49:05Z",
+          "localizedDescription": "正式版 · GitHub v1.0.27\nhttps://github.com/liuliuya2333/LiLite/releases/tag/v1.0.27\n\n**播放**\n- 全屏手势提示（亮度、音量、进度、倍速）与控件排版重新设计\n- 锁定屏幕改为玻璃材质按钮：iPhone 横屏锁定后两侧都有解锁键，iPad 为右侧单键，直播全屏也可以锁定\n- 全屏「倍速」改为与画质相同的面板，点开后不会立刻收起\n- 全屏控件显示时，弹幕在顶栏和底栏处自动淡出，不再挡住标题、时间和按钮\n- 选集面板的标题去掉共同的剧名前缀，能分清每一集\n- 从卡片打开视频时，封面一直显示到开始播放，不再黑一下；从列表打开视频也有同样的放大过渡\n- 视频页加载时，关注按钮和右侧标签不再闪变\n- AVPlayer 内核长按 3 倍速播放不再一顿一顿\n- 退出全屏后视频页不再钻到状态栏下面\n\n**iPad**\n- 「我的」在概览和其他页面之间切换时顶部不再跳动，当前页会高亮，旋转后保留所在页面\n- 设置的二级页面保留左侧分区栏，内容不再铺满整屏；分区栏选中样式与「我的」统一\n- 动态多列时显示为卡片，深色模式下也能分清边界\n- 竖屏时首页频道单独占一行，不再被标签栏挡住\n- 历史、收藏、离线缓存等列表的缩略图统一，筛选标签与列表对齐\n- 私信输入栏铺满右栏，当前会话会高亮\n\n**iPhone Duo**\n- 半折叠时，搜索结果、热搜、直播、分区排行、动态详情、消息、「我的」和设置都按折痕分栏，内容不再压在折痕上；空状态和报错提示也移到折痕一侧\n- 折叠状态变化后，首页网格会重新排列\n- 设置卡片不再伸进状态栏那一列\n\n**iPhone**\n- 横屏时首页切换频道不再错位\n- 横屏搜索结果不再露出相邻分页\n- 直播间从左边缘右滑返回时不会误触弹幕\n- 横屏视频页播放器两侧不再露白\n\n**直播**\n- 全屏时左上角可以直接退出\n- 已播时长的写法统一，没有弹幕时显示提示\n- 分区页按屏幕宽度排列，「我的常用」为空时不再报错\n- 贡献榜背景与直播间一致\n\n**其他**\n- 稍后再看、收藏夹右上角的按钮收进「⋯」菜单，标题位置与观看历史一致\n- 评论区底部为悬浮的发评论按钮留出空间，不再挡住最后几条评论\n- 新增深色与色调桌面图标\n- 关于页加入开发者与致谢\n- 「页面动画与回弹」在 iPhone 上可以正常进入\n\n附件为未签名 IPA，需要自行签名安装",
+          "downloadURL": "https://github.com/liuliuya2333/LiLite/releases/download/v1.0.27/LiLite-1.0.27-unsigned.ipa",
+          "size": 25276856,
+          "sha256": "152e6ca487c0929a6b35db3a1c8855f7213f0d731115fe07d5f04c6081fcd678",
+          "minOSVersion": "17.0"
+        },
         {
           "version": "1.0.26",
           "buildVersion": "43",
@@ -642,16 +652,6 @@
           "downloadURL": "https://github.com/liuliuya2333/LiLite/releases/download/v1.0.18/LiLite-1.0.18-unsigned.ipa",
           "size": 112257572,
           "sha256": "922fcc7f711b4dcf5adc6238c81ef076d33024b38d3545cefd8bd565d491667f",
-          "minOSVersion": "17.0"
-        },
-        {
-          "version": "1.0.17",
-          "buildVersion": "34",
-          "date": "2026-11-19T07:08:54Z",
-          "localizedDescription": "正式版 · GitHub v1.0.17\nhttps://github.com/liuliuya2333/LiLite/releases/tag/v1.0.17\n\n- 修复 iOS 17、18 上从视频页返回后底部标签栏变透明、盖在列表上的问题（#3）\n- 兼容性说明改为支持 iOS 17+\n\n附件为未签名 IPA，需要自行签名安装",
-          "downloadURL": "https://github.com/liuliuya2333/LiLite/releases/download/v1.0.17/LiLite-1.0.17-unsigned.ipa",
-          "size": 112157012,
-          "sha256": "6dcc739de726ebb868712c78788a1753162553bb3fce05f96f079585e4870c38",
           "minOSVersion": "17.0"
         }
       ],
