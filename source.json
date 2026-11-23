@@ -555,6 +555,46 @@
       "tintColor": "3F8DF5",
       "versions": [
         {
+          "version": "1.0.36",
+          "buildVersion": "53",
+          "date": "2026-11-23T16:26:19Z",
+          "localizedDescription": "正式版 · GitHub v1.0.36\nhttps://github.com/liuliuya2333/LiLite/releases/tag/v1.0.36\n\n**iPad / iOS 18**\n- 从卡片打开视频不再出现转场错乱：iOS 18 上打开后页面停在放大状态（播放器铺满整屏、画面挤到角落），或返回后视频页缩成卡片大小留在首页上继续播放，现已修复。iOS 26 以下改用 App 自带的一镜到底动画，iOS 26 起仍可在设置里选择系统缩放\n- 冷启动时首页顶栏偶尔拆成两行（标签栏单独一行、头像和分区在下面一行）的问题已修复\n\n**播放器**\n- 竖屏全屏，以及开启「播放画面延伸到屏幕边缘」时，长按倍速的「快进」提示、顶部控件和弹幕不再被灵动岛遮住\n\n附件为未签名 IPA，需要自行签名安装",
+          "downloadURL": "https://github.com/liuliuya2333/LiLite/releases/download/v1.0.36/LiLite-1.0.36-unsigned.ipa",
+          "size": 25337586,
+          "sha256": "fc11f656a9624e90df2109877781d9afd525a6c35938a1e38cdf29e19abf0157",
+          "minOSVersion": "17.0"
+        },
+        {
+          "version": "1.0.35",
+          "buildVersion": "52",
+          "date": "2026-11-23T13:29:04Z",
+          "localizedDescription": "正式版 · GitHub v1.0.35\nhttps://github.com/liuliuya2333/LiLite/releases/tag/v1.0.35\n\n**首页**\n- 在首页再点一次底部（或顶部）的「首页」：在顶部时直接刷新推荐，不在顶部时先回到顶部，再点一次刷新；动态同样适用\n\n**图片**\n- 动态等处打开图片后左右滑动切换，不再在松手时整屏闪黑，图片会连续滑过去\n- 还没加载完的下一张会先显示缩略图，不再是空白\n\n**iPad**\n- 顶部标签栏的布局下，进入和返回二级页面时页面不再「跳一下」：内容从一开始就在最终位置，只有标题栏平滑移动\n- 可调窗口变窄时，从设置打开的二级页不再被挤压或切掉，窄窗口下单独显示\n\n附件为未签名 IPA，需要自行签名安装",
+          "downloadURL": "https://github.com/liuliuya2333/LiLite/releases/download/v1.0.35/LiLite-1.0.35-unsigned.ipa",
+          "size": 25327152,
+          "sha256": "c6f52e3dc6a94a89e29323351e49ae5fdedd7a3647a671bb01cfcfa565c9db4b",
+          "minOSVersion": "17.0"
+        },
+        {
+          "version": "1.0.34",
+          "buildVersion": "51",
+          "date": "2026-11-23T11:43:13Z",
+          "localizedDescription": "正式版 · GitHub v1.0.34\nhttps://github.com/liuliuya2333/LiLite/releases/tag/v1.0.34\n\n**灵动岛**\n- 在视频页正常播放时不再出现在灵动岛上\n- 开启「进入后台时继续播放」后，回到桌面或锁屏时视频会出现在灵动岛，回到 App 后自动收起\n- 关闭后台播放时，进入后台视频暂停，不会出现在灵动岛\n- 听视频始终显示在灵动岛，和音乐 App 一样\n- 锁屏和控制中心的播放控件不受影响\n\n**离线缓存**\n- 播放离线视频时，锁屏和控制中心的播放卡片会显示视频封面\n\n附件为未签名 IPA，需要自行签名安装",
+          "downloadURL": "https://github.com/liuliuya2333/LiLite/releases/download/v1.0.34/LiLite-1.0.34-unsigned.ipa",
+          "size": 25319955,
+          "sha256": "5508ae366147e1101c2af5b84b4424f547ff3de8c2374bab81cc8c754dd0b5e7",
+          "minOSVersion": "17.0"
+        },
+        {
+          "version": "1.0.33",
+          "buildVersion": "50",
+          "date": "2026-11-23T09:49:53Z",
+          "localizedDescription": "正式版 · GitHub v1.0.33\nhttps://github.com/liuliuya2333/LiLite/releases/tag/v1.0.33\n\n**弱网加载**\n- 网络差时首页、视频详情不再一直转圈：最多等约 25 秒，超时会显示“网络连接超时”和重试按钮，网络恢复后点重试即可加载\n- 请求遇到临时网络故障或服务器临时错误时自动重试（逐次加长、随机错开间隔），点赞、评论等写操作不会被重复发送\n- 推荐接口失败时会改用官方客户端同款的备用域名；系统 DNS 解析失败时改用加密 DNS 再试一次（证书校验不变）\n- 默认改用系统网络连接（支持 HTTP/2、复用连接），延迟高的网络下加载更快；如需旧方式，可在「设置 → 网络连接 → HTTP 协议」选 HTTP/1.1\n- 打开视频时不再被云端播放进度的查询拖住起播；视频首个地址失败会换备用地址；播放器长时间准备不好会提示重试\n\n**内存**\n- 开着聊天、高能、醒目留言等面板直接退出直播间，聊天和直播也会正常停止，不再在后台继续占用\n- 番剧、多 P 视频在全屏或弹窗状态下离开页面，也会释放播放器\n- UP 主空间、首页等页面关闭后不再残留已加载的数据；醒目留言最多保留最新 500 条\n\n附件为未签名 IPA，需要自行签名安装",
+          "downloadURL": "https://github.com/liuliuya2333/LiLite/releases/download/v1.0.33/LiLite-1.0.33-unsigned.ipa",
+          "size": 25320081,
+          "sha256": "88f939f9c96c550917459c940f5f8881914b66c291e8dce581472dd03db8e2c9",
+          "minOSVersion": "17.0"
+        },
+        {
           "version": "1.0.32",
           "buildVersion": "49",
           "date": "2026-11-23T07:27:43Z",
@@ -612,46 +652,6 @@
           "downloadURL": "https://github.com/liuliuya2333/LiLite/releases/download/v1.0.27/LiLite-1.0.27-unsigned.ipa",
           "size": 25276856,
           "sha256": "152e6ca487c0929a6b35db3a1c8855f7213f0d731115fe07d5f04c6081fcd678",
-          "minOSVersion": "17.0"
-        },
-        {
-          "version": "1.0.26",
-          "buildVersion": "43",
-          "date": "2026-11-22T05:07:27Z",
-          "localizedDescription": "正式版 · GitHub v1.0.26\nhttps://github.com/liuliuya2333/LiLite/releases/tag/v1.0.26\n\n**iPad**\n- 评论区开着“横屏时在面板中查看”时，看图后右划只关闭图片，视频继续播放，不会再退出视频页；图片面板新增关闭按钮和图片菜单\n- 动态页重做：去掉左栏，关注的人改为顶部横排，标题栏按钮合并，内容不再被遮挡\n- 搜索结果改为多列网格\n- 首页信息流滑动更流畅，减少掉帧\n- 修复部分情况下进入视频只有声音、画面黑屏\n\n**iPhone Duo**\n- 半折叠时首页顶栏按折痕分成两段，频道标签不再被挤压\n- 折叠、展开过程中顶部搜索栏不再来回跳动\n- 折叠、展开时视频画面不再黑一下\n\n**播放**\n- 音量调节（手势、键盘、触控板）改为调节设备系统音量，按实体音量键时显示音量提示\n- 修复快速返回后再打开另一个视频时只有声音没有画面\n- 大屏视频页并排布局时，简介放到播放器下方，利用播放器下面的空间\n- 移除标签页中的“选集”（与合集重复）及对应设置\n\n**界面**\n- 视频简介等页面的字号跟随阅读字号与系统字体大小，iPhone 上各页面比例统一\n\n附件为未签名 IPA，需要自行签名安装",
-          "downloadURL": "https://github.com/liuliuya2333/LiLite/releases/download/v1.0.26/LiLite-1.0.26-unsigned.ipa",
-          "size": 23573515,
-          "sha256": "fc27f3f838845ec663768754a66fbb99adbb492bebfbdb93ce22dffa3b522eac",
-          "minOSVersion": "17.0"
-        },
-        {
-          "version": "1.0.25",
-          "buildVersion": "42",
-          "date": "2026-11-21T18:39:41Z",
-          "localizedDescription": "正式版 · GitHub v1.0.25\nhttps://github.com/liuliuya2333/LiLite/releases/tag/v1.0.25\n\n**交互与返回**\n- 直播间、视频页、番剧页、UP 主空间、搜索结果等页面支持全屏宽度右划返回；在后面的标签页右划先回到上一个标签，播放器区域仍用于拖动进度\n- 评论区点开图片后可以右划关闭，只关闭图片，视频继续播放，不会再退回首页\n- 播放器左上角的回到首页按钮已移除\n- 长按倍速按官方客户端的判定（0.25 秒），倍速时手指轻微移动不再变成拖动进度条\n\n**界面**\n- 合集改为从播放器下方滑出的面板，风格与评论详情一致：顶部固定封面、标题、视频数和订阅按钮，支持分节与正倒序，自动定位到正在播放的一集\n- 视频简介、全屏“更多”面板按官方客户端重做\n- 官方赛事直播间新增赛程、回放、选手评分\n\n**iPad 与 iPhone Duo**\n- 一镜到底在 iPad 与 Duo（展开、半折叠）上直接落到播放器位置，过渡连贯；右划缩回卡片的手感与手机一致\n- 视频页并排布局与侧栏宽度调整，窄栏中的标签与发弹幕按钮不再被截断\n\n**性能与修复**\n- 修复播放视频时返回首页、再进入视频的卡顿\n- 修复听视频部分地址 403 无法播放\n- 离开播放后释放播放器与渲染资源，降低内存占用\n- 改用 Xcode 原生构建\n\n附件为未签名 IPA，需要自行签名安装",
-          "downloadURL": "https://github.com/liuliuya2333/LiLite/releases/download/v1.0.25/LiLite-1.0.25-unsigned.ipa",
-          "size": 23543836,
-          "sha256": "058513c7b45e890019edd3f85109d8b1f30305afc8e118d02ae65cdd299fd32b",
-          "minOSVersion": "17.0"
-        },
-        {
-          "version": "1.0.24",
-          "buildVersion": "41",
-          "date": "2026-11-21T01:08:27Z",
-          "localizedDescription": "正式版 · GitHub v1.0.24\nhttps://github.com/liuliuya2333/LiLite/releases/tag/v1.0.24\n\n- 头像上的大会员角标改为原版尺寸：列表头像 14pt，UP 主空间大头像 20pt，不再过大\n\n附件为未签名 IPA，需要自行签名安装",
-          "downloadURL": "https://github.com/liuliuya2333/LiLite/releases/download/v1.0.24/LiLite-1.0.24-unsigned.ipa",
-          "size": 117700532,
-          "sha256": "3d2cb4c8b5c21ebd7b9e7f1d4f6746664c8ef2b8dcc51c50fabcab012f6881e2",
-          "minOSVersion": "17.0"
-        },
-        {
-          "version": "1.0.23",
-          "buildVersion": "40",
-          "date": "2026-11-20T17:32:37Z",
-          "localizedDescription": "正式版 · GitHub v1.0.23\nhttps://github.com/liuliuya2333/LiLite/releases/tag/v1.0.23\n\n- 视频详情页的点赞、不喜欢、投币、收藏、分享换成官方客户端图标，加上玻璃底和点按动画\n- 修复进入视频不自动播放\n- 一镜到底：从首页、空间等卡片打开视频时页面从卡片展开，返回时缩回卡片；同时修复打开页面没有转场动画\n- 修复从视频返回首页时底栏透明、闪一下\n- 楼中楼里侧滑只关闭楼中楼，不再直接退出视频\n- 评论图片改为全屏查看器，打开时先显示缩略图，单击关闭\n- 评论区装扮卡片按官方客户端布局重做，编号不再和卡图叠在一起，支持渐变色编号\n- 番剧页显示评论数，新增“点我发弹幕”\n- 追番追剧页按官方布局重做（追番 / 追剧、想看 / 在看 / 看过、管理），返回后列表不再残留选中态\n- UP 主空间：投稿里显示图文，主页背景改为白色，进入时顶部不再闪白条\n- 首页点头像切到“我的”加入过渡动画，简介展开、列表加载、关注等切换补上动画\n\n附件为未签名 IPA，需要自行签名安装",
-          "downloadURL": "https://github.com/liuliuya2333/LiLite/releases/download/v1.0.23/LiLite-1.0.23-unsigned.ipa",
-          "size": 117684148,
-          "sha256": "06e9c66b18bb722a0349a73e9dd5006afc3ac9de64230456b6ef50b5810e9467",
           "minOSVersion": "17.0"
         }
       ],
