@@ -450,6 +450,16 @@
       "tintColor": "FF9500",
       "versions": [
         {
+          "version": "2.2.8",
+          "buildVersion": "2.2.8",
+          "date": "2026-11-23T03:55:29Z",
+          "localizedDescription": "正式版 · GitHub v2.2.8\nhttps://github.com/zxsos/HGhubX/releases/tag/v2.2.8\n\n# HGhubX v2.2.8\n\n围绕分类导航快捷入口、搜索交互、吃瓜列表官网同步、「我的收藏」排序与已完结封面标签以及播放器全屏暂停提示打磨体验；覆盖 Windows、macOS、Linux、Android 与 iOS 标准版。\n\n## 新增与优化\n1. **分类总览 2×2 快捷入口并接入「最近上新」「热门推荐」（#233、#238）**：移除移动端与搜索页重复的「排行榜」单列入口（保留搜索页右上角与桌面侧栏「排行榜」），在移动端与桌面端统一展示「最近上新」「热门推荐」「专题」「标签」2×2 等宽卡片；「最近上新」「热门推荐」优先解析官网 `/newest/` 与 `/recommend/` 服务端渲染页面（失败时按 `/api/videos?sort=new|hot` 回退），支持自动分页与切线重载。\n2. **「我的 → 收藏 → 短剧」排序与已完结封面标签（#235、#239）**：在「我的收藏 → 短剧」新增「最近添加」「最近更新」「完结进度」（点击可切换「已完结优先 ↕」/「更新中优先 ↕」）排序，切到更新/完结排序时自动分批补齐全部收藏详情；全站剧集卡片在左上角按「原创」「热播」「新片」「完结」显示角标，「我的」页已完结短剧使用绿色封面标签（兼有未看新集时并行显示「新更 N 集」与「完结」角标）。\n3. **搜索页左右滑动切 Tab 与底栏快捷复位（#230、#234）**：搜索结果支持左右滑动切换「视频 / 帖子」Tab（未提交查询时不拦截横向手势）；在移动端底栏再次点击激活的「搜索」可一键清空结果并回到热搜与历史界面，且不主动弹出软键盘。\n4. **全屏双击暂停显示当前集数提示（#236）**：移动端全屏下双击暂停时，在 `playback-hint` 提示槽常驻展示「第 X 集 / Y」，随恢复播放、退出全屏、拖动进度或锁屏同步收起。\n\n## 修复\n1. **吃瓜列表与分类预览排序同官网不一致（#231、#232）**：修复匿名 JSON `/api/posts/category/remen-chigua?sort=latest` 按 `publish_time` 排序导致的顺序偏移，`api_post_category` 优先解析官网 `/blog/gossip/` 服务端渲染列表并补全邻近标签与时间字段，使「吃瓜」列表与分类预览同官网保持一致。\n2. **多次从标签进入播放后画面遮盖、缺失与闪烁（#240）**：被页面栈覆盖的底层主标签页与历史栈页自动从合成器隐藏并隔离堆叠上下文（返回时保留列表滚动位置、豁免画中画），非活跃播放页卸载 `AmbientGlow` / `blur-3xl` 模糊层并释放被覆盖页 `hls.js` 与 `<video>` 硬件解码器（返回时按原进度与暂停意图恢复），同时移除海报卡片逐项 `translateZ(0)` 强提层并限制导航栈最大深度为 8 层，避免 Android WebView GPU 合成层与解码器耗尽。\n\n## 安装与兼容提示\n- Windows 提供 NSIS 安装包与便携压缩包；macOS 提供 Universal DMG；Linux 提供 amd64 `.deb`；Android 标准版按 ABI 提供已签名 APK（`versionCode=2002008`）；iOS 提供未签名 `.ipa`（需自行签名安装）。\n- 覆盖安装保留本机收藏、观看记录、界面语言、线路与内容偏好；Android TV 版（`com.hghubx.tv`）独立沿用 `tv-v2.2.4` 发布。\n\n## 致谢\n- 感谢 @zxsos 审查合入本轮全部 PR、梳理修复分类快捷入口与吃瓜排序并完成 #235 与版本发布校验。\n- 感谢 @makisekurisu-jp 贡献搜索 Tab 滑动切换、底栏搜索复位与全屏暂停集数提示并反馈分类入口及吃瓜排序问题。\n- 感谢 `enjue` 提出 #235 收藏排序与已完结封面标签建议。\n- 感谢 `Rabbit2108` 反馈 #240 Android 标签跳转播放画面遮盖与闪烁问题并提供现场截图。\n\n## 验证\n- 合入后本地严检：`make check`（Rust `118 passed; 0 failed; 4 ignored`、`pnpm build` 三套 `tsc` + Vite 构建、799 项 i18n 键校验、文档链接、代码尺寸预算及 `release-check: ok 2.2.8, android versionCode=2002008`）、`pnpm test:smoke`（14/14 套件通过）、`node scripts/test-playback.mjs`（10/10 场景通过，含 `episode-toast`、`ambient`、`balance-volume` 与 `post-flicker`）以及 TV 兼容性验证 `make test-tv` + `node scripts/test-tv-remote.mjs`（14/14 场景通过）全部通过。\n- 各功能与修复 PR（#230、#232、#234、#236、#238、#239 及 #240 修复 PR）均在 GitHub Actions 审查检查全绿通过后合入；各平台正式产物由 `v2.2.8` 标签触发的 GitHub Actions `Release` 工作流构建并校验。",
+          "downloadURL": "https://github.com/zxsos/HGhubX/releases/download/v2.2.8/HGhubX_2.2.8_ios.ipa",
+          "size": 4004198,
+          "sha256": "ca321bcc8491895d33d6f775fa592455727fa82f1f374ecce2e967f26c03014e",
+          "minOSVersion": "15.0"
+        },
+        {
           "version": "2.2.7",
           "buildVersion": "2.2.7",
           "date": "2026-11-22T12:13:11Z",
@@ -528,16 +538,6 @@
           "size": 3852817,
           "sha256": "fdf8a64f296d7aa38720c21e440504dbfe6018bdc348b559902ce35382465254",
           "minOSVersion": "15.0"
-        },
-        {
-          "version": "2.1.1",
-          "buildVersion": "2.1.1",
-          "date": "2026-11-15T15:26:37Z",
-          "localizedDescription": "正式版 · GitHub v2.1.1\nhttps://github.com/zxsos/HGhubX/releases/tag/v2.1.1\n\n## HGhubX 2.1.1\n\n### 更新点\n\n- **线路选择**：合并重复的“推荐镜像”和“镜像线路”区域为一个镜像列表，当前线路置顶。\n- **启动体验**：统一各平台启动背景，减少启动首帧闪烁。\n- **搜索**：热门题材使用真实标签数据，并可直接打开对应片单。\n\n### 修复点\n\n- 修复播放恢复、代理切换后的恢复队列及媒体分片缓存隔离问题。\n- 修复专题分页、收藏同步空状态和搜索框焦点处理。\n- 补齐 iOS 原生媒体传输的 Range 响应，改善视频探测与播放兼容性。\n- 修复帖子详情热度和清理观看历史前的确认交互。\n\n### 构建产物\n\n- Linux amd64：`.deb`\n- Android：arm64、arm、x86_64 分 ABI  `.apk`\n- Windows：x64 安装包 `.exe` 和便携版 `.zip`\n- macOS：Universal `.dmg`\n- iOS：未签名 `.ipa`\n\n\n## What's Changed\n* fix: 2026-11-15 修复轮次合并 by @zxsos in https://github.com/zxsos/HGhubX/pull/131\n* fix: 修复播放恢复、缓存与收藏状态回归 by @zxsos in https://github.com/zxsos/HGhubX/pull/133\n* fix(launch): 补齐 Android 夜间与 macOS 启动背景 by @zxsos in https://github.com/zxsos/HGhubX/pull/132\n* fix(ios): 修复原生播放器的本地媒体传输 by @zxsos in https://github.com/zxsos/HGhubX/pull/130\n\n\n**Full Changelog**: https://github.com/zxsos/HGhubX/compare/v2.1.0...v2.1.1",
-          "downloadURL": "https://github.com/zxsos/HGhubX/releases/download/v2.1.1/HGhubX_2.1.1_ios.ipa",
-          "size": 3849882,
-          "sha256": "e7db7afc6e39df3658d5e0c76e5a1950dbd8f5669bb0acf04c11de45d7c133cb",
-          "minOSVersion": "15.0"
         }
       ],
       "appPermissions": {
@@ -554,6 +554,56 @@
       "iconURL": "https://raw.githubusercontent.com/liuliuya2333/LiLite/v1.0.18/Resources/Brand/icon.png",
       "tintColor": "3F8DF5",
       "versions": [
+        {
+          "version": "1.0.32",
+          "buildVersion": "49",
+          "date": "2026-11-23T07:27:43Z",
+          "localizedDescription": "正式版 · GitHub v1.0.32\nhttps://github.com/liuliuya2333/LiLite/releases/tag/v1.0.32\n\n**后台播放与锁屏**\n- 默认播放内核（MPV）播放时，锁屏和控制中心会显示播放卡片，播放、暂停、拖动进度可以控制当前视频：播放时不再与其他 App 混音，系统因此能把 LiLite 识别为正在播放的 App\n- 开启「进入后台时继续播放」后，iOS 27 上切到后台或锁屏不再被误当作中断而暂停\n- 进入视频页时视频已经在播放（例如从小窗或连播回来），也会接管锁屏和控制中心的控件\n\n**首页**\n- 从视频页返回首页时，推荐列表保持原来的内容和位置，不再先变成空白再换一批\n- 推荐页首次加载时会显示加载提示，不再只剩头像、搜索框和频道栏\n\n**网页**\n- 修正内置网页关闭后可能仍被保留在内存中的问题\n- 网页反复跳转到 App 内页面时只打开一次，不再一层层叠加弹窗\n- 界面缩放不是 100% 时，弹窗内的安全区测量更稳定，减少多余的重新排版\n\n附件为未签名 IPA，需要自行签名安装",
+          "downloadURL": "https://github.com/liuliuya2333/LiLite/releases/download/v1.0.32/LiLite-1.0.32-unsigned.ipa",
+          "size": 25285931,
+          "sha256": "814172b99f04c9c14dff9ab43242518f077b77179d9e4ad4ef49aa6f1b3b465d",
+          "minOSVersion": "17.0"
+        },
+        {
+          "version": "1.0.31",
+          "buildVersion": "48",
+          "date": "2026-11-23T05:46:56Z",
+          "localizedDescription": "正式版 · GitHub v1.0.31\nhttps://github.com/liuliuya2333/LiLite/releases/tag/v1.0.31\n\n**首页**\n- 旋转屏幕后，首页边缘不再露出旁边频道的一窄条：不在屏幕上的频道（如直播）会按新的宽度重新排列，不再沿用旋转前的列宽溢出到当前频道下面\n\n附件为未签名 IPA，需要自行签名安装",
+          "downloadURL": "https://github.com/liuliuya2333/LiLite/releases/download/v1.0.31/LiLite-1.0.31-unsigned.ipa",
+          "size": 25282176,
+          "sha256": "951d98bbe9fee031dcac81b9b5c41796e8e284ce264a86116dd13831ab0756f8",
+          "minOSVersion": "17.0"
+        },
+        {
+          "version": "1.0.30",
+          "buildVersion": "47",
+          "date": "2026-11-23T05:30:33Z",
+          "localizedDescription": "正式版 · GitHub v1.0.30\nhttps://github.com/liuliuya2333/LiLite/releases/tag/v1.0.30\n\n**视频页**\n- 竖屏视频像官方一样可以收缩：播放中上推简介或评论，播放器跟着手指从高画面缩到 16:9，往回拉到顶部再展开；暂停后继续上推才会折进「继续播放」栏\n- iPad 和 Duo 横屏时，右侧评论栏按官方 iPad 的比例加宽（播放区约占 63%），评论更好读\n- Duo 内屏竖屏时，简介（含推荐视频）和评论不再并排挤成两窄列，改为上方播放器、下方标签页\n\n**iPhone Duo**\n- 横屏搜索结果、排行榜等列表在折痕两侧各排一列，标题不再挤得只剩几个字；从横屏转到竖屏后列表正常切回单列\n- 横屏时首页和动态的顶栏离屏幕上沿留出空隙，不再贴边\n\n**动态**\n- 动态详情和图文页可以整页右滑返回，和视频页一致\n\n**流畅度**\n- 动态、评论、搜索、番剧、直播等列表滑动更顺：卡片上的弹窗改为用到时才创建，几处一次性全部创建的列表改为滑到才创建，首页封面在滑动中不再做淡入\n- 「我的评论」、直播弹幕列表、全屏选集、缓存选集等页面减少了滑动时的重复计算\n\n附件为未签名 IPA，需要自行签名安装",
+          "downloadURL": "https://github.com/liuliuya2333/LiLite/releases/download/v1.0.30/LiLite-1.0.30-unsigned.ipa",
+          "size": 25283675,
+          "sha256": "e3034b7b2b13759755ea3661f46474a2383119f76de7c58b5981158821c01bda",
+          "minOSVersion": "17.0"
+        },
+        {
+          "version": "1.0.29",
+          "buildVersion": "46",
+          "date": "2026-11-23T03:06:47Z",
+          "localizedDescription": "正式版 · GitHub v1.0.29\nhttps://github.com/liuliuya2333/LiLite/releases/tag/v1.0.29\n\n**播放**\n- 开启自动画中画后，播放中切到后台小窗不再直接消失：默认内核不再因为切后台那一瞬间的状态把画面关掉，留给系统接管小窗的时间也更长；AVPlayer 内核切后台时不再先暂停\n- 竖屏全屏播放时，顶部弹幕从灵动岛下方开始排，不再被灵动岛挡住\n\n**动态**\n- 在动态页点头像栏筛选某个 UP 主时，动态时间不再一直停在「刚刚」：一天内的时间每次显示时按发布时间现算，和进入 UP 主空间看到的一致；转发里原动态的时间同样处理\n\n附件为未签名 IPA，需要自行签名安装",
+          "downloadURL": "https://github.com/liuliuya2333/LiLite/releases/download/v1.0.29/LiLite-1.0.29-unsigned.ipa",
+          "size": 25264337,
+          "sha256": "f9bbe046851897d17d0f7bc206dd301199564076e71354a53569eeee4bba7c75",
+          "minOSVersion": "17.0"
+        },
+        {
+          "version": "1.0.28",
+          "buildVersion": "45",
+          "date": "2026-11-23T02:38:53Z",
+          "localizedDescription": "正式版 · GitHub v1.0.28\nhttps://github.com/liuliuya2333/LiLite/releases/tag/v1.0.28\n\n**播放**\n- 暂停视频后往下翻评论，播放器不再立刻收起，再滑动时才收起，和官方客户端一致\n- 播放器上下滑动调音量改为真正调节系统音量\n\n**动画与返回**\n- 首页左上角头像点开「我的」、动态里点作者头像进空间，都有头像一镜到底的过渡；空间还在加载时头像先落在原位等待\n- 右划返回一次到位，打开动画还没结束时也能直接划回去\n- iPhone 多个页面返回时底栏模糊不再闪一下\n- iPad 视频页、动态页返回时不再闪一下，顶栏显隐带动画\n\n**评论区**\n- 按官方尺寸重排：头像、昵称、正文、操作栏、回复预览和表头都缩小到合适比例\n\n**UP 主空间**\n- 头像落在横幅下方，位置与官方一致\n- 往上滑后标题栏背景随滑动渐显，不再丢失模糊\n- 切换「主页 / 动态 / 投稿」等栏目时保持滑动位置，不再回到顶部\n- 追番改为三列海报，显示更新进度\n- 粉丝、关注、获赞与关注按钮的尺寸收紧，不再挤在一起\n\n**iPhone Duo / iPad 横屏**\n- 视频页右侧的 UP 主面板重新排版：头像、昵称、等级与关注按钮在同一行，统计数字不再带箭头，「载入前面的投稿」改为居中小字\n\n**其他**\n- 手动检查更新时，没有新版本会提示「已是最新版本」\n- 关于页的致谢只保留两个频道\n\n附件为未签名 IPA，需要自行签名安装",
+          "downloadURL": "https://github.com/liuliuya2333/LiLite/releases/download/v1.0.28/LiLite-1.0.28-unsigned.ipa",
+          "size": 25265432,
+          "sha256": "37856167661e0c087a18ecf6a0dbe7f2204e0b35de8eb3d9fe46f524b77c32e7",
+          "minOSVersion": "17.0"
+        },
         {
           "version": "1.0.27",
           "buildVersion": "44",
@@ -602,56 +652,6 @@
           "downloadURL": "https://github.com/liuliuya2333/LiLite/releases/download/v1.0.23/LiLite-1.0.23-unsigned.ipa",
           "size": 117684148,
           "sha256": "06e9c66b18bb722a0349a73e9dd5006afc3ac9de64230456b6ef50b5810e9467",
-          "minOSVersion": "17.0"
-        },
-        {
-          "version": "1.0.22",
-          "buildVersion": "39",
-          "date": "2026-11-20T10:07:20Z",
-          "localizedDescription": "正式版 · GitHub v1.0.22\nhttps://github.com/liuliuya2333/LiLite/releases/tag/v1.0.22\n\n- 直播间按官方客户端重做：模糊封面暗色背景、主播栏（看过人数、开播时长、关注、高能榜）、深色弹幕列表（粉丝牌、主播标签、新消息提示）和底部输入栏；画质、线路、定时停止等设置收进 ⋯ 菜单；竖屏直播和横屏有各自的布局\n- 修复直播实时弹幕连不上（提示“Brotli 直播帧无效”）\n- 修复视频全屏时点几次就卡死、锁定后解不开\n- 修复番剧和剧集弹幕密集时闪烁\n- 修复界面缩放调小后首页加载不出来、顶栏跑到右边；运行中切换缩放后频道页不再错位\n- 首页推荐像官方客户端一样无限下滑自动加载，不再显示“加载更多”按钮\n- 性能优化：首页封面预取更快，打开视频、简介与评论滑动、UP 主空间更流畅\n\n附件为未签名 IPA，需要自行签名安装",
-          "downloadURL": "https://github.com/liuliuya2333/LiLite/releases/download/v1.0.22/LiLite-1.0.22-unsigned.ipa",
-          "size": 116795428,
-          "sha256": "92c6c7c2a1ef53a0082ef419451b02b7f9831f079b3f106f2ea2d49a1c9f0121",
-          "minOSVersion": "17.0"
-        },
-        {
-          "version": "1.0.21",
-          "buildVersion": "38",
-          "date": "2026-11-20T06:06:00Z",
-          "localizedDescription": "正式版 · GitHub v1.0.21\nhttps://github.com/liuliuya2333/LiLite/releases/tag/v1.0.21\n\n- 竖屏播放器换成官方布局：底部一行播放、进度条、时间、全屏；顶部听视频、投屏、更多；倍速、字幕、画质、小窗移到「更多」\n- 播放控件显示和隐藏的动画与官方一致，返回、主页按钮跟着一起动，不再闪现错位\n- 视频简介区照官方：「点我发弹幕」和弹幕开关合在一起，UP 主下显示粉丝数和视频数，操作栏为点赞、不喜欢、投币、收藏、分享（缓存和稍后再看在分享菜单里）\n- 投币、全屏、投屏、弹幕开关、返回换成官方样式的图标\n- 全屏清屏时暂停键原地变成锁定键；亮度、音量、快进提示改为透明玻璃样式\n- 进出全屏不再卡顿，展开简介后播放更流畅\n- 从二级页面返回时底栏随页面滑入，不再先消失再突然出现\n- 修复登录时安全验证白屏\n- 首页推荐改用官方客户端的请求；推荐账号未完成移动端授权时会提示\n\n附件为未签名 IPA，需要自行签名安装",
-          "downloadURL": "https://github.com/liuliuya2333/LiLite/releases/download/v1.0.21/LiLite-1.0.21-unsigned.ipa",
-          "size": 116328788,
-          "sha256": "43731f1dbb6c35b5ca75dca0463becd7b05018073c565f9bb864329893c942b0",
-          "minOSVersion": "17.0"
-        },
-        {
-          "version": "1.0.20",
-          "buildVersion": "37",
-          "date": "2026-11-20T03:03:33Z",
-          "localizedDescription": "正式版 · GitHub v1.0.20\nhttps://github.com/liuliuya2333/LiLite/releases/tag/v1.0.20\n\n- 修复 iOS 17/18 上播放器点不动的问题（画面、控件按钮都没反应）\n- 看视频时不再自动息屏，暂停或离开播放页后恢复自动锁屏\n- 播放器手势和控件显隐与官方客户端一致：双击画面播放/暂停；播放中 3 秒后隐藏控件，暂停时保留；拖完进度条或横滑快进后收起控件；横滑快进的幅度随视频时长调整；亮度、音量滑动更跟手\n- 返回和主页按钮随播放控件一起隐藏\n- 全屏播放器：画面上下撑满，控件对齐画面左右边缘，修正图标高低不齐；新的快进提示，暂停时画面中央显示播放按钮\n\n附件为未签名 IPA，需要自行签名安装",
-          "downloadURL": "https://github.com/liuliuya2333/LiLite/releases/download/v1.0.20/LiLite-1.0.20-unsigned.ipa",
-          "size": 115726180,
-          "sha256": "0f2fe9d90a3d4dbf0adedb01f11f7f895759672a78ac8ad0e12c06d57d789548",
-          "minOSVersion": "17.0"
-        },
-        {
-          "version": "1.0.19",
-          "buildVersion": "36",
-          "date": "2026-11-19T18:09:56Z",
-          "localizedDescription": "正式版 · GitHub v1.0.19\nhttps://github.com/liuliuya2333/LiLite/releases/tag/v1.0.19\n\n- 全屏播放器重做：状态栏、对齐的工具图标、清晰度与选集面板、倍速菜单、手势提示和锁定；内嵌播放器改用同一套进度条与拖动预览\n- 番剧简介按官方客户端重排：分类标签、标题与追番、数据与详情、单集互动数据、选集卡片、花絮分组、相关 UP 主和相关推荐；上滑时播放器折叠\n- 选集与花絮面板分段显示，支持左右滑动翻页\n- 首页顶栏与状态栏改为毛玻璃，内容从下方滑过，头像套玻璃圆\n- 视频或番剧页在后台被系统回收后，重新打开会回到原页面和进度\n- “我的”页面观看记录移到历史、稍后再看、收藏、离线下方，分组标题字号调小\n- 发评论按钮和图标加大；视频详情页内容延伸到屏幕底部，去掉底部白条\n- 大幅减少首页、视频详情页、评论区、动态和切换标签时的卡顿掉帧\n- 预加载：首页封面提前解码，按下视频卡片即开始加载详情，列表提前加载下一页，启动后在后台预热图形与字体\n\n附件为未签名 IPA，需要自行签名安装",
-          "downloadURL": "https://github.com/liuliuya2333/LiLite/releases/download/v1.0.19/LiLite-1.0.19-unsigned.ipa",
-          "size": 115589636,
-          "sha256": "4d0aabc8a1fa3071c654a9017870661eab6d59c54fd1bf1111e81086f4026e73",
-          "minOSVersion": "17.0"
-        },
-        {
-          "version": "1.0.18",
-          "buildVersion": "35",
-          "date": "2026-11-19T10:43:36Z",
-          "localizedDescription": "正式版 · GitHub v1.0.18\nhttps://github.com/liuliuya2333/LiLite/releases/tag/v1.0.18\n\n- 搜索页重做为官方布局：返回、搜索框和放大镜按钮在一行，搜索后自动收起键盘，联想词可以填入继续输入\n- 修复搜索时可能卡死的问题\n- 评论详情面板支持下拉跟手收起，在列表顶部或标题栏往下拉即可\n- 修复观看历史、稍后再看轻轻上滑时列表抖动的问题，搜索改为右上角放大镜打开\n- 视频详情页、评论区和视频列表的字号与间距对齐官方客户端\n\n附件为未签名 IPA，需要自行签名安装",
-          "downloadURL": "https://github.com/liuliuya2333/LiLite/releases/download/v1.0.18/LiLite-1.0.18-unsigned.ipa",
-          "size": 112257572,
-          "sha256": "922fcc7f711b4dcf5adc6238c81ef076d33024b38d3545cefd8bd565d491667f",
           "minOSVersion": "17.0"
         }
       ],
