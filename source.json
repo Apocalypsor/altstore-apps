@@ -371,6 +371,16 @@
       "versions": [
         {
           "version": "0.9.8",
+          "buildVersion": "188",
+          "date": "2026-11-24T06:42:59Z",
+          "localizedDescription": "正式版 · GitHub v0.9.8.27\nhttps://github.com/kai-wu-cortex/AirSIM/releases/tag/v0.9.8.27\n\n# AirSIM v0.9.8.27\n\n发布日期：2026-11-24。源码分支：develop。\n\n- Android Standalone／AVF：0.9.8.27（142），使用原发布证书。\n- iPhone／Watch／小组件／通知扩展：0.9.8（188）。\n\n## 本次更新\n\n- 恢复用户熟悉的拨号、最近通话、短信头像和通话 UI，保留既有通话、连接与短信修复。\n- 新增端点管理：可单独删除失效地址，保留设备配对、短信与通话记录；同一设备、同一主机及传输类型的新端口通过身份验证后替换旧端口。删除的地址不会被普通后台发现自动加回，显式重新配置可恢复。通话中不允许删除。\n- 灵动岛和小组件按 SIM 显示已有号码与对应信号；信号未知或过期不再替换号码，修复安卓双卡采样混用。\n- 移除配对设备与小组件目录数量限制，灵动岛保留分页展示；云端设备列表支持完整分页。\n- 安卓 Agent 与 iOS 归一化兼容的 IMS SIP／TEL 来电号码，改善来电展示与联系人匹配；非电话号码和无法安全解释的格式保持原值。\n- 包含 PR #46 的同网段局域网恢复、候选优先级和通话路线保护修复。\n- 修复局域网探测重试中新引入的 Date 比较运行时兼容风险，保留原有重试时间边界。\n- 更新开屏新功能介绍，新增端点管理动画 SVG 和号码保留示意。\n\n## 安装说明\n\nAndroid APK 使用原发布签名，可覆盖对应正式签名版本。Debug 安装包无法直接覆盖。\n\nGitHub 的完整 unsigned IPA 包含 Watch；sideload unsigned IPA 移除 Watch。两种 IPA 均需自行重新签名，不能直接安装。原始签名归档与 dSYM 留存在本机，不作为公开资产。\n\nTestFlight 使用独立的 App Store Connect 上传流程；是否可下载还取决于 Apple 处理和测试分发状态。\n\n## 范围与限制\n\n- 不含实验性 ANCS 通知转发，也不更新 U30Air／MU300 固件或独立 AVF Linux Agent。\n- 号码来自设备已提供的信息，无法凭空读取未写入或未上报的号码。多卡信号需要兼容安卓；未知信号不冒充零格或其他卡信号。\n- 小组件刷新由系统调度，不能承诺每次滑到桌面立即刷新。\n- 端点管理针对直连地址与本地配对记录；不会删除云端注册或改变 Relay 鉴权协议。\n- 本次发布检查不包含真实拨号或短信发送，不宣称全机型端到端验证完成。\n\n## 验证\n\nAndroid 两套回归、SIM 信号检查、iOS 端点／设备容量／号码／信号／LAN／PushKit 定向检查、Worker 86 项及自托管 5 项测试通过。最终 iOS Release 归档、签名、版本与 Date 运行时导入检查通过。ECS 公开 HTTPS/WSS 合成鉴权、去重和双向 PCM 验证通过。详见 `docs/reviews/2026-11-24-release27-deployment.md`。\n\n## 发布状态\n\nGitHub Release 已发布；TestFlight 188 已于 2026-11-24 14:43（Asia/Shanghai）上传成功，等待 Apple 处理。ECS Relay 已同步并通过公开 HTTPS/WSS 合成检查。Cloudflare Worker 已部署最新源码，但账户当天免费额度耗尽，健康检查仍返回 429／1027，尚未恢复可用。",
+          "downloadURL": "https://github.com/kai-wu-cortex/AirSIM/releases/download/v0.9.8.27/AirSIM-iOS-0.9.8-build188-sideload-unsigned.ipa",
+          "size": 8607702,
+          "sha256": "0e0f83fb531049dbc36238bf5d3adacd8db53095e9abd3dca87abcc5ddde125b",
+          "minOSVersion": "16.3"
+        },
+        {
+          "version": "0.9.8",
           "buildVersion": "185",
           "date": "2026-11-21T08:36:42Z",
           "localizedDescription": "正式版 · GitHub v0.9.8.26\nhttps://github.com/kai-wu-cortex/AirSIM/releases/tag/v0.9.8.26\n\n# AirSIM Apps v0.9.8.26 — 通话界面、多卡信号与稳定性\n\n2026-11-21（Asia/Shanghai），基于 develop。Android Standalone／AVF Bridge **0.9.8.26（141）**；iPhone／Watch／Widget／短信通知扩展 **0.9.8（185）**。\n\n## 更新内容\n\n- 更新拨号页的大圆按键、最近通话列表与蓝灰通话界面。通话中可收起界面并返回；保留现有通话、选卡、连接和音频控制逻辑。\n- iPhone 和 Watch 在 PushKit 回调中及时上报 CallKit，补齐无效／过期推送的系统收尾与仅一次 completion，避免结束另一通电话；修复已确认的未处理 VoIP 推送崩溃路径。\n- Root 短信使用 App 持有的逐段系统发送回执。只有确认未发送时才允许安全回退；发送结果未知时停止重试。补齐多用户和系统接口兼容，保留 140 版 Shizuku 回执修复。\n- 修复云端 SIM 列表及拨号／短信命令入口对安卓三行 PhoneAccount 标识的兼容；仍严格校验格式和长度。自检补充所选 SIM 确认状态。\n- 修复云端呼出状态处理，避免把呼出接通当作来电接听命令；保留命令去重与通话身份校验。\n- 灵动岛与桌面小组件显示各张 SIM 的信号，需要新版安卓上报；无可靠采样、旧端或过期数据显示未知，不猜测信号或影响在线判定。\n- 手机与手表短信列表增加精确号码匹配的服务号码图标，联系人照片优先；资源说明见 [SMSCarrierIcons](https://github.com/kai-wu-cortex/AirSIM/blob/v0.9.8.26/docs/SMSCarrierIcons.md)。\n- 开屏加入“拨号与通话界面”“多卡信号与稳定性”两组本地 SVG 介绍；保留减少动态效果设置。Android 更新说明同步。\n\n## 升级与验收边界\n\n- Android 正式包沿用原发行证书；Debug 安装不能直接覆盖为正式包，不建议卸载丢失配对数据。\n- 公开 full／sideload IPA 是未签名包，需自行签署主 App 和全部扩展；full 包含 Watch，sideload 不含 Watch。TestFlight 使用独立 App Store 签名上传。\n- 本次同步 Cloudflare 与阿里云 ECS 的 AirSIM Relay；不修改同机的 AirSIM Cloud／TURN，不更新独立 AVF Linux Agent 或 U30Air 固件。\n- 系统发送成功不等于对方收到；其他厂商、多段短信和更多 Root 环境仍需实测。历史缺失的发信记录不会自动补回。\n- 已确认的 PushKit 崩溃路径修复不代表所有 TestFlight 崩溃均解决；iPhone／Watch 锁屏推送与真实通话仍需回归。\n- UI 184 已在 iPhone Air 覆盖安装并启动。模拟器 UI 测试受启动环境阻塞，未完成截图用例，不能宣称全尺寸视觉验收通过。\n- 实验性 ANCS 通知转发已撤回，不包含在本次发布。纯本地跨端零 Relay 流量、Watch 全链路仍需专项验收。\n\n## 发布验证\n\n- Android 全量回归通过；Worker 84 项、自托管 5 项通过。\n- PushKit 26 项拒绝／错误路径、同步上报、completion 与 UUID 隔离检查通过；云端 SIM 协议和诊断 smoke、更新策略与生命周期检查通过。\n- 追加短信逐段回执、Root provider 边界、API 29／30／35／36 分卡信号测试通过；VoBLE 恢复／音频一致性及 Watch 341 项可靠性断言通过。\n- 两种正式 APK 的原发行证书、build 141、API 29 最低要求和不可调试属性已核验。\n- 代码提交 `8bab98a` 已推送 develop。主 App、Watch、小组件、短信扩展 Release 归档通过，统一 build 185。App Store 导出、深度签名、production APNs、App Group、不可调试属性及 4 个 Mach-O 的 Date 导入检查通过。\n- full／sideload IPA 由同一归档的独立副本去除签名后打包，不包含描述文件和签名；full 保留 Watch，sideload 移除 Watch。原始归档与 dSYM 保留用于崩溃分析。\n- GitHub 发布附件共 8 个，已重新下载验证：SHA-256 清单一致，7 个有效载荷全部校验通过。\n- 2026-11-21 16:34（Asia/Shanghai），Xcode 确认 build 185 上传 App Store Connect 成功，Apple 已开始处理。尚未确认 TestFlight 处理完成或外部测试可用；自动化测试不等同于真机通话验收。\n\n## Relay 部署状态\n\n- 阿里云 ECS 已更新到本版业务代码，内部与公网 HTTPS/WSS 合成验证通过，其他 AirSIM Cloud／TURN 服务未重启。\n- Cloudflare 已部署新版本，但平台当前返回 HTTP 429／1027（免费层每日请求额度超限），额度恢复前公网链路不可用。未自动升级付费计划。\n- 完整部署与回退记录见 [部署记录](https://github.com/kai-wu-cortex/AirSIM/blob/v0.9.8.26/docs/reviews/2026-11-21-relay-deployment.md)。\n\n## SHA-256\n\n```text\n04a96a1f8fea6e42afaae5ba12e76799c6794256118800249649efef33cc551c  AirSIM-Android-AVF-0.9.8.26-build141.apk\n3d3febea27c6f79163e464161e9c02041d96f3b06cb804752ef22fb480b95a0f  AirSIM-Android-Standalone-0.9.8.26-build141.apk\ne81e954c61521b7ce439c040333e21310b1a5f43f689f6c189a99a706eb811fe  AirSIM-iOS-0.9.8-build185-sideload-unsigned.ipa\nc72b26887affd3f87aca2c940add76d9e0eaee122d72b2d87c571075d0cea419  AirSIM-iOS-0.9.8-build185-unsigned.ipa\nc0ea4a896d2c8c394b29f9427589996db826cd501c512279ff0ed3ef48fabbe5  LICENSE\n82bb82e0816c778a09b7ddc8cea0f9126847d6e489bf0aeb7fb1dff2dfc54454  NOTICE\n97191d13afac2690c676558dd012a8f365da50c1659d27dd5d8a1226a1f19d93  THIRD_PARTY_NOTICES.md\n```",
@@ -450,6 +460,16 @@
       "tintColor": "FF9500",
       "versions": [
         {
+          "version": "2.2.9",
+          "buildVersion": "2.2.9",
+          "date": "2026-11-24T00:07:31Z",
+          "localizedDescription": "正式版 · GitHub v2.2.9\nhttps://github.com/zxsos/HGhubX/releases/tag/v2.2.9\n\n# HGhubX v2.2.9\n\n重点修复 Android WebView 播放页合成器闪烁问题，并升级「我的收藏」单图标追剧状态筛选与频道/标签结果页指标排序；覆盖 Windows、macOS、Linux、Android 与 iOS 标准版。\n\n## 新增与优化\n1. **「我的收藏 → 短剧」单图标追剧状态筛选与底栏快捷复位（#243）**：收藏短剧右上角合并为单图标筛选胶囊，点击展开「追剧状态」菜单并展示「在追剧」「连载中」「已完结」及各自数量（三类允许重叠，按更新时间倒序稳定排列）；卡片统一只保留单个左上角角标随分类切换（「未看 N 集」/「更新至 N 集」/「全 N 集」）；移动端再次点击底栏激活中的「我的」可一键复位回「我的收藏 / 短剧 / 全部收藏」并回到顶部。\n2. **分类频道与标签结果页指标排序（#244）**：原创、AI 短剧、AI 漫剧频道及标签结果页短剧区块右侧新增排序入口，支持按「点赞数」「收藏数」「播放数」「评分」降序/升序切换（再次点击当前指标反转方向，切 Tab 保留当前指标），通过 `jsonOnly` 抓取完整结果并按 20 条渐进渲染，不影响标签页吃瓜帖。\n\n## 修复\n1. **Android 播放页画面闪烁与瓦片异常（#240、#242）**：针对 Android WebView（Skia/Viz）在硬件 `<video>` 上方叠加高半径模糊与持久动画层引发的闪烁问题，在 `.plat-android` 播放页关闭压在视频上的 `backdrop-filter`（改用等价半透明深色底），移除被遮盖的 `blur-3xl` 与未缩放时的 3D `translate3d`，仅在活跃条目渲染 `FeedItemChrome` 且仅缩放态挂载还原胶囊；Android 端「微光效果」改用 `8×5` 画布按 `250ms` 采样配合 GPU 双线性放大替代全屏 `filter: blur(44px)`；`LayerBox` 动画结束后立即移除入场动画类与过渡阴影，Android 进入 `feed` 栈页跳过变换/透明度入场动画。\n\n## 安装与兼容提示\n- Windows 提供 NSIS 安装包与便携压缩包；macOS 提供 Universal DMG；Linux 提供 amd64 `.deb`；Android 标准版按 ABI 提供已签名 APK（`versionCode=2002009`）；iOS 提供未签名 `.ipa`（需自行签名安装）。\n- 覆盖安装保留本机收藏、观看记录、界面语言、线路与内容偏好；Android TV 版（`com.hghubx.tv`）独立沿用 `tv-v2.2.4` 发布。\n\n## 致谢\n- 感谢 @makisekurisu-jp 贡献 #243 收藏页单图标追剧状态筛选与 #244 频道/标签指标排序。\n- 感谢 @zxsos 定位修复 #240/#242 Android 播放页合成器闪烁问题并完成本轮 PR 审查、冲突整合与版本发布校验。\n\n## 验证\n- 合入后本地严检：`make check`（Rust `118 passed; 0 failed; 4 ignored`、`pnpm build` 三套 `tsc` + Vite 构建、814 项 i18n 键校验、202 条文档链接、代码尺寸预算及 `release-check: ok 2.2.9, android versionCode=2002009`）、`pnpm test:smoke`（17/17 套件通过）、`node scripts/test-playback.mjs`（10/10 场景通过）以及 TV 兼容性验证 `make test-tv` + `node scripts/test-tv-remote.mjs`（14/14 场景通过）全部通过。\n- PR #242、#243、#244 均在 GitHub Actions 审查检查（8/8）全绿通过后合入；各平台正式产物由 `v2.2.9` 标签触发的 GitHub Actions `Release` 工作流构建并校验。",
+          "downloadURL": "https://github.com/zxsos/HGhubX/releases/download/v2.2.9/HGhubX_2.2.9_ios.ipa",
+          "size": 4009527,
+          "sha256": "40d064d42e75fe7216a5981ee1162a28065ba727446b6c237c4b6a88f9f818cd",
+          "minOSVersion": "15.0"
+        },
+        {
           "version": "2.2.8",
           "buildVersion": "2.2.8",
           "date": "2026-11-23T03:55:29Z",
@@ -528,16 +548,6 @@
           "size": 3886166,
           "sha256": "3fb8887eee6f4de20e4b3fb0bd2bfef17a50b40aafb50800b46978580b9110cc",
           "minOSVersion": "15.0"
-        },
-        {
-          "version": "2.1.2",
-          "buildVersion": "2.1.2",
-          "date": "2026-11-15T16:56:37Z",
-          "localizedDescription": "正式版 · GitHub v2.1.2\nhttps://github.com/zxsos/HGhubX/releases/tag/v2.1.2\n\n## HGhubX 2.1.2\n\n### 更新点\n\n- 标签详情同时展示短剧和吃瓜帖子，并分别分页；标签热度会明确标注，不再与内容数量混淆。\n- 横屏视频按当前播放源的媒体尺寸识别，尺寸确认前使用完整画面适配。\n\n### 修复点\n\n- 修复社区标签只查询短剧接口，导致官网存在帖子但应用显示空列表的问题。\n- 修复切集、切源时媒体尺寸报告竞态导致首页横屏视频被裁切或未显示横屏控制的问题。\n\n\n**Full Changelog**: https://github.com/zxsos/HGhubX/compare/v2.1.1...v2.1.2",
-          "downloadURL": "https://github.com/zxsos/HGhubX/releases/download/v2.1.2/HGhubX_2.1.2_ios.ipa",
-          "size": 3852817,
-          "sha256": "fdf8a64f296d7aa38720c21e440504dbfe6018bdc348b559902ce35382465254",
-          "minOSVersion": "15.0"
         }
       ],
       "appPermissions": {
@@ -554,6 +564,26 @@
       "iconURL": "https://raw.githubusercontent.com/liuliuya2333/LiLite/v1.0.18/Resources/Brand/icon.png",
       "tintColor": "3F8DF5",
       "versions": [
+        {
+          "version": "1.0.38",
+          "buildVersion": "55",
+          "date": "2026-11-24T06:26:10Z",
+          "localizedDescription": "正式版 · GitHub v1.0.38\nhttps://github.com/liuliuya2333/LiLite/releases/tag/v1.0.38\n\n**返回手势**\n- 所有二级页面都能从页面任意位置右滑返回，不再只认屏幕边缘；手指在进度条、滑块上拖动时不会误触返回（#4）\n- 在视频页的播放器上从边缘右滑也能直接返回\n\n**修复**\n- 进入竖屏刷视频后偶尔卡住、播放器点击没反应的问题；竖屏入口按钮不再需要点两次\n- 视频简介里的链接现在能正常打开\n- 页面返回结束后若还有画面留在屏幕上，会自动清理\n\n**界面缩放**\n- 界面缩放现在只缩放页面内容，底部标签栏、顶部导航栏和工具栏保持系统原本大小\n- iPhone Duo：开启界面缩放后，外屏的标签栏和工具栏仍会放在状态栏旁的侧边列，不再跑到顶部和底部\n\n**iPhone Duo**\n- 外屏打开动态详情、评论区、私信等页面时，内容不再挤在左边\n\n**iPad**\n- 全屏播放时右下角新增退出全屏按钮\n- 首页刷新后「新推荐看完了」提示独占一行，不再占一个视频卡片的位置，上下两批推荐各自对齐\n\n附件为未签名 IPA，需要自行签名安装",
+          "downloadURL": "https://github.com/liuliuya2333/LiLite/releases/download/v1.0.38/LiLite-1.0.38-unsigned.ipa",
+          "size": 27008027,
+          "sha256": "f8c4b8303aea9b541697b0421ee87e376da7205b2d95d5861a851c807ea55e46",
+          "minOSVersion": "17.0"
+        },
+        {
+          "version": "1.0.37",
+          "buildVersion": "54",
+          "date": "2026-11-24T02:56:05Z",
+          "localizedDescription": "正式版 · GitHub v1.0.37\nhttps://github.com/liuliuya2333/LiLite/releases/tag/v1.0.37\n\n**竖屏刷视频**\n- 首页推荐里的竖屏视频卡片直接进入上下滑动的竖屏播放：右侧点赞、评论、投币、收藏、分享，左下作者、标题和关注按钮，底部进度条、弹幕输入与开关。单击暂停，双击点赞，长按临时 2 倍速，上滑看下一条\n- 支持竖屏播放的视频，播放器控件里多一个竖屏入口，从当前进度进入。返回时回到详情页，并接着播放竖屏里正在看的那条\n- 竖屏播放底部的「详情页」按钮可切到普通播放器，进度一并带过去\n- 可在「我的 → 设置 → 详情与播放控制 → 画面布局 → 竖屏刷视频」关闭\n\n附件为未签名 IPA，需要自行签名安装",
+          "downloadURL": "https://github.com/liuliuya2333/LiLite/releases/download/v1.0.37/LiLite-1.0.37-unsigned.ipa",
+          "size": 27003107,
+          "sha256": "a6ec1c431e931e676c844f04a1f397ca31e8ec20c289db006aa97cbbd9617336",
+          "minOSVersion": "17.0"
+        },
         {
           "version": "1.0.36",
           "buildVersion": "53",
@@ -633,34 +663,17 @@
           "size": 25264337,
           "sha256": "f9bbe046851897d17d0f7bc206dd301199564076e71354a53569eeee4bba7c75",
           "minOSVersion": "17.0"
-        },
-        {
-          "version": "1.0.28",
-          "buildVersion": "45",
-          "date": "2026-11-23T02:38:53Z",
-          "localizedDescription": "正式版 · GitHub v1.0.28\nhttps://github.com/liuliuya2333/LiLite/releases/tag/v1.0.28\n\n**播放**\n- 暂停视频后往下翻评论，播放器不再立刻收起，再滑动时才收起，和官方客户端一致\n- 播放器上下滑动调音量改为真正调节系统音量\n\n**动画与返回**\n- 首页左上角头像点开「我的」、动态里点作者头像进空间，都有头像一镜到底的过渡；空间还在加载时头像先落在原位等待\n- 右划返回一次到位，打开动画还没结束时也能直接划回去\n- iPhone 多个页面返回时底栏模糊不再闪一下\n- iPad 视频页、动态页返回时不再闪一下，顶栏显隐带动画\n\n**评论区**\n- 按官方尺寸重排：头像、昵称、正文、操作栏、回复预览和表头都缩小到合适比例\n\n**UP 主空间**\n- 头像落在横幅下方，位置与官方一致\n- 往上滑后标题栏背景随滑动渐显，不再丢失模糊\n- 切换「主页 / 动态 / 投稿」等栏目时保持滑动位置，不再回到顶部\n- 追番改为三列海报，显示更新进度\n- 粉丝、关注、获赞与关注按钮的尺寸收紧，不再挤在一起\n\n**iPhone Duo / iPad 横屏**\n- 视频页右侧的 UP 主面板重新排版：头像、昵称、等级与关注按钮在同一行，统计数字不再带箭头，「载入前面的投稿」改为居中小字\n\n**其他**\n- 手动检查更新时，没有新版本会提示「已是最新版本」\n- 关于页的致谢只保留两个频道\n\n附件为未签名 IPA，需要自行签名安装",
-          "downloadURL": "https://github.com/liuliuya2333/LiLite/releases/download/v1.0.28/LiLite-1.0.28-unsigned.ipa",
-          "size": 25265432,
-          "sha256": "37856167661e0c087a18ecf6a0dbe7f2204e0b35de8eb3d9fe46f524b77c32e7",
-          "minOSVersion": "17.0"
-        },
-        {
-          "version": "1.0.27",
-          "buildVersion": "44",
-          "date": "2026-11-22T17:49:05Z",
-          "localizedDescription": "正式版 · GitHub v1.0.27\nhttps://github.com/liuliuya2333/LiLite/releases/tag/v1.0.27\n\n**播放**\n- 全屏手势提示（亮度、音量、进度、倍速）与控件排版重新设计\n- 锁定屏幕改为玻璃材质按钮：iPhone 横屏锁定后两侧都有解锁键，iPad 为右侧单键，直播全屏也可以锁定\n- 全屏「倍速」改为与画质相同的面板，点开后不会立刻收起\n- 全屏控件显示时，弹幕在顶栏和底栏处自动淡出，不再挡住标题、时间和按钮\n- 选集面板的标题去掉共同的剧名前缀，能分清每一集\n- 从卡片打开视频时，封面一直显示到开始播放，不再黑一下；从列表打开视频也有同样的放大过渡\n- 视频页加载时，关注按钮和右侧标签不再闪变\n- AVPlayer 内核长按 3 倍速播放不再一顿一顿\n- 退出全屏后视频页不再钻到状态栏下面\n\n**iPad**\n- 「我的」在概览和其他页面之间切换时顶部不再跳动，当前页会高亮，旋转后保留所在页面\n- 设置的二级页面保留左侧分区栏，内容不再铺满整屏；分区栏选中样式与「我的」统一\n- 动态多列时显示为卡片，深色模式下也能分清边界\n- 竖屏时首页频道单独占一行，不再被标签栏挡住\n- 历史、收藏、离线缓存等列表的缩略图统一，筛选标签与列表对齐\n- 私信输入栏铺满右栏，当前会话会高亮\n\n**iPhone Duo**\n- 半折叠时，搜索结果、热搜、直播、分区排行、动态详情、消息、「我的」和设置都按折痕分栏，内容不再压在折痕上；空状态和报错提示也移到折痕一侧\n- 折叠状态变化后，首页网格会重新排列\n- 设置卡片不再伸进状态栏那一列\n\n**iPhone**\n- 横屏时首页切换频道不再错位\n- 横屏搜索结果不再露出相邻分页\n- 直播间从左边缘右滑返回时不会误触弹幕\n- 横屏视频页播放器两侧不再露白\n\n**直播**\n- 全屏时左上角可以直接退出\n- 已播时长的写法统一，没有弹幕时显示提示\n- 分区页按屏幕宽度排列，「我的常用」为空时不再报错\n- 贡献榜背景与直播间一致\n\n**其他**\n- 稍后再看、收藏夹右上角的按钮收进「⋯」菜单，标题位置与观看历史一致\n- 评论区底部为悬浮的发评论按钮留出空间，不再挡住最后几条评论\n- 新增深色与色调桌面图标\n- 关于页加入开发者与致谢\n- 「页面动画与回弹」在 iPhone 上可以正常进入\n\n附件为未签名 IPA，需要自行签名安装",
-          "downloadURL": "https://github.com/liuliuya2333/LiLite/releases/download/v1.0.27/LiLite-1.0.27-unsigned.ipa",
-          "size": 25276856,
-          "sha256": "152e6ca487c0929a6b35db3a1c8855f7213f0d731115fe07d5f04c6081fcd678",
-          "minOSVersion": "17.0"
         }
       ],
       "appPermissions": {
         "entitlements": [],
         "privacy": {
+          "NSCameraUsageDescription": "在对话中拍照添加附件",
           "NSFaceIDUsageDescription": "验证身份以导入或导出登录账号",
           "NSLocalNetworkUsageDescription": "发现并连接同一网络上的投屏设备",
-          "NSPhotoLibraryAddUsageDescription": "保存你选择的图片、实况照片或视频截图"
+          "NSMicrophoneUsageDescription": "在你开启助手听写时，用麦克风接收你的语音。",
+          "NSPhotoLibraryAddUsageDescription": "保存你选择的图片、实况照片或视频截图",
+          "NSSpeechRecognitionUsageDescription": "把你说的话转成助手消息。设备无法本地识别时，语音会交由 Apple 的语音识别服务处理。"
         }
       }
     }
