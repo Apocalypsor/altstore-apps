@@ -252,6 +252,16 @@
       "tintColor": "FB7299",
       "versions": [
         {
+          "version": "1.3.6",
+          "buildVersion": "24",
+          "date": "2026-11-26T07:35:58Z",
+          "localizedDescription": "正式版 · GitHub v1.3.6\nhttps://github.com/Fab1e2000/NeoBili/releases/tag/v1.3.6\n\n## 播放与离线缓存\n\n- 支持查看带章节视频的当前章节、从菜单直接跳转，以及在拖动进度或横滑画面时预览目标章节。新缓存的视频会保存可用章节，断网时也能跳转。已有缓存仍可播放，重新缓存即可获取可用章节。\n- 播放器新增洗脑循环和自动切集或连播开关，关闭后可在播完时暂停。有可用音轨时，可在播放器中选择 Hi-Res 无损音质。\n\n## 浏览与性能\n\n- UP 主空间新增「合集和系列」入口，直播页顶部保留正在开播的关注主播头像。\n- 收藏夹改用简洁的原生列表，支持长按管理。搜索使用原生搜索框，并重新组织热搜、历史记录与搜索建议的展示。\n- 优化评论首批加载、快速滚动与分页追加时的列表更新，同时改善弹幕、投屏、图片缓存和播放器调度。优化评论正文、表情与图片的布局，以及视频详情页滚动时的播放器折叠。\n\n## 应用更新\n\n- 「设置 → 关于 → 应用更新」支持自动与手动检查更新。发现新版本时以红点提示，可从详情打开 SideStore 或 AltStore，也可下载 IPA 并分享给签名工具。\n\n本次构建号为 24。\n\n## 安装\n\n支持 iOS 26 及以上版本。下载附件 `NeoBili-v1.3.6-unsigned.ipa`，可用同页的 `SHA256SUMS.txt` 校验。通过 SideStore、AltStore 或 Sideloadly 使用自己的 Apple ID 重签安装。\n\nSideStore 可添加[国内源](https://n015.top/neobili/apps.json)或[备用源](https://cdn.jsdelivr.net/gh/Fab1e2000/NeoBili@main/sidestore/apps.json)。\n\n\n**构建信息**：提交 `b85abbdd25870dbda763b03a81a62538a7cdd1d5`，由 [Xcode Cloud](https://appstoreconnect.apple.com/teams/2d9bb309-ce66-4d6f-a5e9-1bea4f68843e/apps//ci/builds/924c228e-2057-4b0a-abff-448431f6536b) 构建。",
+          "downloadURL": "https://github.com/Fab1e2000/NeoBili/releases/download/v1.3.6/NeoBili-v1.3.6-unsigned.ipa",
+          "size": 135022026,
+          "sha256": "83e7499f8841cc0a31604085fb10cbe5892b3db73346a4393c82d3088c8bd827",
+          "minOSVersion": "26.0"
+        },
+        {
           "version": "1.3.5",
           "buildVersion": "22",
           "date": "2026-11-22T04:51:39Z",
@@ -339,16 +349,6 @@
           "downloadURL": "https://github.com/Fab1e2000/NeoBili/releases/download/v1.2.1/NeoBili-v1.2.1-unsigned.ipa",
           "size": 59339347,
           "sha256": "5a8418cb58b7e7be13afd5fe1b98ecfe62cc488bd95dc6a9bfb5ce7a1774f876",
-          "minOSVersion": "26.0"
-        },
-        {
-          "version": "1.2.0",
-          "buildVersion": "13",
-          "date": "2026-10-07T10:30:14Z",
-          "localizedDescription": "正式版 · GitHub v1.2.0\nhttps://github.com/Fab1e2000/NeoBili/releases/tag/v1.2.0\n\n## 新功能与体验\n\n- 首页支持服务端下发的大卡片和可见时静音预览，推荐理由使用黄色标记。\n- 播放器支持倍速；稍后再看按服务端游标分页。\n- 稍后再看、历史记录与收藏支持长按菜单进入多选，统一底部批量操作与撤销体验。\n- 增加“刷新后保留上次数据”设置，默认开启；关闭后下拉刷新替换旧推荐。\n- 搜索框聚焦时隐藏下方历史和热搜，输入后显示建议。\n- 关注页头像点击切换动态，再点当前 UP 主进入主页，长按直接进入直播间。\n- UP 主空间使用对应的背景图，支持深浅色背景选择。\n\n## 修复与性能\n\n- 修复首页刷新与翻页游标混用、过期响应影响刷新状态的问题。\n- 修复直播推荐请求缺少显示缩放参数导致的 code -400。\n- 修正大卡片标签、标题行数及播放前后的统计覆盖层，减少列表布局与预览播放器的重复工作。\n- 降低逐事件 Keychain 读取和共享设置写入开销，预览播放器在停留及取流成功后再创建。\n- 修复登录续期结果未及时反映到账户状态，以及观看时长在倍速下的编码差异。\n- 修复资料库 Tab 入口的多选可用性与搜索头像动画。\n- 修正设备登记公钥的长度解析；大卡片缺少 CID 时，离屏也能取消实际取流请求。\n\n## 网络层与维护\n\n- 接入设备/访客登记、App 票据和登录凭据续期，使用自身账号和设备上下文。\n- 推荐、点击、曝光及观看上报按已确认研究规则接入，并保留来源和账号代际约束。\n- 网络代码按业务接口、传输、身份、推荐和上报分目录；增加文档导航及本机协议校验入口。\n\n上述调整不承诺与官方客户端返回完全相同的视频。完整设备资料、部分业务字段和推荐效果仍有验证边界；设备管理显示登录记录也不等于所有设备字段均已验收。\n\n## 本次重新发布\n\n- 修复部分设备编号下相关视频模块缺失，补取相关视频列表；失败时支持重试并保留已有分页内容。\n- 设置 → 高级新增“设备编号”：可选系统派生或随机编号，首次生成后复用，切换需重启；两种模式分别保存设备登记及票据，账号登录保留。\n- 直播间保持单页，主播资料、简介和弹幕直接铺开，去掉独立圆角容器；统一关注按钮，改善弹幕开关对比度与点击范围。\n- 本次构建号为 13。设备编号切换用于兼容性测试，不保证改善推荐质量。\n\n## 安装\n\n下载本页的 `NeoBili-v1.2.0-unsigned.ipa`，用自己的证书签名后安装。\n可使用同页 `SHA256SUMS.txt` 校验文件。最低系统要求 iOS 26。\n\n**构建信息**：提交 `e729772`，Xcode 26.6 Build version 17F113，由 [GitHub Actions](https://github.com/Fab1e2000/NeoBili/actions/runs/37606903905) 构建。",
-          "downloadURL": "https://github.com/Fab1e2000/NeoBili/releases/download/v1.2.0/NeoBili-v1.2.0-unsigned.ipa",
-          "size": 58972132,
-          "sha256": "94bdd8c91826cfb9ed2e824eaa4b83483b759a9f5785917057adfc3195c138f8",
           "minOSVersion": "26.0"
         }
       ],
