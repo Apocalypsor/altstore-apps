@@ -470,13 +470,33 @@
       "tintColor": "FF9500",
       "versions": [
         {
+          "version": "3.1.2",
+          "buildVersion": "3.1.2",
+          "date": "2026-11-27T19:01:14Z",
+          "localizedDescription": "正式版 · GitHub v3.1.2\nhttps://github.com/zxsos/HGhubX/releases/tag/v3.1.2\n\n# HGhubX v3.1.2\n\nHGhubX 3.1.2 正式版：正式纳入 HarmonyOS 鸿蒙未签名安装包（自签可用），新增视频加载 DNS 并发竞速与 Rust 媒体代理层 HLS 后台并发预取，统一全端网络、视频源与播放器错误代号层，并修复安卓端返回退出后重新打开闪退与切后台继续拉流问题；覆盖 Windows、macOS、Linux、Android、iOS 与 HarmonyOS。\n\n## 新增与优化\n1. **正式纳入 HarmonyOS 鸿蒙自签版（#283）**：同步标准版全部功能与界面，随本版同步提供 `HGhubX_3.1.2_ohos_arm64_unsigned.hap` 未签名安装包；前端自动识别 HarmonyOS 平台，内置更新检查支持优先匹配 `.hap` 产物。\n2. **视频加载与首播提速**：\n   - 底层客户端构建与域名解析引入同主机 single-flight 合并与 900ms 系统 DNS / 阿里 DoH 并发竞速（保留严格模式既有 IP 与重定向安全校验），降低冷启动并发排队与弱网 DNS 阻塞。\n   - Rust 媒体代理层新增 HLS 后台并发预取：解析播放列表后即并发预热加密 Key、初始化片段与前 2 个分片，播放期间按当前分片自动预取后续 `N+1` / `N+2` 分片（全局并发限流 3，切线、切集或清缓存即时取消），显著提升起播与续播缓冲速度。\n3. **统一错误代号层与历史同步自动重试**：\n   - 后端网络请求、视频源脚本与播放器错误统一收口为带语义代号的可读提示（如 `NET_TIMEOUT`、`NET_DNS`、`NET_PROXY`、`HTTP_*`、`SRC_*`、`MEDIA_*`），不再向界面直接暴露原始英文报错、请求 URL 或 QuickJS `eval_script` 调用栈。\n   - 「观看历史」接口（`api_account_history`）纳入只读瞬态超时自动重试，减少「我的」页同步失败。\n4. **桌面端与移动端 UI/UX 全面打磨**：\n   - 桌面端按面板容器宽度自适应至 960px（有效宽度增至 ~904px，频道/标签/帖子/「我的」统一 5 列对齐），分类快捷入口收敛为单行 5 卡均分，横向片架新增边缘渐隐与悬停翻页按钮，侧栏进入二级页保留来源高亮，根级「设置」「排行榜」去冗余返回键，设置分组新增图标与实时状态摘要且双选择器等宽对齐。\n   - 移动端横向片架通栏延展消除右侧截断感，修复浅色主题帖子操作胶囊对比度与「我的」页「视频/帖子」激活态反转，收紧圆角至 12 / 20 / 28px 三档，统一所有抽屉 44px 关闭键、描线图标与滚动标题分隔线，播放异常卡片上移并升级毛玻璃胶囊，排序/筛选菜单选中项满足 WCAG AA（≥ 4.5:1）对比度。\n\n## 修复\n1. **安卓端返回退出后重新打开闪退**：根页面双击返回直接触发 `finishAffinity()` 后，延迟的 `onDestroy()` 进程退出逻辑会在短时间重开时误杀新实例 -> 改为通过安卓原生桥调用 `moveTaskToBack(true)` 退回后台，避免重开闪退。\n2. **应用切入后台后仍继续拉取视频分片**：退回后台时播放器未及时停流导致后台流量消耗与恢复状态错乱 -> 监听页面不可见事件同步暂停并调用 `hls.stopLoad()`，回到前台后按原播放意图或显式暂停状态恢复。\n3. **详情/选集抽屉滑动方向错乱与滑到相关推荐后无法滚动**：强制横屏旋转态（`.fs-landscape`）下，选集无法右滑回详情、详情下滑会误切选集，且详情上滑至「相关推荐」后整页卡死无法回滑 -> 为 `PanelSwipeArea` 补齐 90° 旋转坐标换算、主轴锁定、横向 `preventDefault` 与 click 抑制，并在旋转态对调 `.scroll-x` 的 `overscroll-behavior` 轴向以恢复纵向滚动链。\n4. **图文帖子仍显示未来时间**：部分帖子排期/置顶或异常时间戳穿透显示为未来日期 -> 将有效时间上限收紧至当前时间 + 5 分钟并对全部日期时间格式执行严格校验，自动跳过未来值回退有效字段或隐藏。\n5. **各页面弹出菜单返回键穿透与滑切后误吞点击**：频道排序、标签状态、作品状态、收藏筛选与桌面倍速菜单展开时按 `Escape` 或安卓返回键可能直接退页/退全屏，排行榜/频道/帖子滑切后 360ms 内立即点「返回」或卡片会被吞掉，帖子页横滑易误点进详情 -> 统一为全部弹出菜单补齐 `registerOverlayBack` 与捕获阶段 `Escape` 拦截（含 `inert` 与内嵌全屏让步），并在每次新触摸/指针按下时清除上一次滑切遗留的 click 抑制窗口，统一 `PostsPage` 至 `useTabSwipe` 并修复「我的」页下拉刷新 `touchcancel` 误触发。\n\n## 安装与兼容提示\n- Windows 提供 NSIS 安装包与便携压缩包；macOS 提供 Universal DMG；Linux 提供 amd64 `.deb` 与 `.rpm`；Android 提供按 ABI 分包签名 APK（`versionCode=3001002`）；iOS 提供已 ad-hoc 签名的 `.ipa`（需自行重签侧载安装）；HarmonyOS 提供未签名的 `HGhubX_3.1.2_ohos_arm64_unsigned.hap`（需自行签名后安装）。\n- 支持从 `v3.0.0` / `v3.1.1` 直接覆盖安装，所有已导入的视频源、收藏、观看记录与偏好设置均予保留。\n\n## 致谢\n- 感谢 @zxsos 与所有参与安卓闪退排查、鸿蒙自签实测与加载提速验证的社区成员。\n\n## 验证\n- 本地完成 `pnpm build`、`VITE_APP_EDITION=tv pnpm build`、`pnpm test:smoke`（22/22）、`node scripts/test-tv-remote.mjs`（14/14）、`check-i18n`（947 条）、`check-doc-links`、`check-size-budgets`、`check-shell-purity`、`check-version-sync`（`3.1.2` / `versionCode=3001002`）、`patch-ohos-cargo.mjs` 幂等校验，以及安卓退后台/后台停流、统一错误代号层、旋转抽屉滑动/相关推荐回滑与未来时间拦截先红后绿回归验证；GitHub Actions `CI`、`TV CI` 与 `Release` 工作流执行全量测试与全平台构建发布。",
+          "downloadURL": "https://github.com/zxsos/HGhubX/releases/download/v3.1.2/HGhubX_3.1.2_ios.ipa",
+          "size": 5216729,
+          "sha256": "ff9058ee3a20e532be82f20b133add80a18999d660ddb53ccf1c2c6aeb7c89a1",
+          "minOSVersion": "15.0"
+        },
+        {
+          "version": "3.1.1",
+          "buildVersion": "3.1.1",
+          "date": "2026-11-27T14:18:54Z",
+          "localizedDescription": "正式版 · GitHub v3.1.1\nhttps://github.com/zxsos/HGhubX/releases/tag/v3.1.1\n\n# HGhubX v3.1.1\n\nHGhubX 3.1.1 正式版：全量流畅度与视频加载性能优化、片尾下一集预热、AI 画质增强、桌面深链与底栏跟随手势切换，并进一步修复评论显示/计数异常与切页闪烁问题；覆盖 Windows、macOS、Linux、Android 与 iOS。\n\n## 新增与优化\n1. **全量流畅度与视频加载优化（#303）**：底层网络启用 HTTP/2 连接复用、延长客户端连接池生命周期并缓存系统代理探测，合并并发 HLS 清单请求且将封面解密移至后台线程池；前端收紧移动端播放缓冲策略、启用首片预取与按尺寸自适应码率，离页 20 秒自动挂起闲置解码器，并降低毛玻璃重绘与微光采样开销。\n2. **片尾预热下一集与推荐流预加载（#299）**：播放临近片尾时自动并发预热下一集 HLS 清单与首片，首页推荐流在当前视频稳定播放 3 秒后同步预热下一条推荐视频，切集与切流接近秒开。\n3. **AI 画质增强与 WebGL 渲染优化（#279、#281）**：新增「画质增强」播放设置，支持细节增强与自然胶片颗粒；通过 FBO 缓存、`texSubImage2D` 逐帧上传与 `ResizeObserver` 尺寸监听消除逐帧同步 GPU 检查带来的卡顿。\n4. **移动端底栏跟随手势滑动（#292）**：在底部导航胶囊上左右滑动时实时带动主页面跟随切换；滑动期间自动暂停后台视频并合并逐帧位移写入以保持跟手顺滑。\n5. **桌面端 `hghubx://` 深链与单实例转发（#282）**：Windows、macOS 与 Linux 注册 `hghubx://` 协议并在单实例间转发深链导入请求。\n6. **首页跨页随机推荐与去重（#290）**：记录各视频源已知总页数并按未观看优先跨页随机采样，减少刷首页重复条目；再次点击底部「首页」按钮可直接刷新推荐流。\n7. **图文帖子页直达首个分类（#294）**：移除冗余的「全部」标签，进入后默认展示首个源分类并支持左右滑动切类。\n8. **「我的」页面下拉刷新收束（#289）**：移除重复的「刷新收藏」按钮并将下拉刷新手势收束至列表有效区。\n\n## 修复\n1. **评论面板与评论计数显示异常**：修复无评论空态偏上与误用心形图标、评论输入栏贴边挤压弹层圆角及浅色分割线/按钮对比度不足；兼容 `counts.comment` / `comment_count` 与数字字符串并避免分页返回 `total: 0` 时覆盖实际已加载评论数；补齐特殊昵称兜底与弹层挂载容器可见性校验。\n2. **切换页面与底栏滑动闪烁**：修复底栏滑动落定前提前清理位移导致的离场页回闪、滑块拖拽抢写、重点击或二级页返回重播入场动画，以及切页起始透明度过低引发的露底闪烁。\n3. **「我的」页面资料卡在多收藏时显示异常（#289）**：收藏超出首屏时顶部资料卡与分段栏被挤压变形 -> 增加独立弹性内容容器并锁定资料卡与头部控件高度不收缩。\n4. **横屏全屏选集与详情弹层位置错误（#305）**：横屏或强制旋转全屏播放时，选集、详情、评论与更多弹层仍从竖屏底部弹出 -> 统一挂载至当前可见横屏播放舞台内，并以右侧抽屉形态展开。\n5. **多选项胶囊切换特效冲出边界（#300）**：含多个选项的分段胶囊与移动底栏跨多格切换时滑块冲出外缘再弹回 -> 改用无过冲平滑曲线并约束胶囊容器裁剪边界。\n6. **图文帖子与评论时间显示异常（#304）**：秒级/毫秒级时间戳或零值占位导致日期错乱 -> 统一按本地时区格式化并过滤无效零值，同时在切换内联视频片段时重置播放进度。\n7. **移动端触觉反馈滚动误触（#298）**：列表滚动时触发多余震动 -> 仅在完成有效点击及胶囊滑动切换时震动。\n8. **Linux WebKitGTK 播放首帧卡死（#291、#297）**：Linux WebKitGTK 硬件解码下开启微光采样导致黑屏无响应 -> 自动在 Linux WebKitGTK 禁用微光采样并隐藏对应设置开关。\n9. **「全部标签」页 0 作品标签回退（#271、#293）**：恢复渲染前非空探测与本地缓存，手动刷新时强制重探。\n10. **分类页频道标题行与搜索页热门作者误触（#295、#301）**：分类页频道标题行仅保留「全部」按钮可点击；搜索页热门作者移除长按关注，仅在作者页保留长按关注/取消关注。\n11. **收藏筛选菜单 `Escape` 键偶发无法关闭（#288）**：改为文档捕获阶段监听 `Escape` 并归还焦点至触发按钮。\n\n## 安装与兼容提示\n- Windows 提供 NSIS 安装包与便携压缩包；macOS 提供 Universal DMG；Linux 提供 amd64 `.deb` 与 `.rpm`；Android 提供按 ABI 分包签名 APK（`versionCode=3001001`）；iOS 提供已 ad-hoc 签名的 `.ipa`（需自行重签侧载安装）。\n- 支持从 `v3.0.0` 直接覆盖安装，所有已导入的视频源、收藏、观看记录与偏好设置均予保留。\n\n## 致谢\n- 感谢 @makisekurisu-jp、@zxsos 与所有参与测试和反馈的社区成员。\n\n## 验证\n- 本地完成 `pnpm build`、`VITE_APP_EDITION=tv pnpm build`、`pnpm test:smoke`（22/22）、`check-i18n`（935 条）、`check-doc-links`、`check-size-budgets`、`check-shell-purity`、`check-version-sync`（`3.1.1` / `versionCode=3001001`），以及评论面板、切页防闪、资料卡布局、多选胶囊防越界与横屏选集抽屉专项回归；GitHub Actions `CI` 与 `Release` 工作流执行全量检查与全平台构建发布。",
+          "downloadURL": "https://github.com/zxsos/HGhubX/releases/download/v3.1.1/HGhubX_3.1.1_ios.ipa",
+          "size": 5196736,
+          "sha256": "0501008ed5491f3282796140b1ffffe8b113bb70a01fb30d7ec979f9b92633da",
+          "minOSVersion": "15.0"
+        },
+        {
           "version": "3.0.0",
           "buildVersion": "3.0.0",
           "date": "2026-11-26T15:05:45Z",
-          "localizedDescription": "预发布 · GitHub test-pre\nhttps://github.com/zxsos/HGhubX/releases/tag/test-pre\n\n# HGhubX Test Preview\n\n基于 `main`（`57ad208`）自动合成的全平台预览构建（更新时间：`2026-11-27T01:18:20Z`，测试提交：`2407895`）。\n> 此预发布仅供功能尝鲜与真机回归验证，不抢占正式版 Latest，也不会触发正式版客户端自动更新提示。\n\n## 本次已合入的测试 PR（4）\n1. #281 feat(playback,settings): add AI picture enhancement with stabilized detail grain (#279)（@zxsos，`fbf3cc5`）\n2. #282 feat(desktop,source): register hghubx deep-link scheme and single-instance forwarding（@zxsos，`d7c9042`）\n3. #289 feat(account,ui): remove duplicate favorite refresh button and scope pull-to-refresh（@zxsos，`40e5d01`）\n4. #290 feat(feed,storage): expand home random paging and unseen-first shuffling（@zxsos，`83d75b8`）\n\n## 自动跳过的 PR（1）\n- #284 ci: post release assets to Telegram group on publish（@zxsos）：仅涉及文档或工作流变更，不影响客户端构建，已跳过",
+          "localizedDescription": "预发布 · GitHub test-pre\nhttps://github.com/zxsos/HGhubX/releases/tag/test-pre\n\n# HGhubX Test Preview\n\n基于 `main`（`d5ed1a2`）自动合成的全平台预览构建（更新时间：`2026-11-27T12:37:05Z`，测试提交：`3ab254c`）。\n> 此预发布仅供功能尝鲜与真机回归验证，不抢占正式版 Latest，也不会触发正式版客户端自动更新提示。\n\n## 本次已合入的测试 PR（1）\n1. #300 fix(ui): prevent segmented capsule and nav indicators from overshooting bounds（@zxsos，`dc1c0d1`）\n\n## 自动跳过的 PR（2）\n- #295 分类页频道标题行只保留「全部」可点击，避免整行误触（@makisekurisu-jp）：与当前测试基线存在代码冲突，已跳过\n- #298 修复移动端触觉误触：仅在完成点击时震动（搜索奖杯、我的收藏/历史等）（@makisekurisu-jp）：与当前测试基线存在代码冲突，已跳过",
           "downloadURL": "https://github.com/zxsos/HGhubX/releases/download/test-pre/HGhubX_3.0.0_ios.ipa",
-          "size": 5166480,
-          "sha256": "7e897e192e3942988cedfb293bb467268d7498c377d89fcadc915c3237d93a4d",
+          "size": 5399982,
+          "sha256": "db9007b3b41d0d57d8654bd605dc3b0ecb35da4344ac4e33476fd803fbf2f8f6",
           "minOSVersion": "15.0"
         }
       ],
@@ -497,6 +517,26 @@
       "iconURL": "https://raw.githubusercontent.com/liuliuya2333/LiLite/v1.0.18/Resources/Brand/icon.png",
       "tintColor": "3F8DF5",
       "versions": [
+        {
+          "version": "1.0.42",
+          "buildVersion": "67",
+          "date": "2026-11-27T18:31:56Z",
+          "localizedDescription": "正式版 · GitHub v1.0.42\nhttps://github.com/liuliuya2333/LiLite/releases/tag/v1.0.42\n\n**播放器和返回动画**\n\n- 应用内小窗缩小、还原时接续同一播放画面。点还原后仍可按住画面反拖，松手后也能重新接手。\n- 调整首页视频卡片返回和详情页分页加载，减少转场期间的布局工作。\n- 调整玻璃进度条，已缓存区间单独显示。普通视频和剧集的「听视频」移至播放器右上角的更多菜单。\n\n**弹幕**\n\n- 直播画面支持整条表情和文字内的多个表情。表情加载沿用当前弹道，竖屏首行避开顶部控件。\n- 切集时清理旧集的弹幕图层与解码任务。密集弹幕优先保留已在画面中的条目，减少途中消失、重新出现的问题。\n\n**视频线路**\n\n- 在「设置 → 网络连接 → 视频线路」输入 HTTPS CDN 域名即可使用自定义线路。支持测速、音频独立选线和原地址回退。\n\n**验证**\n\niPhone 15 Pro Max 使用同一视频，逐轮记录 Instruments 的整段显示延迟。普通小窗缩小和双击还原的累计延迟中位数从 442 ms 降至 358 ms，首页卡片返回从 542 ms 降至 331 ms，还原途中按住反拖从 375 ms 降至 313 ms。真机仍可测到长帧。\n\nGitHub 侧载版，构建 67，本地源码提交 `a987af0`。下载未签名 IPA 后需自行签名安装。",
+          "downloadURL": "https://github.com/liuliuya2333/LiLite/releases/download/v1.0.42/LiLite-1.0.42-unsigned.ipa",
+          "size": 29095363,
+          "sha256": "2817378fb6f35c6ba6c3966421f12d70fdf13767d212d77d9f032f9436bc667d",
+          "minOSVersion": "17.0"
+        },
+        {
+          "version": "1.0.41",
+          "buildVersion": "66",
+          "date": "2026-11-27T10:11:57Z",
+          "localizedDescription": "正式版 · GitHub v1.0.41\nhttps://github.com/liuliuya2333/LiLite/releases/tag/v1.0.41\n\n**布局与搜索**\n\n- 恢复设置卡片和消息列表的左右留白，修复部分页面紧贴屏幕边缘的问题。\n- iPad 横屏启用侧边栏后，首页、动态和我的入口移到左下角的紧凑图标栏。修复宽屏列表点进视频时缩放过大或转场卡住的问题。\n- Duo 外屏横屏打开搜索时预留状态栏和输入框周围的空间，修复弹出键盘时页面可能卡住的问题。\n- 调整搜索转场中标签栏的收起时机，避免打开搜索、弹出键盘时反复布局。\n\n**播放**\n\n- 从详情页进入竖屏播放，再返回详情时，接续当前进度。保留切换时的播放或暂停状态，并按视频和分 P 交接进度。\n- iPad 横屏播放竖屏流时，首帧和正式画面按原比例完整显示，避免为了填满横屏裁掉画面。宽屏设备旋转进入竖屏流时也显示完整画面。\n- 修复 AVPlayer 播放部分视频时持续转圈或反复缓冲的问题。持续缓冲时可为当前视频切到较低清晰度，保留播放进度和默认清晰度设置。修复 AVPlayer 播放中切到后台或关闭视频时，未完成的加载请求可能导致闪退的问题。\n- 调整视频前台播放时的系统媒体控制，避免普通视频以音频的形式显示在灵动岛；后台播放和「听视频」继续使用各自的播放控制。\n- 「设置 → 详情与播放控制 → 详情页播放器按钮」可以选择显示截图按钮和「听视频」按钮。\n\n**推荐、消息与下载**\n\n- 推荐请求遇到 412 时显示明确提示，可重试或手动切换网页推荐。\n- 修复消息列表刷新时的闪动，以及删除或隐藏行后回到列表顶部失效的问题。\n- 恢复旧版本后台下载会话的兼容性。\n- 发布页附有 `LiLite-source.json`，可在 AltStore Classic 和 SideStore 中订阅轻哩更新。\n\n附件为未签名 IPA，需要自行签名安装。",
+          "downloadURL": "https://github.com/liuliuya2333/LiLite/releases/download/v1.0.41/LiLite-1.0.41-unsigned.ipa",
+          "size": 28856852,
+          "sha256": "21160acdc7848bf8391215284d3b44aeb83d52a0343605f606095618674108d9",
+          "minOSVersion": "17.0"
+        },
         {
           "version": "1.0.40",
           "buildVersion": "65",
@@ -575,26 +615,6 @@
           "downloadURL": "https://github.com/liuliuya2333/LiLite/releases/download/v1.0.33/LiLite-1.0.33-unsigned.ipa",
           "size": 25320081,
           "sha256": "88f939f9c96c550917459c940f5f8881914b66c291e8dce581472dd03db8e2c9",
-          "minOSVersion": "17.0"
-        },
-        {
-          "version": "1.0.32",
-          "buildVersion": "49",
-          "date": "2026-11-23T07:27:43Z",
-          "localizedDescription": "正式版 · GitHub v1.0.32\nhttps://github.com/liuliuya2333/LiLite/releases/tag/v1.0.32\n\n**后台播放与锁屏**\n- 默认播放内核（MPV）播放时，锁屏和控制中心会显示播放卡片，播放、暂停、拖动进度可以控制当前视频：播放时不再与其他 App 混音，系统因此能把 LiLite 识别为正在播放的 App\n- 开启「进入后台时继续播放」后，iOS 27 上切到后台或锁屏不再被误当作中断而暂停\n- 进入视频页时视频已经在播放（例如从小窗或连播回来），也会接管锁屏和控制中心的控件\n\n**首页**\n- 从视频页返回首页时，推荐列表保持原来的内容和位置，不再先变成空白再换一批\n- 推荐页首次加载时会显示加载提示，不再只剩头像、搜索框和频道栏\n\n**网页**\n- 修正内置网页关闭后可能仍被保留在内存中的问题\n- 网页反复跳转到 App 内页面时只打开一次，不再一层层叠加弹窗\n- 界面缩放不是 100% 时，弹窗内的安全区测量更稳定，减少多余的重新排版\n\n附件为未签名 IPA，需要自行签名安装",
-          "downloadURL": "https://github.com/liuliuya2333/LiLite/releases/download/v1.0.32/LiLite-1.0.32-unsigned.ipa",
-          "size": 25285931,
-          "sha256": "814172b99f04c9c14dff9ab43242518f077b77179d9e4ad4ef49aa6f1b3b465d",
-          "minOSVersion": "17.0"
-        },
-        {
-          "version": "1.0.31",
-          "buildVersion": "48",
-          "date": "2026-11-23T05:46:56Z",
-          "localizedDescription": "正式版 · GitHub v1.0.31\nhttps://github.com/liuliuya2333/LiLite/releases/tag/v1.0.31\n\n**首页**\n- 旋转屏幕后，首页边缘不再露出旁边频道的一窄条：不在屏幕上的频道（如直播）会按新的宽度重新排列，不再沿用旋转前的列宽溢出到当前频道下面\n\n附件为未签名 IPA，需要自行签名安装",
-          "downloadURL": "https://github.com/liuliuya2333/LiLite/releases/download/v1.0.31/LiLite-1.0.31-unsigned.ipa",
-          "size": 25282176,
-          "sha256": "951d98bbe9fee031dcac81b9b5c41796e8e284ce264a86116dd13831ab0756f8",
           "minOSVersion": "17.0"
         }
       ],
