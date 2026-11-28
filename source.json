@@ -492,11 +492,11 @@
         {
           "version": "3.0.0",
           "buildVersion": "3.0.0",
-          "date": "2026-11-26T15:05:45Z",
-          "localizedDescription": "预发布 · GitHub test-pre\nhttps://github.com/zxsos/HGhubX/releases/tag/test-pre\n\n# HGhubX Test Preview\n\n基于 `main`（`d5ed1a2`）自动合成的全平台预览构建（更新时间：`2026-11-27T12:37:05Z`，测试提交：`3ab254c`）。\n> 此预发布仅供功能尝鲜与真机回归验证，不抢占正式版 Latest，也不会触发正式版客户端自动更新提示。\n\n## 本次已合入的测试 PR（1）\n1. #300 fix(ui): prevent segmented capsule and nav indicators from overshooting bounds（@zxsos，`dc1c0d1`）\n\n## 自动跳过的 PR（2）\n- #295 分类页频道标题行只保留「全部」可点击，避免整行误触（@makisekurisu-jp）：与当前测试基线存在代码冲突，已跳过\n- #298 修复移动端触觉误触：仅在完成点击时震动（搜索奖杯、我的收藏/历史等）（@makisekurisu-jp）：与当前测试基线存在代码冲突，已跳过",
-          "downloadURL": "https://github.com/zxsos/HGhubX/releases/download/test-pre/HGhubX_3.0.0_ios.ipa",
-          "size": 5399982,
-          "sha256": "db9007b3b41d0d57d8654bd605dc3b0ecb35da4344ac4e33476fd803fbf2f8f6",
+          "date": "2026-11-26T14:16:54Z",
+          "localizedDescription": "正式版 · GitHub v3.0.0\nhttps://github.com/zxsos/HGhubX/releases/tag/v3.0.0\n\n# HGhubX v3.0.0\n\nHGhubX 3.0 正式版：视频内容改由可导入的视频源提供，支持多来源切换与手机、TV 局域网同步，并完成收藏筛选、缓存清理、扫码等多项体验升级；覆盖 Windows、macOS、Linux、Android 与 iOS。\n\n## 新增与优化\n1. **视频源插件系统与离线示例试用**：支持扫码、`hghubx://` 深链、剪贴板口令、HTTPS 链接及本地文件导入，提供切换、回滚、连通性测试及每次进入静默检查更新（60 秒冷却）；无源引导页提供「试用离线示例源」与顶部一键「移除示例源」，可零网络预览界面，随时一键移除。\n2. **「我的收藏」组合筛选与下拉刷新（#278）**：将收藏筛选拆分为「观看状态（不限 / 未看完 / 已看完）」与「连载状态（不限 / 连载中 / 已完结）」两轴正交交集，实时联动计数并统一三道杠筛选图标；新增顶部下拉刷新手势与「刷新收藏」按钮，同步检查更新部数与新增集数。\n3. **手机与 TV 局域网双向同步配对**：支持手机「扫一扫」识别 TV 二维码或 4 位配对码直连电视端，同步视频源配置、本机收藏/观看记录、内容偏好与常用播放设置；桌面端不再显示 TV 连接与扫码同步入口。\n4. **作者目录、标签页与列表加载提速**：作者目录首屏第 1 页即刻渲染并在后台 4 并发补齐分页；「标签」「专题」与搜索页「热门题材」接入按源与线路隔离的本地缓存，二次进入秒开并后台静默刷新；优化源存储并发读写性能。\n5. **真实跨平台缓存清理与最高无上限档位**：支持 `128 MB`、`256 MB`、`512 MB`、`1 GB` 与「无上限」5 档调节，真实统计并清理跨端缓存文件（Windows / macOS / Linux / Android / iOS），完整保留登录态、收藏、观看记录与偏好设置。\n6. **扫码画质与对焦升级**：「扫一扫」升级 1080p/720p 高清优先流与主后置镜头识别，支持连续自动对焦、点击画面对焦、多镜头「切镜头」切换以及硬件 `BarcodeDetector` 直连解码。\n7. **界面细节与包体积优化**：「关于 HGhubX」弹窗换回正式应用 Logo；去掉视频源导入框冗长提示；开启 Android `.so` 与资源压缩及播放器按需拆包，安装包体积大幅减小（Android `arm64` 约 `5.3 MB`）。\n\n## 修复\n1. **切换视频源后封面正常但播放失败**：从离线示例源导入或切换视频源后，推荐流可能停留在旧源条目、播放能力未及时刷新，需要再导入一次才能播放；现在切源后首页、搜索、分类按新源重新加载，播放地址在能力就绪后自动获取。\n2. **剪贴板「粘贴」权限不足**：开放原生剪贴板读取能力并统一走原生插件读取，解决部分端拦截网页粘贴的问题。\n3. **分类页功能布局与排行榜/标签排版**：恢复完整能力门控入口并修正紧凑双格按钮对齐与文字错位。\n4. **iOS 侧载「文件损坏」与插件连接池（#261、#266）**：补齐 iOS 未签包 ad-hoc 签名与权限/深链配置；为源请求接入复用连接池与受控 DoH 回退，改善部分网络下的误报失败。\n\n## 安装与兼容提示\n- Windows 提供 NSIS 安装包与便携压缩包；macOS 提供 Universal DMG；Linux 提供 amd64 `.deb` 与 `.rpm`；Android 提供按 ABI 分包签名 APK（`versionCode=3000000`）；iOS 提供已 ad-hoc 签名的 `.ipa`（需自行重签侧载安装）。\n- 从 2.x 升级后首次启动需导入视频源（也可先试用离线示例源）；既有本地收藏、观看记录与偏好设置均予保留。\n- 从 3.0 预发布版可直接覆盖安装。\n\n## 致谢\n- 感谢 @makisekurisu-jp、@zxsos 与所有社区反馈者对本版本的贡献。\n\n## 验证\n- 发版前本地完成 `pnpm build`（三套 TypeScript + Vite 构建）、`check-i18n`、`check-doc-links`、`check-size-budgets`、`check-version-sync`、`check-shell-purity`、`make test-tv`、`pnpm test:smoke`（18/18）与 `test-tv-remote`（14/14 场景）；Rust 源码自 3.0.0-pre.2 起无改动，Rust 检查与单元测试由 GitHub Actions `CI` 工作流执行，全平台产物由 GitHub Actions `Release` 工作流构建。",
+          "downloadURL": "https://github.com/zxsos/HGhubX/releases/download/v3.0.0/HGhubX_3.0.0_ios.ipa",
+          "size": 4865415,
+          "sha256": "e3267be43faf0be5b354395a560c198e10207d762752d4dd95906a109076324d",
           "minOSVersion": "15.0"
         }
       ],
@@ -517,6 +517,36 @@
       "iconURL": "https://raw.githubusercontent.com/liuliuya2333/LiLite/v1.0.18/Resources/Brand/icon.png",
       "tintColor": "3F8DF5",
       "versions": [
+        {
+          "version": "1.0.45",
+          "buildVersion": "70",
+          "date": "2026-11-28T02:50:14Z",
+          "localizedDescription": "正式版 · GitHub v1.0.45\nhttps://github.com/liuliuya2333/LiLite/releases/tag/v1.0.45\n\n- 修复 iPhone 在 100% 界面缩放下，「我的」「导航布局」「页面动画与回弹」等分组列表左右贴边的问题，恢复系统列表留白。\n- 首页视频卡片的「一镜到底」实验选项延续上一版设置，默认关闭。\n\nGitHub 侧载版，构建 70，本地源码提交 `1419243`。未签名 IPA 需自行签名安装。",
+          "downloadURL": "https://github.com/liuliuya2333/LiLite/releases/download/v1.0.45/LiLite-1.0.45-unsigned.ipa",
+          "size": 29104183,
+          "sha256": "cb56726266555f942cce6f259140fe5510bdd981b3d2b1de45c1cb38947fd239",
+          "minOSVersion": "17.0"
+        },
+        {
+          "version": "1.0.44",
+          "buildVersion": "69",
+          "date": "2026-11-28T02:34:03Z",
+          "localizedDescription": "正式版 · GitHub v1.0.44\nhttps://github.com/liuliuya2333/LiLite/releases/tag/v1.0.44\n\n- 首页视频卡片默认使用普通页面转场。新安装或从旧版升级后，「卡片一镜到底」默认关闭，包括之前选过「自定义」的用户。\n- 如需启用，到「设置 → 导航布局 → 页面动画与回弹 → 实验性功能」打开「卡片一镜到底」。可在设置中搜索「一镜到底」直接找到开关。\n\nGitHub 侧载版，构建 69，本地源码提交 `f16ee5c`。未签名 IPA 需自行签名安装。",
+          "downloadURL": "https://github.com/liuliuya2333/LiLite/releases/download/v1.0.44/LiLite-1.0.44-unsigned.ipa",
+          "size": 29105791,
+          "sha256": "7a82a86ed65e92e32a278e8a90d2cf69c00a65ad2c963e49438596ed927b7815",
+          "minOSVersion": "17.0"
+        },
+        {
+          "version": "1.0.43",
+          "buildVersion": "68",
+          "date": "2026-11-28T02:13:14Z",
+          "localizedDescription": "正式版 · GitHub v1.0.43\nhttps://github.com/liuliuya2333/LiLite/releases/tag/v1.0.43\n\n- 修复从视频页点返回时，首页底栏先亮一下、消失、随后又出现的问题。手拖取消时底栏保持隐藏，确定回到首页后只淡入一次。\n- 优化首页视频卡片的一镜到底返回。手拖过程中，视频页和首页一起缩放时减少了重复布局，半途反向和松手后立即再拖都能接续当前画面。\n\nGitHub 侧载版，构建 68，本地源码提交 `be777e8`。未签名 IPA 需自行签名安装。",
+          "downloadURL": "https://github.com/liuliuya2333/LiLite/releases/download/v1.0.43/LiLite-1.0.43-unsigned.ipa",
+          "size": 29102833,
+          "sha256": "e60a02dc5bfa399eca7f70c128b0a9962997cf7af15f1fe00b3c44e0234c6d64",
+          "minOSVersion": "17.0"
+        },
         {
           "version": "1.0.42",
           "buildVersion": "67",
@@ -585,36 +615,6 @@
           "downloadURL": "https://github.com/liuliuya2333/LiLite/releases/download/v1.0.36/LiLite-1.0.36-unsigned.ipa",
           "size": 25337586,
           "sha256": "fc11f656a9624e90df2109877781d9afd525a6c35938a1e38cdf29e19abf0157",
-          "minOSVersion": "17.0"
-        },
-        {
-          "version": "1.0.35",
-          "buildVersion": "52",
-          "date": "2026-11-23T13:29:04Z",
-          "localizedDescription": "正式版 · GitHub v1.0.35\nhttps://github.com/liuliuya2333/LiLite/releases/tag/v1.0.35\n\n**首页**\n- 在首页再点一次底部（或顶部）的「首页」：在顶部时直接刷新推荐，不在顶部时先回到顶部，再点一次刷新；动态同样适用\n\n**图片**\n- 动态等处打开图片后左右滑动切换，不再在松手时整屏闪黑，图片会连续滑过去\n- 还没加载完的下一张会先显示缩略图，不再是空白\n\n**iPad**\n- 顶部标签栏的布局下，进入和返回二级页面时页面不再「跳一下」：内容从一开始就在最终位置，只有标题栏平滑移动\n- 可调窗口变窄时，从设置打开的二级页不再被挤压或切掉，窄窗口下单独显示\n\n附件为未签名 IPA，需要自行签名安装",
-          "downloadURL": "https://github.com/liuliuya2333/LiLite/releases/download/v1.0.35/LiLite-1.0.35-unsigned.ipa",
-          "size": 25327152,
-          "sha256": "c6f52e3dc6a94a89e29323351e49ae5fdedd7a3647a671bb01cfcfa565c9db4b",
-          "minOSVersion": "17.0"
-        },
-        {
-          "version": "1.0.34",
-          "buildVersion": "51",
-          "date": "2026-11-23T11:43:13Z",
-          "localizedDescription": "正式版 · GitHub v1.0.34\nhttps://github.com/liuliuya2333/LiLite/releases/tag/v1.0.34\n\n**灵动岛**\n- 在视频页正常播放时不再出现在灵动岛上\n- 开启「进入后台时继续播放」后，回到桌面或锁屏时视频会出现在灵动岛，回到 App 后自动收起\n- 关闭后台播放时，进入后台视频暂停，不会出现在灵动岛\n- 听视频始终显示在灵动岛，和音乐 App 一样\n- 锁屏和控制中心的播放控件不受影响\n\n**离线缓存**\n- 播放离线视频时，锁屏和控制中心的播放卡片会显示视频封面\n\n附件为未签名 IPA，需要自行签名安装",
-          "downloadURL": "https://github.com/liuliuya2333/LiLite/releases/download/v1.0.34/LiLite-1.0.34-unsigned.ipa",
-          "size": 25319955,
-          "sha256": "5508ae366147e1101c2af5b84b4424f547ff3de8c2374bab81cc8c754dd0b5e7",
-          "minOSVersion": "17.0"
-        },
-        {
-          "version": "1.0.33",
-          "buildVersion": "50",
-          "date": "2026-11-23T09:49:53Z",
-          "localizedDescription": "正式版 · GitHub v1.0.33\nhttps://github.com/liuliuya2333/LiLite/releases/tag/v1.0.33\n\n**弱网加载**\n- 网络差时首页、视频详情不再一直转圈：最多等约 25 秒，超时会显示“网络连接超时”和重试按钮，网络恢复后点重试即可加载\n- 请求遇到临时网络故障或服务器临时错误时自动重试（逐次加长、随机错开间隔），点赞、评论等写操作不会被重复发送\n- 推荐接口失败时会改用官方客户端同款的备用域名；系统 DNS 解析失败时改用加密 DNS 再试一次（证书校验不变）\n- 默认改用系统网络连接（支持 HTTP/2、复用连接），延迟高的网络下加载更快；如需旧方式，可在「设置 → 网络连接 → HTTP 协议」选 HTTP/1.1\n- 打开视频时不再被云端播放进度的查询拖住起播；视频首个地址失败会换备用地址；播放器长时间准备不好会提示重试\n\n**内存**\n- 开着聊天、高能、醒目留言等面板直接退出直播间，聊天和直播也会正常停止，不再在后台继续占用\n- 番剧、多 P 视频在全屏或弹窗状态下离开页面，也会释放播放器\n- UP 主空间、首页等页面关闭后不再残留已加载的数据；醒目留言最多保留最新 500 条\n\n附件为未签名 IPA，需要自行签名安装",
-          "downloadURL": "https://github.com/liuliuya2333/LiLite/releases/download/v1.0.33/LiLite-1.0.33-unsigned.ipa",
-          "size": 25320081,
-          "sha256": "88f939f9c96c550917459c940f5f8881914b66c291e8dce581472dd03db8e2c9",
           "minOSVersion": "17.0"
         }
       ],
